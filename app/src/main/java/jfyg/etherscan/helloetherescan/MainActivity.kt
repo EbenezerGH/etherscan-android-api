@@ -5,6 +5,10 @@ import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
+import jfyg.etherscan.helloetherescan.model.EtherPrice
+import jfyg.etherscan.helloetherescan.network.RestClient
 
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -19,6 +23,22 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
         }
+    }
+
+    private fun queryPrice(apiKey: String) {
+        RestClient().getThesaurusQuery()
+                .getLastPrice(apiKey)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(this::handleResponse, this::handleError)
+    }
+
+    private fun handleResponse(retrieveQuery: EtherPrice) {
+
+    }
+
+    private fun handleError(error: Throwable) {
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
