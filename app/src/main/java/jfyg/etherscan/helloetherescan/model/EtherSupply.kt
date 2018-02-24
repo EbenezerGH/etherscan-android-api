@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
  * Model for the total supply of Ether
  */
 class EtherSupply : BaseResponse() {
-    @SerializedName("ethbtc")
+    @SerializedName("result")
     var result: Int = 0
 
 }

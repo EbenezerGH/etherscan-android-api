@@ -11,7 +11,7 @@ import com.google.gson.GsonBuilder
 class RestClient {
 
     //TODO: Retrieve baseUrl from string resources
-    private var baseUrl: String = "https://api.etherscan.io/api?module="
+    private var baseUrl: String = "https://api.etherscan.io/"
     private var networkService: NetworkService
 
     init {
@@ -28,7 +28,7 @@ class RestClient {
         networkService = retrofit.create(NetworkService::class.java)
     }
 
-    fun getThesaurusQuery(): NetworkService {
+    fun getEthereumQuery(): NetworkService {
         return networkService
     }
 

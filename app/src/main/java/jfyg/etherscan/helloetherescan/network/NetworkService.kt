@@ -9,9 +9,11 @@ import retrofit2.http.Path
  * Used to select Ethereum request endpoints
  */
 interface NetworkService {
-    @GET("stats&action=ethprice&apikey={apiToken}")
-    fun getLastPrice(@Path("result") price: Int): Observable<EtherPrice>
+    //return price
+    @GET("api?module=stats&action=ethprice&apikey={apiToken}")
+    fun getLastPrice(@Path("result") token: String): Observable<EtherPrice>
 
-    @GET("stats&action=ethsupply&apikey={apiToken}")
-    fun getTotalSupply(@Path("result") supply: Int): Observable<EtherPrice>
+    //return supply
+    @GET("api?module=stats&action=ethsupply&apikey={apiToken}")
+    fun getTotalSupply(@Path("result") token: String): Observable<EtherPrice>
 }

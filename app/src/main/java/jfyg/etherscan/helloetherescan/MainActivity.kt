@@ -1,8 +1,8 @@
 package jfyg.etherscan.helloetherescan
 
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -13,20 +13,22 @@ import jfyg.etherscan.helloetherescan.network.RestClient
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-
+    private val TAG = javaClass.name!!
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
+
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+            //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+            //        .setAction("Action", null).show()
+            queryPrice("1I7CRNU2QIU253UBPFVB5UV2C2PBDURAIY")
         }
     }
 
     private fun queryPrice(apiKey: String) {
-        RestClient().getThesaurusQuery()
+        RestClient().getEthereumQuery()
                 .getLastPrice(apiKey)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
@@ -34,11 +36,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun handleResponse(retrieveQuery: EtherPrice) {
-
+        Log.d(TAG, "Eth in Btc" + retrieveQuery.ethBtc)
+        Log.d(TAG, "Eth in Btc Timestamp" + retrieveQuery.ethBtcTimestamp)
+        Log.d(TAG, "Eth in Usd" + retrieveQuery.ethUsd)
+        Log.d(TAG, "Eth in Usd Timestamp" + retrieveQuery.ethBtc)
     }
 
     private fun handleError(error: Throwable) {
-
+        Log.d(TAG, "The error " + error.message)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
