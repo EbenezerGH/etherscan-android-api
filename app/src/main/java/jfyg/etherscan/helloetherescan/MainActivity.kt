@@ -7,7 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import jfyg.etherscan.helloetherescan.model.EtherPrice
+import jfyg.etherscan.helloetherescan.network.responses.BaseResponse
 import jfyg.etherscan.helloetherescan.network.RestClient
 
 import kotlinx.android.synthetic.main.activity_main.*
@@ -27,18 +27,20 @@ class MainActivity : AppCompatActivity() {
 
     private fun queryPrice(apiKey: String) {
         RestClient().getQuery()
-                .getLastPrice(apiKey)
+                .getEtherStats("stats", "ethprice", apiKey)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(this::handleResponse, this::handleError)
     }
 
-    private fun handleResponse(retrieveQuery: EtherPrice) {
-        Log.d(TAG, "Eth in Btc: " + retrieveQuery.ethBtc)
-        Log.d(TAG, "Eth in Btc Timestamp: " + retrieveQuery.ethBtcTimestamp)
-        Log.d(TAG, "Eth in Usd: " + retrieveQuery.ethUsd)
-        Log.d(TAG, "Eth in Usd Timestamp: " + retrieveQuery.ethUsdTimestamp)
-        //Log.d(TAG, "Total Supply of Eth " + retrieveQuery.result)
+    private fun handleResponse(retrieveQuery: BaseResponse) {
+        Log.d(TAG, "status: " + retrieveQuery.status)
+        Log.d(TAG, "message: " + retrieveQuery.message)
+        Log.d(TAG, "Eth in Btc: " + retrieveQuery.etherPriceresult?.ethBtc)
+        Log.d(TAG, "Eth in Btc Timestamp: " + retrieveQuery.etherPriceresult?.ethBtcTimestamp)
+        Log.d(TAG, "Eth in Usd: " + retrieveQuery.etherPriceresult?.ethUsd)
+        Log.d(TAG, "Eth in Usd Timestamp: " + retrieveQuery.etherPriceresult?.ethUsdTimestamp)
+        //Log.d(TAG, "Eth supply: " + retrieveQuery.etherSupplyResult)
     }
 
     private fun handleError(error: Throwable) {

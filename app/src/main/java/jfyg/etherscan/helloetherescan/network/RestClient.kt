@@ -11,7 +11,7 @@ import com.google.gson.GsonBuilder
 class RestClient {
 
     //TODO: Retrieve baseUrl from string resources
-    private var baseUrl: String = "https://api.etherscan.io/"
+    private var baseUrl: String = "http://api.etherscan.io/"
     private var networkService: NetworkService
 
     init {
