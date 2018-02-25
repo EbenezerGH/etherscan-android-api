@@ -20,15 +20,13 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
 
-        fab.setOnClickListener { view ->
-            //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-            //        .setAction("Action", null).show()
+        fab.setOnClickListener {
             queryPrice("1I7CRNU2QIU253UBPFVB5UV2C2PBDURAIY")
         }
     }
 
     private fun queryPrice(apiKey: String) {
-        RestClient().getEthereumQuery()
+        RestClient().getQuery()
                 .getLastPrice(apiKey)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
@@ -36,10 +34,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun handleResponse(retrieveQuery: EtherPrice) {
-        Log.d(TAG, "Eth in Btc" + retrieveQuery.ethBtc)
-        Log.d(TAG, "Eth in Btc Timestamp" + retrieveQuery.ethBtcTimestamp)
-        Log.d(TAG, "Eth in Usd" + retrieveQuery.ethUsd)
-        Log.d(TAG, "Eth in Usd Timestamp" + retrieveQuery.ethBtc)
+        Log.d(TAG, "Eth in Btc: " + retrieveQuery.ethBtc)
+        Log.d(TAG, "Eth in Btc Timestamp: " + retrieveQuery.ethBtcTimestamp)
+        Log.d(TAG, "Eth in Usd: " + retrieveQuery.ethUsd)
+        Log.d(TAG, "Eth in Usd Timestamp: " + retrieveQuery.ethUsdTimestamp)
+        //Log.d(TAG, "Total Supply of Eth " + retrieveQuery.result)
     }
 
     private fun handleError(error: Throwable) {

@@ -28,7 +28,7 @@ class RestClient {
         networkService = retrofit.create(NetworkService::class.java)
     }
 
-    fun getEthereumQuery(): NetworkService {
+    fun getQuery(): NetworkService {
         return networkService
     }
 

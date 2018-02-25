@@ -7,6 +7,6 @@ import com.google.gson.annotations.SerializedName
  */
 class EtherSupply : BaseResponse() {
     @SerializedName("result")
-    var result: Int = 0
+    var result: String = ""
 
 }
