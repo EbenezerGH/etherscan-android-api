@@ -1,7 +1,7 @@
 package jfyg.etherscan.helloetherescan.network
 
-import io.reactivex.Observable
-import jfyg.etherscan.helloetherescan.network.responses.BaseResponse
+import io.reactivex.Single
+import jfyg.etherscan.helloetherescan.network.responses.MainResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -13,5 +13,5 @@ interface NetworkService {
     @GET("api")
     fun getEtherStats(@Query("module") module: String,
                       @Query("action") action: String,
-                      @Query("apikey") apikey: String): Observable<BaseResponse>
+                      @Query("apikey") apikey: String): Single<MainResponse>
 }

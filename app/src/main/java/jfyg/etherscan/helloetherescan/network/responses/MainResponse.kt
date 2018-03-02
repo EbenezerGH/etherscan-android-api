@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 /**
  * Base response that all queries will utilize
  */
-open class BaseResponse {
+class MainResponse {
 
     @SerializedName("status")
     var status: String = ""
@@ -14,9 +14,6 @@ open class BaseResponse {
     var message: String = ""
 
     @SerializedName("result")
-    open var etherPriceresult: EtherPriceResponse? = null
+    var etherPriceresult: EtherPriceResponse? = null
 
-    //TODO: Figure out how to handle the same response name coming in from different queries
-    //@SerializedName("result")
-    //open var etherSupplyResult: String = ""
 }
