@@ -3,8 +3,6 @@ package jfyg.etherscan.helloetherescan
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import jfyg.etherscan.helloetherescan.ethereum.EthereumStat
@@ -13,6 +11,7 @@ import jfyg.etherscan.helloetherescan.network.responses.MainResponse
 import jfyg.etherscan.helloetherescan.network.RestClient
 
 import kotlinx.android.synthetic.main.activity_main.*
+
 //TODO: clean up and write tests
 class MainActivity : AppCompatActivity() {
     private val TAG = javaClass.name!!
@@ -24,8 +23,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
+        //~~~ For Testing
+        /*
         var testing = EthereumStat()
-
         fab.setOnClickListener {
             //testing.getTotalSupply()
             //testing.getTotalSupplyInWei()
@@ -33,12 +33,12 @@ class MainActivity : AppCompatActivity() {
             testing.getLastPriceInBtc()
             //queryStats("stats", "ethPrice")
         }
+        */
     }
 
     fun queryStats(module: String, action: String) {
-        //pass apikey that will save in preferences or singleton or something.. or application class
         RestClient().getQuery()
-                .getEtherStats(module, action, "1I7CRNU2QIU253UBPFVB5UV2C2PBDURAIYZ")
+                .getEtherStats(module, action, ApiKey.takeOff.callApiKey())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(this::handleResponse, this::handleError)
@@ -55,22 +55,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun handleError(error: Throwable) {
         Log.d(TAG, "The error " + error.message)
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
-        }
     }
 
 }
