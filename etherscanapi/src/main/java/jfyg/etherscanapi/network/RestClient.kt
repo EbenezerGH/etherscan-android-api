@@ -1,4 +1,4 @@
-package jfyg.etherscan.helloetherescan.network
+package jfyg.etherscanapi.network
 
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory

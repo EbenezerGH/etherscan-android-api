@@ -1,4 +1,4 @@
-package jfyg.etherscan.helloetherescan
+package jfyg.etherscanapi
 
 import android.util.Log
 
@@ -18,7 +18,7 @@ class ApiKey private constructor() {
             Log.w("", "No api key seems to be added.  No record of your queries will be kept in your " +
                     "https://etherscan.io/ console")
         }
-        return ApiKey.takeOff.apiKey
+        return takeOff.apiKey
     }
 
     fun setApiKey(apiKey: String) {

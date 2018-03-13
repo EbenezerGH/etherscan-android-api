@@ -1,4 +1,4 @@
-package jfyg.etherscan.helloetherescan.model
+package jfyg.etherscanapi.model
 
 class EtherPriceModel : BaseModel() {
     var ethBtc: String? = ""
