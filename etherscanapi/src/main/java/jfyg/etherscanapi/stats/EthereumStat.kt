@@ -1,18 +1,17 @@
-package jfyg.etherscan.helloetherescan.ethereum
+package jfyg.etherscanapi.stats
 
+import jfyg.etherscanapi.Queries
 
-import android.util.Log
-import jfyg.etherscan.helloetherescan.MainActivity
 
 class EthereumStat : EthereumStatFunctions {
 
-    var activity = MainActivity()
+    private var query = Queries()
 
     override fun getTotalSupply(): Long? {
         val stats = "stats"
         val ethSupply = "ethSupply"
 
-        activity.queryStats(stats, ethSupply)
+        query.stats(stats, ethSupply)
         return 0 //TODO: Figure out how to parse supply
     }
 
@@ -21,7 +20,7 @@ class EthereumStat : EthereumStatFunctions {
         val stats = "stats"
         val ethSupply = "ethSupply"
 
-        activity.queryStats(stats, ethSupply)
+        query.stats(stats, ethSupply)
         return 0 //TODO: Figure out how to parse supply
     }
 
@@ -29,18 +28,16 @@ class EthereumStat : EthereumStatFunctions {
         val stats = "stats"
         val ethPrice = "ethprice"
 
-        activity.queryStats(stats, ethPrice)
-        Log.d("Ebenezer", activity.etherPrice.ethUsd)
-        return activity.etherPrice.ethUsd //TODO: Make this return Int
+        query.stats(stats, ethPrice)
+        return query.fetchEtherStats().ethUsd //TODO: Make this return Int
     }
 
     override fun getLastPriceInBtc(): String? {
         val stats = "stats"
         val ethPrice = "ethprice"
 
-        activity.queryStats(stats, ethPrice)
-        Log.d("Ebenezer", activity.etherPrice.ethBtc)
-        return activity.etherPrice.ethBtc //TODO: Make this return Int
+        query.stats(stats, ethPrice)
+        return query.fetchEtherStats().ethBtc //TODO: Make this return Int
     }
 
 }

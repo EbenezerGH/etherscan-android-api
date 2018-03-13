@@ -1,4 +1,4 @@
-package jfyg.etherscan.helloetherescan.network.responses
+package jfyg.etherscanapi.responses
 
 import com.google.gson.annotations.SerializedName
 

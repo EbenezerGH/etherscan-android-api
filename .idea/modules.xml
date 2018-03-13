@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/HelloEthereScan.iml" filepath="$PROJECT_DIR$/HelloEthereScan.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/etherscan.iml" filepath="$PROJECT_DIR$/etherscan.iml" />
+      <module fileurl="file://$PROJECT_DIR$/etherscanapi/etherscanapi.iml" filepath="$PROJECT_DIR$/etherscanapi/etherscanapi.iml" />
     </modules>
   </component>
 </project>

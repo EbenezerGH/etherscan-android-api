@@ -1,4 +1,4 @@
-package jfyg.etherscan.helloetherescan.ethereum
+package jfyg.etherscanapi.stats
 
 
 interface EthereumStatFunctions {
