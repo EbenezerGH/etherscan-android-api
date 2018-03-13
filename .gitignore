@@ -1,9 +1,27 @@
-*.iml
-.gradle
-/local.properties
-/.idea/workspace.xml
-/.idea/libraries
+# Gradle
+build/
+.gradle/
+build.properties
+
+# Local configuration
+local.properties
+
+# OSX documents
 .DS_Store
-/build
-/captures
+
+# IntelliJ
+*.idea
+*/.idea/*
+!.idea/inspectionProfiles
+*.iws
+*.iml
+captures/
+
+# Node modules
+*node_modules
+
+# Miscellaneous
+output/
+*.bak*
 .externalNativeBuild
+
