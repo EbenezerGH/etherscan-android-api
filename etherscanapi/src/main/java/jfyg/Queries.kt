@@ -1,12 +1,12 @@
-package jfyg.etherscanapi
+package jfyg
 
 import android.content.ContentValues.TAG
 import android.util.Log
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import jfyg.etherscanapi.model.EtherPriceModel
-import jfyg.etherscanapi.network.RestClient
-import jfyg.etherscanapi.responses.MainResponse
+import jfyg.model.EtherPriceModel
+import jfyg.network.RestClient
+import jfyg.response.MainResponse
 
 /**
  * //TODO documentation

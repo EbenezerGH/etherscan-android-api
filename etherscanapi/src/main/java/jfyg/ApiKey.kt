@@ -1,4 +1,4 @@
-package jfyg.etherscanapi
+package jfyg
 
 import android.util.Log
 

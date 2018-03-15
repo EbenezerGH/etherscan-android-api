@@ -1,6 +1,6 @@
-package jfyg.etherscanapi.stats
+package jfyg.stat
 
-import jfyg.etherscanapi.Queries
+import jfyg.Queries
 
 
 class EthereumStat : EthereumStatFunctions {

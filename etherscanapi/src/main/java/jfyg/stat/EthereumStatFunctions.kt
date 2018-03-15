@@ -1,4 +1,4 @@
-package jfyg.etherscanapi.stats
+package jfyg.stat
 
 
 interface EthereumStatFunctions {

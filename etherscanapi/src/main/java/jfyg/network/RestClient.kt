@@ -1,4 +1,4 @@
-package jfyg.etherscanapi.network
+package jfyg.network
 
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory

@@ -1,7 +1,7 @@
-package jfyg.etherscanapi.network
+package jfyg.network
 
 import io.reactivex.Single
-import jfyg.etherscanapi.responses.MainResponse
+import jfyg.response.MainResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

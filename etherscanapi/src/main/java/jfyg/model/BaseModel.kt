@@ -1,4 +1,4 @@
-package jfyg.etherscanapi.model
+package jfyg.model
 
 open class BaseModel {
     var status: String? = ""

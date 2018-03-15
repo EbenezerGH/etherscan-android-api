@@ -1,4 +1,4 @@
-package jfyg.etherscanapi.responses
+package jfyg.response
 
 import com.google.gson.annotations.SerializedName
 
