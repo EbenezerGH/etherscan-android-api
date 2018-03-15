@@ -1,8 +1,8 @@
 package jfyg
 
-import android.content.ContentValues.TAG
 import android.util.Log
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import jfyg.model.StatModel
 import jfyg.network.RestClient
@@ -11,20 +11,20 @@ import jfyg.response.MainResponse
 /**
  * A mediator between the responses and errors that come from every query
  */
-class Queries {
+class Queries : StatQueries {
     private val TAG = javaClass.name
 
     private var statInfo = StatModel()
 
-    fun stats(module: String, action: String) {
-        RestClient().getQuery()
-                .getEtherStats(module, action, ApiKey.takeOff.callApiKey())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io())
-                .subscribe(this::handleResponse, this::handleError)
-    }
+    override fun stats(module: String, action: String): Disposable =
+            RestClient().getQuery()
+                    .getEtherStats(module, action, ApiKey.takeOff.callApiKey())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribeOn(Schedulers.io())
+                    .subscribe(this::handleResponse, this::handleError)
 
-    private fun handleResponse(retrieveQuery: MainResponse) { //TODO #27
+
+    override fun handleResponse(retrieveQuery: MainResponse) { //TODO #27
         statInfo.status = retrieveQuery.status
         statInfo.message = retrieveQuery.message
         statInfo.ethBtc = retrieveQuery.statResult?.ethBtc
