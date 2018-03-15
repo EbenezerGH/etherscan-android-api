@@ -1,4 +1,4 @@
-package jfyg
+package jfyg.queries
 
 import io.reactivex.disposables.Disposable
 import jfyg.response.MainResponse

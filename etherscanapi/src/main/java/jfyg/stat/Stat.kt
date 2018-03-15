@@ -1,6 +1,6 @@
 package jfyg.stat
 
-import jfyg.Queries
+import jfyg.queries.Queries
 
 class Stat : StatContract {
 

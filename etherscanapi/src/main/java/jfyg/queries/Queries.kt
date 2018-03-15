@@ -1,9 +1,10 @@
-package jfyg
+package jfyg.queries
 
 import android.util.Log
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
+import jfyg.ApiKey
 import jfyg.model.StatModel
 import jfyg.network.RestClient
 import jfyg.response.MainResponse
