@@ -1,12 +1,12 @@
 package jfyg.stat
 
 
-interface EthereumStatFunctions {
+interface StatContract {
 
     /**
      * Return Total Supply of Ether
      */
-    fun getTotalSupply(): Long?
+    fun getTotalSupply(): Int?
 
     /**
      * Return Total Supply of Ether in Wei
@@ -16,11 +16,11 @@ interface EthereumStatFunctions {
     /**
      * Return Last price of ether in Btc
      */
-    fun getLastPriceInBtc(): String?
+    fun getLastPriceInBtc(): Float?
 
     /**
      * Return Last price of ether in Usd
      */
-    fun getLastPriceInUsd(): String?
+    fun getLastPriceInUsd(): Float?
 
 }
