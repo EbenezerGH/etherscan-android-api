@@ -3,19 +3,20 @@ package jfyg.response
 import com.google.gson.annotations.SerializedName
 
 /**
- * Response for Ether prices
+ * Responses for Stat
  */
-class EtherPriceResponse {
+class StatResponse {
 
     @SerializedName("ethbtc")
-    var ethBtc: String = ""
+    var ethBtc: String? = null
 
     @SerializedName("ethbtc_timestamp")
-    var ethBtcTimestamp: String = ""
+    var ethBtcTimestamp: String? = null
 
     @SerializedName("ethusd")
-    var ethUsd: String = ""
+    var ethUsd: String? = null
 
     @SerializedName("ethusd_timestamp")
-    var ethUsdTimestamp: String = ""
+    var ethUsdTimestamp: String? = null
+    
 }

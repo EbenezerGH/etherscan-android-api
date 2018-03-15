@@ -7,13 +7,11 @@ import com.google.gson.annotations.SerializedName
  */
 class MainResponse {
 
-    @SerializedName("status")
-    var status: String = ""
+    var status: String? = null
 
-    @SerializedName("message")
-    var message: String = ""
+    var message: String? = null
 
-    @SerializedName("result")
-    var etherPriceresult: EtherPriceResponse? = null
+    @SerializedName("result") //TODO Issue #26
+    var statResult: StatResponse? = null
 
 }
