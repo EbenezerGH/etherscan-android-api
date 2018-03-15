@@ -4,15 +4,17 @@ import android.content.ContentValues.TAG
 import android.util.Log
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import jfyg.model.EtherPriceModel
+import jfyg.model.StatModel
 import jfyg.network.RestClient
 import jfyg.response.MainResponse
 
 /**
- * //TODO documentation
+ * A mediator between the responses and errors that come from every query
  */
 class Queries {
-    private var etherPrice = EtherPriceModel()
+    private val TAG = javaClass.name
+
+    private var statInfo = StatModel()
 
     fun stats(module: String, action: String) {
         RestClient().getQuery()
@@ -22,20 +24,21 @@ class Queries {
                 .subscribe(this::handleResponse, this::handleError)
     }
 
-    private fun handleResponse(retrieveQuery: MainResponse) {
-        etherPrice.status = retrieveQuery.status
-        etherPrice.message = retrieveQuery.message
-        etherPrice.ethBtc = retrieveQuery.etherPriceresult?.ethBtc
-        etherPrice.ethBtcTimestamp = retrieveQuery.etherPriceresult?.ethBtcTimestamp
-        etherPrice.ethUsd = retrieveQuery.etherPriceresult?.ethUsd
-        etherPrice.ethUsdTimestamp = retrieveQuery.etherPriceresult?.ethUsdTimestamp
+    private fun handleResponse(retrieveQuery: MainResponse) { //TODO #27
+        statInfo.status = retrieveQuery.status
+        statInfo.message = retrieveQuery.message
+        statInfo.ethBtc = retrieveQuery.statResult?.ethBtc
+        statInfo.ethBtcTimestamp = retrieveQuery.statResult?.ethBtcTimestamp
+        statInfo.ethUsd = retrieveQuery.statResult?.ethUsd
+        statInfo.ethUsdTimestamp = retrieveQuery.statResult?.ethUsdTimestamp
     }
 
     private fun handleError(error: Throwable) {
         Log.d(TAG, "The error " + error.message)
     }
 
-    fun fetchEtherStats(): EtherPriceModel {
-        return etherPrice
-    }
+    fun fetchStats(): StatModel? = statInfo
+
+    fun fetchNetworkInfo(): String? = "status: ${statInfo.status} :: message: ${statInfo.message}"
+
 }

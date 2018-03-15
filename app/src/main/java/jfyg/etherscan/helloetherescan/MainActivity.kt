@@ -16,11 +16,11 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         //************************************************  Used To Test Library
-        val stat = Stat()
+        val stat = Stat() //TODO #29
 
         fab.setOnClickListener {
 
-            // Log.d(TAG, "${stat.NetworkInfo()}") //TODO #29
+            Log.d(TAG, "${stat.getNetworkStatus()}")
             Log.d(TAG, "The current price of Ether in Btc:  ${stat.getLastPriceInBtc()}")
             Log.d(TAG, "The current price of Ether in Usd:  ${stat.getLastPriceInUsd()}")
             Log.d(TAG, "The total supply of Ether:  ${stat.getTotalSupply()}")

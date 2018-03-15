@@ -23,4 +23,9 @@ interface StatContract {
      */
     fun getLastPriceInUsd(): Float?
 
+    /**
+     * Return Network Status and Message
+     */
+    fun getNetworkStatus(): String?
+
 }
