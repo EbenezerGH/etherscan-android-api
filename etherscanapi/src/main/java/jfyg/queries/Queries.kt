@@ -24,7 +24,7 @@ class Queries : StatQueries {
                     .subscribe(this::handleResponse, this::handleError)
 
 
-    override fun handleResponse(response: MainResponse) { //TODO #27
+    override fun handleResponse(response: MainResponse) {
         statInfo = response
     }
 
