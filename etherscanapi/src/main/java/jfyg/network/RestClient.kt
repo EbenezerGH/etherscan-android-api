@@ -1,4 +1,4 @@
-package jfyg.etherscanapi.network
+package jfyg.network
 
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -10,8 +10,7 @@ import com.google.gson.GsonBuilder
  */
 class RestClient {
 
-    //TODO: Retrieve baseUrl from string resources
-    private var baseUrl: String = "http://api.etherscan.io/"
+    private var baseUrl: String = "http://api.etherscan.io/" //TODO: #28
     private var networkService: NetworkService
 
     init {

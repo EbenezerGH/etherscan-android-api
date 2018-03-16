@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Hello Ethere Scan</string>
+    <string name="app_name">Hello Etherscan</string>
     <string name="action_settings">Settings</string>
 
     <string name="base_url">http://api.etherscan.io/</string>
