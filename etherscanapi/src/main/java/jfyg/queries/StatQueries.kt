@@ -7,6 +7,6 @@ interface StatQueries {
 
     fun stats(module: String, action: String): Disposable?
 
-    fun handleResponse(retrieveQuery: MainResponse)
+    fun handleResponse(response: MainResponse)
 
 }

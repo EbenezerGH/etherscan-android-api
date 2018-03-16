@@ -21,19 +21,25 @@ class Stat : StatContract {
     override fun getLastPriceInUsd(): Float? {
 
         query.stats("stats", "ethprice")
-        return query.fetchStats()?.ethUsd?.toFloat()
+        return query.fetchStatResponse()?.statResult?.ethUsd?.toFloat()
     }
 
     override fun getLastPriceInBtc(): Float? {
 
         query.stats("stats", "ethprice")
-        return query.fetchStats()?.ethBtc?.toFloat()
+        return query.fetchStatResponse()?.statResult?.ethBtc?.toFloat()
     }
 
     override fun getNetworkStatus(): String? {
 
         query.stats("stats", "ethprice")
-        return query.fetchNetworkInfo()
+        return query.fetchStatResponse()?.status
+    }
+
+    override fun getNetworkMessage(): String? {
+
+        query.stats("stats", "ethprice")
+        return query.fetchStatResponse()?.message
     }
 
 }

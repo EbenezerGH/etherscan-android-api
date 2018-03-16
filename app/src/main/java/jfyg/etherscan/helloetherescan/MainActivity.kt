@@ -20,7 +20,8 @@ class MainActivity : AppCompatActivity() {
 
         fab.setOnClickListener {
 
-            Log.d(TAG, "${stat.getNetworkStatus()}")
+            Log.d(TAG, "The Status is ${stat.getNetworkStatus()}")
+            Log.d(TAG, "The Message is ${stat.getNetworkMessage()}")
             Log.d(TAG, "The current price of Ether in Btc:  ${stat.getLastPriceInBtc()}")
             Log.d(TAG, "The current price of Ether in Usd:  ${stat.getLastPriceInUsd()}")
             Log.d(TAG, "The total supply of Ether:  ${stat.getTotalSupply()}")

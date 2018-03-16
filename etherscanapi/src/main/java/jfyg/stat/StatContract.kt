@@ -28,4 +28,9 @@ interface StatContract {
      */
     fun getNetworkStatus(): String?
 
+    /**
+     * Return Network Status and Message
+     */
+    fun getNetworkMessage(): String?
+
 }
