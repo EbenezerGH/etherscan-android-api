@@ -14,4 +14,5 @@ interface NetworkService {
     fun getEtherStats(@Query("module") module: String,
                       @Query("action") action: String,
                       @Query("apikey") apikey: String?): Single<MainResponse>
+
 }
