@@ -23,6 +23,8 @@ class MainActivity : AppCompatActivity() {
             Log.d(TAG, "The Status is ${stat.getNetworkStatus()}")
             Log.d(TAG, "The Message is ${stat.getNetworkMessage()}")
             Log.d(TAG, "The current price of Ether in Btc:  ${stat.getLastPriceInBtc()}")
+            Log.d(TAG, "Timestamp price in Btc:  ${stat.getBtcTimestamp()}")
+            Log.d(TAG, "Timestamp price in Ether:  ${stat.getEthTimestamp()}")
             Log.d(TAG, "The current price of Ether in Usd:  ${stat.getLastPriceInUsd()}")
             Log.d(TAG, "The total supply of Ether:  ${stat.getTotalSupply()}")
             Log.d(TAG, "The total supply of Ether in Wei:  ${stat.getTotalSupplyInWei()}")

@@ -19,9 +19,19 @@ interface StatContract {
     fun getLastPriceInBtc(): Float?
 
     /**
+     * Return Network Status and Message
+     */
+    fun getBtcTimestamp(): Long?
+
+    /**
      * Return Last price of ether in Usd
      */
     fun getLastPriceInUsd(): Float?
+
+    /**
+     * Return Network Status and Message
+     */
+    fun getEthTimestamp(): Long?
 
     /**
      * Return Network Status and Message
@@ -32,5 +42,4 @@ interface StatContract {
      * Return Network Status and Message
      */
     fun getNetworkMessage(): String?
-
 }
