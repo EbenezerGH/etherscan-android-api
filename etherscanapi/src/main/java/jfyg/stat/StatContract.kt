@@ -1,45 +1,44 @@
 package jfyg.stat
 
-
 interface StatContract {
 
     /**
-     * Return Total Supply of Ether
+     * Return total supply of Ether
      */
-    fun getTotalSupply(): Int?
+    fun getTotalSupply(): Double?
 
     /**
-     * Return Total Supply of Ether in Wei
+     * Return total supply of Ether in Wei
      */
-    fun getTotalSupplyInWei(): Int?
+    fun getTotalSupplyInWei(): Double?
 
     /**
-     * Return Last price of ether in Btc
+     * Return last price of Ether in Btc
      */
     fun getLastPriceInBtc(): Float?
 
     /**
-     * Return Timestamp
+     * Return timestamp
      */
     fun getBtcTimestamp(): Long?
 
     /**
-     * Return Last price of ether in Usd
+     * Return last price of Ether in Usd
      */
     fun getLastPriceInUsd(): Float?
 
     /**
-     * Return Timestamp
+     * Return timestamp
      */
     fun getEthTimestamp(): Long?
 
     /**
-     * Return Network Status
+     * Return network status
      */
     fun getNetworkStatus(): String?
 
     /**
-     * Return Network Message
+     * Return network message
      */
     fun getNetworkMessage(): String?
 

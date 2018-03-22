@@ -1,12 +1,23 @@
 package jfyg.queries
 
 import io.reactivex.disposables.Disposable
-import jfyg.response.MainResponse
+import jfyg.response.stat.StatPriceResponse
+import jfyg.response.stat.StatSupplyResponse
 
 interface StatQueries {
 
-    fun stats(module: String, action: String): Disposable?
+    /**
+     * Get Ether last price
+     */
+    fun statPrice(module: String, action: String): Disposable?
 
-    fun handleResponse(response: MainResponse)
+    /**
+     * Get total supply of Ether
+     */
+    fun statSupply(module: String, action: String): Disposable?
+
+    fun handleResponse(response: StatPriceResponse)
+
+    fun handleResponse(response: StatSupplyResponse)
 
 }
