@@ -1,57 +1,57 @@
 package jfyg.stat
 
-import jfyg.queries.Queries
+import jfyg.queries.QueryMediator
 
 class Stat : StatContract {
 
-    private var query = Queries()
+    private var query = QueryMediator()
 
-    override fun getTotalSupply(): Int? {
+    override fun getTotalSupply(): Double? {
 
-        query.stats("stats", "ethsupply")
-        return null //TODO: #26
+        query.statSupply("stats", "ethsupply")
+        return query.fetchStatSupply()?.result?.toDouble()
     }
 
-    override fun getTotalSupplyInWei(): Int? {
+    override fun getTotalSupplyInWei(): Double? {
 
-        query.stats("stats", "ethsupply")
-        return null //TODO: #26
+        query.statSupply("stats", "ethsupply")
+        return (query.fetchStatSupply()?.result?.toDouble()?.div(1000000000000000000))
     }
 
     override fun getLastPriceInUsd(): Float? {
 
-        query.stats("stats", "ethprice")
-        return query.fetchStatResponse()?.statResult?.ethUsd?.toFloat()
+        query.statPrice("stats", "ethprice")
+        return query.fetchStatPrice()?.result?.ethUsd?.toFloat()
     }
 
     override fun getEthTimestamp(): Long? {
 
-        query.stats("stats", "ethprice")
-        return query.fetchStatResponse()?.statResult?.ethUsdTimestamp?.toLong()
+        query.statPrice("stats", "ethprice")
+        return query.fetchStatPrice()?.result?.ethUsdTimestamp?.toLong()
     }
 
     override fun getLastPriceInBtc(): Float? {
 
-        query.stats("stats", "ethprice")
-        return query.fetchStatResponse()?.statResult?.ethBtc?.toFloat()
+        query.statPrice("stats", "ethprice")
+        return query.fetchStatPrice()?.result?.ethBtc?.toFloat()
     }
 
     override fun getBtcTimestamp(): Long? {
 
-        query.stats("stats", "ethprice")
-        return query.fetchStatResponse()?.statResult?.ethBtcTimestamp?.toLong()
+        query.statPrice("stats", "ethprice")
+        return query.fetchStatPrice()?.result?.ethBtcTimestamp?.toLong()
     }
 
     override fun getNetworkStatus(): String? {
 
-        query.stats("stats", "ethprice")
-        return query.fetchStatResponse()?.status
+        query.statPrice("stats", "ethprice")
+        return query.fetchStatPrice()?.status
     }
 
     override fun getNetworkMessage(): String? {
 
-        query.stats("stats", "ethprice")
-        return query.fetchStatResponse()?.message
+        query.statPrice("stats", "ethprice")
+        return query.fetchStatPrice()?.message
     }
 
 }

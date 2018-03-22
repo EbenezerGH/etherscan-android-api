@@ -44,6 +44,14 @@ D/jfyg.etherscan.helloetherescan.MainActivity: The current price of Ether in Btc
 
 * [**Ebenezer Ackon**](http://www.ebenezerackon.com/)
 Only me so far but eagerly accepting help :)
+
+## Help me pay off my student loans
+```
+BTC: 1MLaf31sjVG3LbMyQEuY16qosPAhwNRQeZ
+ETH: 82e4499D4b2A669831a3881d61BB24f7b620c61a
+LTC: La1vhdzuVY85EEW8m5hTpw4C15gPY9hVDW
+```
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.

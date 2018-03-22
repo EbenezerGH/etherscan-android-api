@@ -1,11 +1,8 @@
-package jfyg.response
+package jfyg.model
 
 import com.google.gson.annotations.SerializedName
 
-/**
- * Responses for Stat
- */
-class StatResponse {
+class StatPrice {
 
     @SerializedName("ethbtc")
     var ethBtc: String? = null
@@ -18,5 +15,5 @@ class StatResponse {
 
     @SerializedName("ethusd_timestamp")
     var ethUsdTimestamp: String? = null
-    
+
 }
