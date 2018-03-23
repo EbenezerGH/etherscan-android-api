@@ -30,22 +30,26 @@ ApiKey.takeOff.setApiKey("1I7CRNU2QIU253UBPFVB5UV2C2PBDURAIYZ")
 Lastly call the given function that's needed by creating an instance of one of the Etherscan Apis [accounts, contracts, transactions, blocks, eventLogs, geth, websockets, tokens, [stat](https://etherscan.io/apis#stats)]
 
 ```
-Log.d(TAG, "The Status is ${stat.getNetworkStatus()}")
-Log.d(TAG, "The Message is ${stat.getNetworkMessage()}")
-Log.d(TAG, "The current price of Ether in Btc:  ${stat.getLastPriceInBtc()}")
+//stat
+Log.d(TAG, "The total supply of Ether:  ${stat.getTotalSupply()}")
+Log.d(TAG, "The total supply of Ether in Wei:  ${stat.getTotalSupplyInWei()}")
+
+//account
+Log.d(TAG, "The Account Status is: ${account.getNetworkStatus()}")
+Log.d(TAG, "The Account Message is: ${account.getNetworkMessage()}")
 ```
 ```
-D/jfyg.etherscan.helloetherescan.MainActivity: The Status is 1
-D/jfyg.etherscan.helloetherescan.MainActivity: The Message is OK
-D/jfyg.etherscan.helloetherescan.MainActivity: The current price of Ether in Btc:  0.07416
+jfyg.etherscan.helloetherescan D/jfyg.etherscan.helloetherescan.MainActivity: The current price of Ether in Usd:  533.22
+jfyg.etherscan.helloetherescan D/jfyg.etherscan.helloetherescan.MainActivity: The total supply of Ether:  9.83557402803E25
+jfyg.etherscan.helloetherescan D/jfyg.etherscan.helloetherescan.MainActivity: The total supply of Ether in Wei:  9.835574028029999E7
+jfyg.etherscan.helloetherescan D/jfyg.etherscan.helloetherescan.MainActivity: The Account Status is: 1
+jfyg.etherscan.helloetherescan D/jfyg.etherscan.helloetherescan.MainActivity: The Account Message is: OK
 ```
 
 ## Authors
 
 * [**Ebenezer Ackon**](http://www.ebenezerackon.com/)
-Only me so far but eagerly accepting help :)
 
-## Help me pay off my student loans
 ```
 BTC: 1MLaf31sjVG3LbMyQEuY16qosPAhwNRQeZ
 ETH: 82e4499D4b2A669831a3881d61BB24f7b620c61a
