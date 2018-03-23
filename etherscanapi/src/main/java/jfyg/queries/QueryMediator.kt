@@ -16,7 +16,7 @@ import jfyg.response.stat.StatSupplyResponse
 /**
  * A mediator between the responses and errors that come from every query
  */
-class QueryMediator : AccountQueries, StatQueries {
+class QueryMediator : AccountQueries, StatQueries { //todo #36
     private val TAG = javaClass.name
 
     private var statPriceInfo = StatPriceResponse()
@@ -108,7 +108,7 @@ class QueryMediator : AccountQueries, StatQueries {
     }
 
     private fun handleError(error: Throwable) {
-        Log.d(TAG, "The error " + error.message)
+        Log.d(TAG, "The error ${error.message}")
     }
 
     fun fetchStatPrice(): StatPriceResponse? = statPriceInfo
@@ -117,4 +117,5 @@ class QueryMediator : AccountQueries, StatQueries {
     fun fetchAccountMultiBalance(): AccountMultiBalanceResponse? = accountMultiBalanceInfo
     fun fetchAccountBlock(): AccountBlockResponse? = accountBlockInfo
     fun fetchAccountTransaction(): AccountTransactionResponse? = accountTransactionInfo
+
 }
