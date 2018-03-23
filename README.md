@@ -27,10 +27,11 @@ Call `ApiKey.takeOff.setApiKey("[your api key here]")` if recording api usage in
 ApiKey.takeOff.setApiKey("1I7CRNU2QIU253UBPFVB5UV2C2PBDURAIYZ")
 ```
 
-Lastly call the given function that's needed by creating an instance of one of the Etherscan Apis [accounts, contracts, transactions, blocks, eventLogs, geth, websockets, tokens, [stat](https://etherscan.io/apis#stats)]
+Lastly call the given function that's needed by creating an instance of one of the Etherscan Apis [accounts, contracts, transactions, blocks, eventLogs, geth, websockets, tokens, stat]
 
 ```
 //stat
+Log.d(TAG, "The current price of Ether in Usd:  ${stat.getLastPriceInUsd()}")
 Log.d(TAG, "The total supply of Ether:  ${stat.getTotalSupply()}")
 Log.d(TAG, "The total supply of Ether in Wei:  ${stat.getTotalSupplyInWei()}")
 
