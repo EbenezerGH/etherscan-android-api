@@ -1,0 +1,12 @@
+{
+  "status": "1",
+  "message": "OK",
+  "result": {
+    "ethbtc": "0.06105",
+    "ethbtc_timestamp": "1521775698",
+    "ethusd": "511.32",
+    "ethusd_timestamp": "1521775699"
+  }
+}
+
+// https://api.etherscan.io/api?module=stats&action=ethprice&apikey=YourApiKeyToken
