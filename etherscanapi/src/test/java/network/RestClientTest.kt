@@ -45,7 +45,7 @@ class RestClientTest {
 
         var networkService: NetworkService = retrofit.create(NetworkService::class.java)
 
-        val call = networkService.getStat("stats", "fail", "")
+        val call = networkService.getStat("stats", "fail", "") //todo #7
         Assert.assertTrue(call.subscribe() != null)
     }
 

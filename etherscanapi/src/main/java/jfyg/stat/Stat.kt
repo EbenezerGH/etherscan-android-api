@@ -4,54 +4,26 @@ import jfyg.queries.QueryMediator
 
 class Stat : StatContract {
 
-    private var query = QueryMediator()
+    private val query = QueryMediator()
+    private val supplyQuery = query.statSupply("stats", "ethsupply")
+    private val priceQuery = query.statPrice("stats", "ethprice")
 
-    override fun getTotalSupply(): Double? {
+    private val wei = 1000000000000000000 // 1 Ether is 1000000000000000000 Wei
 
-        query.statSupply("stats", "ethsupply")
-        return query.fetchStatSupply()?.result?.toDouble()
-    }
+    override fun getTotalSupply(): Double? = supplyQuery.let { query.fetchStatSupply()?.result?.toDouble() }
 
-    override fun getTotalSupplyInWei(): Double? {
+    override fun getTotalSupplyInWei(): Double? = supplyQuery.let { query.fetchStatSupply()?.result?.toDouble()?.div(wei) }
 
-        query.statSupply("stats", "ethsupply")
-        return (query.fetchStatSupply()?.result?.toDouble()?.div(1000000000000000000))
-    }
+    override fun getLastPriceInUsd(): Float? = priceQuery.let { query.fetchStatPrice()?.result?.ethUsd?.toFloat() }
 
-    override fun getLastPriceInUsd(): Float? {
+    override fun getEthTimestamp(): Long? = priceQuery.let { query.fetchStatPrice()?.result?.ethUsdTimestamp?.toLong() }
 
-        query.statPrice("stats", "ethprice")
-        return query.fetchStatPrice()?.result?.ethUsd?.toFloat()
-    }
+    override fun getLastPriceInBtc(): Float? = priceQuery.let { query.fetchStatPrice()?.result?.ethBtc?.toFloat() }
 
-    override fun getEthTimestamp(): Long? {
+    override fun getBtcTimestamp(): Long? = priceQuery.let { query.fetchStatPrice()?.result?.ethBtcTimestamp?.toLong() }
 
-        query.statPrice("stats", "ethprice")
-        return query.fetchStatPrice()?.result?.ethUsdTimestamp?.toLong()
-    }
+    override fun getNetworkStatus(): String? = priceQuery.let { query.fetchStatPrice()?.status }
 
-    override fun getLastPriceInBtc(): Float? {
-
-        query.statPrice("stats", "ethprice")
-        return query.fetchStatPrice()?.result?.ethBtc?.toFloat()
-    }
-
-    override fun getBtcTimestamp(): Long? {
-
-        query.statPrice("stats", "ethprice")
-        return query.fetchStatPrice()?.result?.ethBtcTimestamp?.toLong()
-    }
-
-    override fun getNetworkStatus(): String? {
-
-        query.statPrice("stats", "ethprice")
-        return query.fetchStatPrice()?.status
-    }
-
-    override fun getNetworkMessage(): String? {
-
-        query.statPrice("stats", "ethprice")
-        return query.fetchStatPrice()?.message
-    }
+    override fun getNetworkMessage(): String? = priceQuery.let { query.fetchStatPrice()?.message }
 
 }

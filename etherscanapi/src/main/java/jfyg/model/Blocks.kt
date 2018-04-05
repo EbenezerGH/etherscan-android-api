@@ -1,11 +1,7 @@
 package jfyg.model
 
-class Blocks {
+data class Blocks(var blockNumber: String? = null,
 
-    var blockNumber: String? = null
+                  var timeStamp: String? = null,
 
-    var timeStamp: String? = null
-
-    var blockReward: String? = null
-
-}
+                  var blockReward: String? = null)

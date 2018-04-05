@@ -6,8 +6,4 @@ import jfyg.response.BaseResponse
 /**
  * Blocks mined by an account
  */
-class AccountBlockResponse : BaseResponse() {
-
-    var result: ArrayList<Blocks>? = null
-
-}
+data class AccountBlockResponse(var result: ArrayList<Blocks>? = null) : BaseResponse()

@@ -28,16 +28,14 @@ class QueryMediator : AccountQueries, StatQueries { //todo #36
 
 
     override fun accountBalance(module: String?, action: String?, address: String?, tag: String?): Disposable? =
-            RestClient().getQuery().getAccountBalance(module, action, address, tag,
-                    ApiKey.takeOff.callApiKey())
+            RestClient().getQuery().getAccountBalance(module, action, address, tag, ApiKey.takeOff.callApiKey())
 
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(this::handleResponse, this::handleError)
 
 
     override fun accountMultiBalance(module: String?, action: String?, address: String?, tag: String?): Disposable? =
-            RestClient().getQuery().getAccountMultiBalance(module, action, address, tag,
-                    ApiKey.takeOff.callApiKey())
+            RestClient().getQuery().getAccountMultiBalance(module, action, address, tag, ApiKey.takeOff.callApiKey())
 
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(this::handleResponse, this::handleError)
@@ -60,18 +58,14 @@ class QueryMediator : AccountQueries, StatQueries { //todo #36
 
 
     override fun statPrice(module: String, action: String): Disposable? =
-
-            RestClient().getQuery()
-                    .getStat(module, action, ApiKey.takeOff.callApiKey())
+            RestClient().getQuery().getStat(module, action, ApiKey.takeOff.callApiKey())
 
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(this::handleResponse, this::handleError)
 
 
     override fun statSupply(module: String, action: String): Disposable? =
-
-            RestClient().getQuery()
-                    .getStatSupply(module, action, ApiKey.takeOff.callApiKey())
+            RestClient().getQuery().getStatSupply(module, action, ApiKey.takeOff.callApiKey())
 
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(this::handleResponse, this::handleError)

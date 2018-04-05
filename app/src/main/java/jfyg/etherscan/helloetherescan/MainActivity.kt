@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
         val account = Account()
 
         fab.setOnClickListener {
-            //TODO #29
 
             //stat
             Log.d(TAG, "The Stat Status is ${stat.getNetworkStatus()}")
@@ -36,8 +35,11 @@ class MainActivity : AppCompatActivity() {
             //account
             Log.d(TAG, "The Account Status is: ${account.getNetworkStatus()}")
             Log.d(TAG, "The Account Message is: ${account.getNetworkMessage()}")
+            Log.d(TAG, "The Account Balance is: ${account.getBalance("0x82e4499D4b2A669831a3881d61BB24f7b620c61a")}")
             Log.d(TAG, "The Account Size of Blocks is: ${account.getBlocks("0x82e4499D4b2A669831a3881d61BB24f7b620c61a")?.size}")
+            Log.d(TAG, "The Account Size of Transactions is: ${account.getTransactions("0x82e4499D4b2A669831a3881d61BB24f7b620c61a")?.size}")
 
+            //transactions
         }
     }
 

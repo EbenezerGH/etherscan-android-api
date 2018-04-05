@@ -5,8 +5,4 @@ import jfyg.response.BaseResponse
 /**
  * Balance of Ether existing in an account
  */
-class AccountBalanceResponse : BaseResponse() {
-
-    var result: String? = null
-
-}
+data class AccountBalanceResponse(var result: String? = null) : BaseResponse()
