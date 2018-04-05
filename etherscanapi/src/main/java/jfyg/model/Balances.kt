@@ -1,9 +1,5 @@
 package jfyg.model
 
-class Balances {
+data class Balances(var account: String? = null,
 
-    var account: String? = null
-
-    var balance: String? = null
-
-}
+                    var balance: String? = null)
