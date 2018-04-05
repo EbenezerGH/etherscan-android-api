@@ -32,7 +32,6 @@ class QueryMediator : AccountQueries, StatQueries { //todo #36
                     ApiKey.takeOff.callApiKey())
 
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribeOn(Schedulers.io())
                     .subscribe(this::handleResponse, this::handleError)
 
 
@@ -41,7 +40,6 @@ class QueryMediator : AccountQueries, StatQueries { //todo #36
                     ApiKey.takeOff.callApiKey())
 
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribeOn(Schedulers.io())
                     .subscribe(this::handleResponse, this::handleError)
 
 
@@ -49,7 +47,6 @@ class QueryMediator : AccountQueries, StatQueries { //todo #36
             RestClient().getQuery().getAccountBlock(module, action, address, blocktype, ApiKey.takeOff.callApiKey())
 
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribeOn(Schedulers.io())
                     .subscribe(this::handleResponse, this::handleError)
 
 
@@ -59,7 +56,6 @@ class QueryMediator : AccountQueries, StatQueries { //todo #36
                     ApiKey.takeOff.callApiKey())
 
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribeOn(Schedulers.io())
                     .subscribe(this::handleResponse, this::handleError)
 
 
@@ -69,7 +65,6 @@ class QueryMediator : AccountQueries, StatQueries { //todo #36
                     .getStat(module, action, ApiKey.takeOff.callApiKey())
 
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribeOn(Schedulers.io())
                     .subscribe(this::handleResponse, this::handleError)
 
 
@@ -79,7 +74,6 @@ class QueryMediator : AccountQueries, StatQueries { //todo #36
                     .getStatSupply(module, action, ApiKey.takeOff.callApiKey())
 
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribeOn(Schedulers.io())
                     .subscribe(this::handleResponse, this::handleError)
 
 

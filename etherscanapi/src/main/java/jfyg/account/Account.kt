@@ -1,5 +1,6 @@
 package jfyg.account
 
+import android.annotation.SuppressLint
 import jfyg.model.Balances
 import jfyg.model.Blocks
 import jfyg.model.Transactions
@@ -8,37 +9,37 @@ import jfyg.queries.QueryMediator
 class Account : AccountContract {
     private var query = QueryMediator()
 
-    override fun getBalance(address: String?): Double? {
+    override fun getBalance(account: String?): Double? {
         query.accountBalance("account",
                 "balance",
-                address,
+                account,
                 "latest")
 
         return query.fetchAccountBalance()?.result?.toDouble()
     }
 
-    override fun getMultiBalance(address: List<String>?): ArrayList<Balances>? {
+    override fun getMultiBalance(accounts: List<String>?): ArrayList<Balances>? {
         query.accountMultiBalance("account",
                 "balance",
-                address?.get(0), //todo #34
+                accounts?.get(0), //todo #34
                 "latest")
 
         return query.fetchAccountMultiBalance()?.result
     }
 
-    override fun getBlocks(address: String?): ArrayList<Blocks>? {
+    override fun getBlocks(account: String?): ArrayList<Blocks>? {
         query.accountBlock("account",
                 "getminedblocks",
-                address,
+                account,
                 "blocks")
 
         return query.fetchAccountBlock()?.result
     }
 
-    override fun getTransactions(address: String?): ArrayList<Transactions>? {
+    override fun getTransactions(account: String?): ArrayList<Transactions>? {
         query.accountTransactions("account",
                 "txlist",
-                address,
+                account,
                 "0",
                 "99999999",
                 "asc")
