@@ -1,8 +1,7 @@
-package network
+package jfyg.network
 
 import com.google.gson.GsonBuilder
 import io.reactivex.schedulers.Schedulers
-import jfyg.network.NetworkService
 import junit.framework.Assert
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
@@ -27,9 +26,13 @@ class RestClientTest {
     }
 
     @Test
-    @Throws(Exception::class)
     fun getQuery() {
-        val fileName = "status_0_message_notok.json"
+        val fileName = """
+                        {
+                        "status": "1",
+                        "message": "OK",
+                        "result": "98658682905300000000000000"
+                        }"""
 
         val gson = GsonBuilder()
                 .setLenient()
@@ -45,12 +48,11 @@ class RestClientTest {
 
         var networkService: NetworkService = retrofit.create(NetworkService::class.java)
 
-        val call = networkService.getStat("stats", "fail", "") //todo #7
+        val call = networkService.getStat("stats", "ethsupply", "")
         Assert.assertTrue(call.subscribe() != null)
     }
 
     @After
-    @Throws
     fun tearDown() {
         mockWebServer.shutdown()
     }
