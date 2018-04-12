@@ -34,6 +34,8 @@ class Account : AccountContract {
                     account, "0", "99999999",
                     "asc").let { query.fetchAccountTransaction()?.result }
 
+    //todo #47
+
     override fun getNetworkStatus(): String? = genericNetworkQuery.let { query.fetchAccountBalance()?.status }
 
     override fun getNetworkMessage(): String? = genericNetworkQuery.let { query.fetchAccountBalance()?.message }
