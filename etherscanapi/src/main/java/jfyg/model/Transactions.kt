@@ -8,6 +8,12 @@ data class Transactions(var blockNumber: String? = null,
 
                         var hash: String? = null,
 
+                        var nonce: String? = null,
+
+                        var blockHash: String? = null,
+
+                        var transactionIndex: String? = null,
+
                         @SerializedName("from")
                         var transactionFrom: String? = null,
 
@@ -16,16 +22,21 @@ data class Transactions(var blockNumber: String? = null,
 
                         var value: String? = null,
 
-                        var contractAddress: String? = null,
+                        var gas: String? = null,
 
-                        var input: String? = null,
-
-                        var type: String? = null, var gas: String? = null,
-
-                        var gasUsed: String? = null,
-
-                        var traceId: String? = null,
+                        var gasPrice: String? = null,
 
                         var isError: String? = null,
 
-                        var errCode: String? = null)
+                        @SerializedName("txreceipt_status")
+                        var receiptStatus: String? = null,
+
+                        var input: String? = null,
+
+                        var contractAddress: String? = null,
+
+                        var cumulativeGasUsed: String? = null,
+
+                        var gasUsed: String? = null,
+
+                        var confirmations: String? = null)
