@@ -12,21 +12,21 @@ import org.junit.Assert.assertEquals
 class StatTest {
     lateinit var gson: Gson
 
-    val inputSupply = """
+    private val inputSupply = """
         {
             "status": "1",
             "message": "OK",
             "result": "98658682905300000000000000"
         }"""
 
-    val inputBadResponse = """
+    private val inputBadResponse = """
         {
             "status": "0",
             "message": "NOTOK",
             "result": "Error!"
         }"""
 
-    val inputPrice = """
+    private val inputPrice = """
        {
             "status": "1",
             "message": "OK",

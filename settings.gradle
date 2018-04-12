@@ -1,3 +1,1 @@
-rootProject.name = 'etherscan'
-
 include ':app', ':etherscanapi'

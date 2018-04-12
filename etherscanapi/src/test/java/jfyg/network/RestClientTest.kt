@@ -46,7 +46,7 @@ class RestClientTest {
 
         mockWebServer.enqueue(MockResponse().setBody(fileName))
 
-        var networkService: NetworkService = retrofit.create(NetworkService::class.java)
+        val networkService: NetworkService = retrofit.create(NetworkService::class.java)
 
         val call = networkService.getStat("stats", "ethsupply", "")
         Assert.assertTrue(call.subscribe() != null)
