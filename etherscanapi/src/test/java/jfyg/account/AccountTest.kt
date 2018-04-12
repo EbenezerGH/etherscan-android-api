@@ -13,7 +13,6 @@ import org.junit.Before
 import org.junit.Test
 
 class AccountTest {
-
     lateinit var gson: Gson
 
     private val accountBalance = """
