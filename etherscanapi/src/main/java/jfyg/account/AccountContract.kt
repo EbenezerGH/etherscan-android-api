@@ -3,6 +3,7 @@ package jfyg.account
 import jfyg.model.Balances
 import jfyg.model.Blocks
 import jfyg.model.Transactions
+import jfyg.model.TransactionsInternal
 
 interface AccountContract {
 
@@ -35,5 +36,10 @@ interface AccountContract {
      * Get a list of 'Normal' Transactions By Address
      */
     fun getTransactions(account: String?): ArrayList<Transactions>?
+
+    /**
+     * Get a list of 'Internal' Transactions by Address
+     */
+    fun getInternalTransactions(account: String?): ArrayList<TransactionsInternal>?
 
 }

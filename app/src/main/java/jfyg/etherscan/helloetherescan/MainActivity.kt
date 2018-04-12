@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity() {
             Log.d(TAG, "The Account(1) Balance is: ${account.getMultiBalance(threeAddresses())?.get(1)?.balance}")
             Log.d(TAG, "The Account Size of Blocks is: ${account.getBlocks("0x82e4499D4b2A669831a3881d61BB24f7b620c61a")?.size}")
             Log.d(TAG, "The Account Size of Transactions is: ${account.getTransactions("0x82e4499D4b2A669831a3881d61BB24f7b620c61a")?.size}")
+            Log.d(TAG, "The Account Size of Internal Transactions is: ${account.getInternalTransactions("0x2c1ba59d6f58433fb1eaee7d20b26ed83bda51a3")?.size}")
 
             //transactions
         }

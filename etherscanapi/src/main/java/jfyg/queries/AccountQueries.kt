@@ -3,6 +3,7 @@ package jfyg.queries
 import io.reactivex.disposables.Disposable
 import jfyg.response.account.AccountBalanceResponse
 import jfyg.response.account.AccountBlockResponse
+import jfyg.response.account.AccountInternalTransactionResponse
 import jfyg.response.account.AccountMultiBalanceResponse
 import jfyg.response.account.AccountTransactionResponse
 
@@ -42,6 +43,15 @@ interface AccountQueries {
                             endblock: String?,
                             sort: String?): Disposable?
 
+    /**
+     * Get a list of 'Internal' transactions by address
+     */
+    fun accountInternalTransactions(module: String?,
+                                    action: String?,
+                                    address: String?,
+                                    startblock: String?,
+                                    endblock: String?,
+                                    sort: String?): Disposable?
 
     fun handleResponse(response: AccountBalanceResponse)
 
@@ -50,5 +60,7 @@ interface AccountQueries {
     fun handleResponse(response: AccountBlockResponse)
 
     fun handleResponse(response: AccountTransactionResponse)
+
+    fun handleResponse(response: AccountInternalTransactionResponse)
 
 }

@@ -3,11 +3,11 @@ package jfyg.queries
 import android.util.Log
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
-import io.reactivex.schedulers.Schedulers
 import jfyg.ApiKey
 import jfyg.network.RestClient
 import jfyg.response.account.AccountBalanceResponse
 import jfyg.response.account.AccountBlockResponse
+import jfyg.response.account.AccountInternalTransactionResponse
 import jfyg.response.account.AccountMultiBalanceResponse
 import jfyg.response.account.AccountTransactionResponse
 import jfyg.response.stat.StatPriceResponse
@@ -25,6 +25,7 @@ class QueryMediator : AccountQueries, StatQueries { //todo #36
     private var accountMultiBalanceInfo = AccountMultiBalanceResponse()
     private var accountBlockInfo = AccountBlockResponse()
     private var accountTransactionInfo = AccountTransactionResponse()
+    private var accountInternalTransactionInfo = AccountInternalTransactionResponse()
 
 
     override fun accountBalance(module: String?, action: String?, address: String?, tag: String?): Disposable? =
@@ -51,6 +52,14 @@ class QueryMediator : AccountQueries, StatQueries { //todo #36
     override fun accountTransactions(module: String?, action: String?, address: String?, startblock: String?,
                                      endblock: String?, sort: String?): Disposable? =
             RestClient().getQuery().getAccountTransactions(module, action, address, startblock, endblock, sort,
+                    ApiKey.takeOff.callApiKey())
+
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(this::handleResponse, this::handleError)
+
+    override fun accountInternalTransactions(module: String?, action: String?, address: String?, startblock: String?,
+                                             endblock: String?, sort: String?): Disposable? =
+            RestClient().getQuery().getAccountInternalTransactions(module, action, address, startblock, endblock, sort,
                     ApiKey.takeOff.callApiKey())
 
                     .observeOn(AndroidSchedulers.mainThread())
@@ -95,6 +104,10 @@ class QueryMediator : AccountQueries, StatQueries { //todo #36
         accountMultiBalanceInfo = response
     }
 
+    override fun handleResponse(response: AccountInternalTransactionResponse) {
+        accountInternalTransactionInfo = response
+    }
+
     private fun handleError(error: Throwable) {
         Log.d(TAG, "The error ${error.message}")
     }
@@ -105,5 +118,6 @@ class QueryMediator : AccountQueries, StatQueries { //todo #36
     fun fetchAccountMultiBalance(): AccountMultiBalanceResponse? = accountMultiBalanceInfo
     fun fetchAccountBlock(): AccountBlockResponse? = accountBlockInfo
     fun fetchAccountTransaction(): AccountTransactionResponse? = accountTransactionInfo
+    fun fetchAccountInternalTransaction(): AccountInternalTransactionResponse? = accountInternalTransactionInfo
 
 }

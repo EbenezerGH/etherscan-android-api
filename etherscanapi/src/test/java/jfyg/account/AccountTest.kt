@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder
 import jfyg.response.BaseResponse
 import jfyg.response.account.AccountBalanceResponse
 import jfyg.response.account.AccountBlockResponse
+import jfyg.response.account.AccountInternalTransactionResponse
 import jfyg.response.account.AccountMultiBalanceResponse
 import jfyg.response.account.AccountTransactionResponse
 import org.junit.Assert.assertEquals
@@ -112,6 +113,45 @@ class AccountTest {
             ]
         }"""
 
+    private val internalTransaction = """
+        {
+            "status": "1",
+            "message": "OK",
+            "result": [
+            {
+            "blockNumber": "2535368",
+            "timeStamp": "1477837690",
+            "hash": "0x8a1a9989bda84f80143181a68bc137ecefa64d0d4ebde45dd94fc0cf49e70cb6",
+            "from": "0x20d42f2e99a421147acf198d775395cac2e8b03d",
+            "to": "",
+            "value": "0",
+            "contractAddress": "0x2c1ba59d6f58433fb1eaee7d20b26ed83bda51a3",
+            "input": "",
+            "type": "create",
+            "gas": "254791",
+            "gasUsed": "46750",
+            "traceId": "0",
+            "isError": "0",
+            "errCode": ""
+            },
+            {
+            "blockNumber": "2535479",
+            "timeStamp": "1477839134",
+            "hash": "0x1a50f1dc0bc912745f7d09b988669f71d199719e2fb7592c2074ede9578032d0",
+            "from": "0x2c1ba59d6f58433fb1eaee7d20b26ed83bda51a3",
+            "to": "0x20d42f2e99a421147acf198d775395cac2e8b03d",
+            "value": "100000000000000000",
+            "contractAddress": "",
+            "input": "",
+            "type": "call",
+            "gas": "235231",
+            "gasUsed": "0",
+            "traceId": "0",
+            "isError": "0",
+            "errCode": ""
+            }
+            ]
+        }"""
     private val inputBadResponse = """
         {
             "status": "0",
@@ -163,6 +203,17 @@ class AccountTest {
         assertEquals("18034800000000000", response.result?.get(0)?.value)
         assertEquals("21000", response.result?.get(1)?.gas)
         assertEquals("4000000000", response.result?.get(1)?.gasPrice)
+        assertEquals("0", response.result?.get(1)?.isError)
+    }
+
+    @Test
+    fun getInternalTransactions() {
+        val response = gson.fromJson(internalTransaction, AccountInternalTransactionResponse::class.java)
+        assertEquals("0x20d42f2e99a421147acf198d775395cac2e8b03d", response.result?.get(0)?.transactionFrom)
+        assertEquals("0x20d42f2e99a421147acf198d775395cac2e8b03d", response.result?.get(1)?.transactionTo)
+        assertEquals("0", response.result?.get(0)?.value)
+        assertEquals("235231", response.result?.get(1)?.gas)
+        assertEquals("call", response.result?.get(1)?.type)
         assertEquals("0", response.result?.get(1)?.isError)
     }
 
