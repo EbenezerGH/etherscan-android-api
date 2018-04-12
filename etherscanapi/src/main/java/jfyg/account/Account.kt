@@ -3,6 +3,7 @@ package jfyg.account
 import jfyg.model.Balances
 import jfyg.model.Blocks
 import jfyg.model.Transactions
+import jfyg.model.TransactionsInternal
 import jfyg.queries.QueryMediator
 import jfyg.utils.QueryUtils
 
@@ -34,7 +35,10 @@ class Account : AccountContract {
                     account, "0", "99999999",
                     "asc").let { query.fetchAccountTransaction()?.result }
 
-    //todo #47
+    override fun getInternalTransactions(account: String?): ArrayList<TransactionsInternal>? =
+            query.accountInternalTransactions("account", "txlistinternal",
+                    account, "0", "99999999",
+                    "asc").let { query.fetchAccountInternalTransaction()?.result }
 
     override fun getNetworkStatus(): String? = genericNetworkQuery.let { query.fetchAccountBalance()?.status }
 
