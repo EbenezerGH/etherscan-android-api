@@ -14,7 +14,7 @@ import retrofit2.http.Query
 /**
  * Etherscan request endpoints
  */
-interface NetworkService {
+internal interface NetworkService {
 
     @GET("api")
     fun getStat(@Query("module") module: String?,

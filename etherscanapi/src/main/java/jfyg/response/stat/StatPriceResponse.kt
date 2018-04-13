@@ -6,4 +6,4 @@ import jfyg.response.BaseResponse
 /**
  * Responses for Stat
  */
-data class StatPriceResponse(var result: StatPrice? = null) : BaseResponse()
+internal data class StatPriceResponse(var result: StatPrice? = null) : BaseResponse()

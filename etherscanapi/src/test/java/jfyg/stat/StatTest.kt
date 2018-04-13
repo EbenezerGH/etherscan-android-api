@@ -9,7 +9,7 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.Assert.assertEquals
 
-class StatTest {
+internal class StatTest {
     lateinit var gson: Gson
 
     private val inputSupply = """

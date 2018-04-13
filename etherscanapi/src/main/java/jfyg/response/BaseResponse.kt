@@ -3,7 +3,7 @@ package jfyg.response
 /**
  * Base response that all queries will utilize
  */
-open class BaseResponse {
+internal open class BaseResponse {
 
     var status: String? = null
 

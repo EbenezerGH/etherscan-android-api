@@ -3,7 +3,7 @@ package jfyg.utils
 /**
  * Utilities that may be used to provide successful Queries
  */
-class QueryUtils {
+internal class QueryUtils {
 
     fun retrieveAccounts(accounts: ArrayList<String>?): String {
 

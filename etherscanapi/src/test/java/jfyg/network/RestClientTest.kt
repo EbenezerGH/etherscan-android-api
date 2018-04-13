@@ -16,7 +16,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 @RunWith(JUnit4::class)
-class RestClientTest {
+internal class RestClientTest {
     private var baseUrl: String = "http://api.etherscan.io/"
     private lateinit var mockWebServer: MockWebServer
 

@@ -5,7 +5,7 @@ import jfyg.model.Blocks
 import jfyg.model.Transactions
 import jfyg.model.TransactionsInternal
 
-interface AccountContract {
+internal interface AccountContract {
 
     /**
      * Return network status

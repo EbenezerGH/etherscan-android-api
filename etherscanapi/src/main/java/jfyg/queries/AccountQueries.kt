@@ -7,7 +7,7 @@ import jfyg.response.account.AccountInternalTransactionResponse
 import jfyg.response.account.AccountMultiBalanceResponse
 import jfyg.response.account.AccountTransactionResponse
 
-interface AccountQueries {
+internal interface AccountQueries {
 
     /**
      * Get Ether balance for a single address

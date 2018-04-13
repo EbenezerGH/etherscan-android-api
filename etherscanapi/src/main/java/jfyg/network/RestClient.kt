@@ -9,7 +9,7 @@ import io.reactivex.schedulers.Schedulers
 /**
  * Client used to create the network call
  */
-class RestClient {
+internal class RestClient {
 
     private var baseUrl: String = "http://api.etherscan.io/"
     private var networkService: NetworkService
