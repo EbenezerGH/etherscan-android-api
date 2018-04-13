@@ -16,7 +16,7 @@ import jfyg.response.stat.StatSupplyResponse
 /**
  * A mediator between the responses and errors that come from every query
  */
-class QueryMediator : AccountQueries, StatQueries { //todo #36
+internal class QueryMediator : AccountQueries, StatQueries { //todo #36
     private val TAG = javaClass.name
 
     private var statPriceInfo = StatPriceResponse()

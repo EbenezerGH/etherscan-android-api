@@ -4,7 +4,7 @@ import io.reactivex.disposables.Disposable
 import jfyg.response.stat.StatPriceResponse
 import jfyg.response.stat.StatSupplyResponse
 
-interface StatQueries {
+internal interface StatQueries {
 
     /**
      * Get Ether last price

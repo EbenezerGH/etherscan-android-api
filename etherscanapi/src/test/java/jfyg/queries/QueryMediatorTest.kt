@@ -2,7 +2,7 @@ package jfyg.queries
 
 import org.junit.Test
 
-class QueryMediatorTest {
+internal class QueryMediatorTest {
     @Test
     fun accountBalance() {
     }

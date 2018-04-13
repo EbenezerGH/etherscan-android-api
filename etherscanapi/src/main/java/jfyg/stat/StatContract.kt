@@ -1,6 +1,6 @@
 package jfyg.stat
 
-interface StatContract {
+internal interface StatContract {
 
     /**
      * Return total supply of Ether

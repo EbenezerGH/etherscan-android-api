@@ -6,4 +6,4 @@ import jfyg.response.BaseResponse
 /**
  * Transactions recorded by an account
  */
-data class AccountTransactionResponse(var result: ArrayList<Transactions>? = null) : BaseResponse()
+internal data class AccountTransactionResponse(var result: ArrayList<Transactions>? = null) : BaseResponse()

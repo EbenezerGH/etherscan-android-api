@@ -3,7 +3,7 @@ package jfyg.utils
 import org.junit.Assert
 import org.junit.Test
 
-class QueryUtilsTest {
+internal class QueryUtilsTest {
 
     @Test
     fun retrieveAccounts() {
