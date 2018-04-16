@@ -45,6 +45,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
-    // todo call library from https://jitpack.io/ into a main project
+    // todo #23
     implementation project(':etherscanapi')
 }
