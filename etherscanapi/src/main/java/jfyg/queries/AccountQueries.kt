@@ -1,6 +1,6 @@
 package jfyg.queries
 
-import io.reactivex.disposables.Disposable
+import io.reactivex.Single
 import jfyg.response.account.AccountBalanceResponse
 import jfyg.response.account.AccountBlockResponse
 import jfyg.response.account.AccountInternalTransactionResponse
@@ -15,7 +15,7 @@ internal interface AccountQueries {
     fun accountBalance(module: String?,
                        action: String?,
                        address: String?,
-                       tag: String?): Disposable?
+                       tag: String?): Single<AccountBalanceResponse>?
 
     /**
      * Get Ether Balance for multiple Addresses in a single call
@@ -23,7 +23,7 @@ internal interface AccountQueries {
     fun accountMultiBalance(module: String?,
                             action: String?,
                             address: String?,
-                            tag: String?): Disposable?
+                            tag: String?): Single<AccountMultiBalanceResponse>?
 
     /**
      * Get list of blocks mined by address
@@ -31,7 +31,7 @@ internal interface AccountQueries {
     fun accountBlock(module: String?,
                      action: String?,
                      address: String?,
-                     blocktype: String?): Disposable?
+                     blocktype: String?): Single<AccountBlockResponse>?
 
     /**
      * Get a list of 'Normal' transactions by address
@@ -41,7 +41,7 @@ internal interface AccountQueries {
                             address: String?,
                             startblock: String?,
                             endblock: String?,
-                            sort: String?): Disposable?
+                            sort: String?): Single<AccountTransactionResponse>?
 
     /**
      * Get a list of 'Internal' transactions by address
@@ -51,16 +51,6 @@ internal interface AccountQueries {
                                     address: String?,
                                     startblock: String?,
                                     endblock: String?,
-                                    sort: String?): Disposable?
-
-    fun handleResponse(response: AccountBalanceResponse)
-
-    fun handleResponse(response: AccountMultiBalanceResponse)
-
-    fun handleResponse(response: AccountBlockResponse)
-
-    fun handleResponse(response: AccountTransactionResponse)
-
-    fun handleResponse(response: AccountInternalTransactionResponse)
+                                    sort: String?): Single<AccountInternalTransactionResponse>?
 
 }

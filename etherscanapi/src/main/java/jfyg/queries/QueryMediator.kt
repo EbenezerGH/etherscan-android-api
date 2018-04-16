@@ -1,8 +1,6 @@
 package jfyg.queries
 
-import android.util.Log
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.Disposable
+import io.reactivex.Single
 import jfyg.ApiKey
 import jfyg.network.RestClient
 import jfyg.response.account.AccountBalanceResponse
@@ -16,108 +14,49 @@ import jfyg.response.stat.StatSupplyResponse
 /**
  * A mediator between the responses and errors that come from every query
  */
-internal class QueryMediator : AccountQueries, StatQueries { //todo #36
-    private val TAG = javaClass.name
+internal class QueryMediator : AccountQueries, StatQueries {
 
-    private var statPriceInfo = StatPriceResponse()
-    private var statSupplyInfo = StatSupplyResponse()
-    private var accountBalanceInfo = AccountBalanceResponse()
-    private var accountMultiBalanceInfo = AccountMultiBalanceResponse()
-    private var accountBlockInfo = AccountBlockResponse()
-    private var accountTransactionInfo = AccountTransactionResponse()
-    private var accountInternalTransactionInfo = AccountInternalTransactionResponse()
-
-
-    override fun accountBalance(module: String?, action: String?, address: String?, tag: String?): Disposable? =
+    override fun accountBalance(module: String?,
+                                action: String?,
+                                address: String?,
+                                tag: String?): Single<AccountBalanceResponse>? =
             RestClient().getQuery().getAccountBalance(module, action, address, tag, ApiKey.takeOff.callApiKey())
 
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(this::handleResponse, this::handleError)
-
-
-    override fun accountMultiBalance(module: String?, action: String?, address: String?, tag: String?): Disposable? =
+    override fun accountMultiBalance(module: String?,
+                                     action: String?,
+                                     address: String?,
+                                     tag: String?): Single<AccountMultiBalanceResponse>? =
             RestClient().getQuery().getAccountMultiBalance(module, action, address, tag, ApiKey.takeOff.callApiKey())
 
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(this::handleResponse, this::handleError)
-
-
-    override fun accountBlock(module: String?, action: String?, address: String?, blocktype: String?): Disposable? =
+    override fun accountBlock(module: String?,
+                              action: String?,
+                              address: String?,
+                              blocktype: String?): Single<AccountBlockResponse>? =
             RestClient().getQuery().getAccountBlock(module, action, address, blocktype, ApiKey.takeOff.callApiKey())
 
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(this::handleResponse, this::handleError)
+    override fun accountTransactions(module: String?,
+                                     action: String?,
+                                     address: String?,
+                                     startblock: String?,
+                                     endblock: String?,
+                                     sort: String?): Single<AccountTransactionResponse>? =
+            RestClient().getQuery().getAccountTransactions(module, action, address, startblock, endblock, sort, ApiKey.takeOff.callApiKey())
 
+    override fun accountInternalTransactions(module: String?,
+                                             action: String?,
+                                             address: String?,
+                                             startblock: String?,
+                                             endblock: String?,
+                                             sort: String?): Single<AccountInternalTransactionResponse>? =
+            RestClient().getQuery().getAccountInternalTransactions(module, action, address, startblock, endblock, sort, ApiKey.takeOff.callApiKey())
 
-    override fun accountTransactions(module: String?, action: String?, address: String?, startblock: String?,
-                                     endblock: String?, sort: String?): Disposable? =
-            RestClient().getQuery().getAccountTransactions(module, action, address, startblock, endblock, sort,
-                    ApiKey.takeOff.callApiKey())
-
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(this::handleResponse, this::handleError)
-
-    override fun accountInternalTransactions(module: String?, action: String?, address: String?, startblock: String?,
-                                             endblock: String?, sort: String?): Disposable? =
-            RestClient().getQuery().getAccountInternalTransactions(module, action, address, startblock, endblock, sort,
-                    ApiKey.takeOff.callApiKey())
-
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(this::handleResponse, this::handleError)
-
-
-    override fun statPrice(module: String, action: String): Disposable? =
+    override fun statPrice(module: String,
+                           action: String): Single<StatPriceResponse>? =
             RestClient().getQuery().getStat(module, action, ApiKey.takeOff.callApiKey())
 
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(this::handleResponse, this::handleError)
 
-
-    override fun statSupply(module: String, action: String): Disposable? =
+    override fun statSupply(module: String,
+                            action: String): Single<StatSupplyResponse>? =
             RestClient().getQuery().getStatSupply(module, action, ApiKey.takeOff.callApiKey())
-
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(this::handleResponse, this::handleError)
-
-
-    override fun handleResponse(response: AccountBalanceResponse) {
-        accountBalanceInfo = response
-    }
-
-    override fun handleResponse(response: AccountBlockResponse) {
-        accountBlockInfo = response
-    }
-
-    override fun handleResponse(response: AccountTransactionResponse) {
-        accountTransactionInfo = response
-    }
-
-    override fun handleResponse(response: StatPriceResponse) {
-        statPriceInfo = response
-    }
-
-    override fun handleResponse(response: StatSupplyResponse) {
-        statSupplyInfo = response
-    }
-
-    override fun handleResponse(response: AccountMultiBalanceResponse) {
-        accountMultiBalanceInfo = response
-    }
-
-    override fun handleResponse(response: AccountInternalTransactionResponse) {
-        accountInternalTransactionInfo = response
-    }
-
-    private fun handleError(error: Throwable) {
-        Log.d(TAG, "The error ${error.message}")
-    }
-
-    fun fetchStatPrice(): StatPriceResponse? = statPriceInfo
-    fun fetchStatSupply(): StatSupplyResponse? = statSupplyInfo
-    fun fetchAccountBalance(): AccountBalanceResponse? = accountBalanceInfo
-    fun fetchAccountMultiBalance(): AccountMultiBalanceResponse? = accountMultiBalanceInfo
-    fun fetchAccountBlock(): AccountBlockResponse? = accountBlockInfo
-    fun fetchAccountTransaction(): AccountTransactionResponse? = accountTransactionInfo
-    fun fetchAccountInternalTransaction(): AccountInternalTransactionResponse? = accountInternalTransactionInfo
 
 }
