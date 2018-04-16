@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
             //contracts test
             contract.getContractABI("0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413").observeOn(AndroidSchedulers.mainThread())
                     ?.subscribeBy {
-                        Log.d(TAG, "The EBI has returned: $it")
+                        Log.d(TAG, "The ABI has returned: $it")
                     }
 
             //transaction test

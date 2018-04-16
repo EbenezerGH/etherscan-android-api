@@ -18,36 +18,36 @@ class Account : AccountContract {
 
     private val queryUtil = QueryUtils()
 
-    override fun getBalance(account: String?): Single<Double> =
+    override fun getBalance(address: String?): Single<Double> =
             query.accountBalance("account",
                     "balance",
-                    account,
+                    address,
                     "latest").map { it.result?.toDouble() }
 
-    override fun getMultiBalance(accounts: ArrayList<String>?): Single<ArrayList<Balances>> =
+    override fun getMultiBalance(addresses: ArrayList<String>?): Single<ArrayList<Balances>> =
             query.accountMultiBalance("account",
                     "balancemulti",
-                    queryUtil.retrieveAccounts(accounts),
+                    queryUtil.retrieveAccounts(addresses),
                     "latest").map { it.result }
 
-    override fun getBlocks(account: String?): Single<ArrayList<Blocks>> =
+    override fun getBlocks(address: String?): Single<ArrayList<Blocks>> =
             query.accountBlock("account",
                     "getminedblocks",
-                    account,
+                    address,
                     "blocks").map { it.result }
 
-    override fun getTransactions(account: String?): Single<ArrayList<Transactions>> =
+    override fun getTransactions(address: String?): Single<ArrayList<Transactions>> =
             query.accountTransactions("account",
                     "txlist",
-                    account,
+                    address,
                     "0",
                     "99999999",
                     "asc").map { it.result }
 
-    override fun getInternalTransactions(account: String?): Single<ArrayList<TransactionsInternal>> =
+    override fun getInternalTransactions(address: String?): Single<ArrayList<TransactionsInternal>> =
             query.accountInternalTransactions("account",
                     "txlistinternal",
-                    account,
+                    address,
                     "0",
                     "99999999",
                     "asc").map { it.result }

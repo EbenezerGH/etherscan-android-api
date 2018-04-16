@@ -8,7 +8,7 @@ internal interface SmartContractContract {
     /**
      * Return contract ABI for Verified Contract Source Code
      */
-    fun getContractABI(account: String?): Single<String>
+    fun getContractABI(address: String?): Single<String>
 
     /**
      * Return network status
