@@ -4,6 +4,6 @@
 
     <string name="base_url">http://api.etherscan.io/</string>
 
-    <!--TODO: Remove Before Publishing-->
+    <!-- todo: #56-->
     <string name="my_api_key">1I7CRNU2QIU253UBPFVB5UV2C2PBDURAIY</string>
 </resources>
