@@ -6,6 +6,7 @@ import jfyg.response.account.AccountBlockResponse
 import jfyg.response.account.AccountInternalTransactionResponse
 import jfyg.response.account.AccountMultiBalanceResponse
 import jfyg.response.account.AccountTransactionResponse
+import jfyg.response.contract.SmartContractResponse
 import jfyg.response.stat.StatPriceResponse
 import jfyg.response.stat.StatSupplyResponse
 import retrofit2.http.GET
@@ -64,5 +65,11 @@ internal interface NetworkService {
                                        @Query("endblock") endblock: String?,
                                        @Query("sort") sort: String?,
                                        @Query("apikey") apikey: String?): Single<AccountInternalTransactionResponse>
+
+    @GET("api")
+    fun getSmartContract(@Query("module") module: String?,
+                         @Query("action") action: String?,
+                         @Query("address") address: String?,
+                         @Query("apikey") apikey: String?): Single<SmartContractResponse>
 
 }
