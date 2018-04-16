@@ -9,9 +9,9 @@ class SmartContract : SmartContractContract {
             "getabi",
             "0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413")
 
-    override fun getContractABI(account: String?): Single<String> = query.abiContract("contract",
+    override fun getContractABI(address: String?): Single<String> = query.abiContract("contract",
             "getabi",
-            account).map { it.result }
+            address).map { it.result }
 
     override fun getNetworkStatus(): Single<String> = abiQuery.map { it.status }
 

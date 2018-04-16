@@ -21,26 +21,26 @@ internal interface AccountContract {
     /**
      * Return account balance
      */
-    fun getBalance(account: String?): Single<Double>
+    fun getBalance(address: String?): Single<Double>
 
     /**
      * Return balances of multiple accounts separated by commas
      */
-    fun getMultiBalance(accounts: ArrayList<String>?): Single<ArrayList<Balances>>
+    fun getMultiBalance(addresses: ArrayList<String>?): Single<ArrayList<Balances>>
 
     /**
      * Get list of blocks mined by address
      */
-    fun getBlocks(account: String?): Single<ArrayList<Blocks>>
+    fun getBlocks(address: String?): Single<ArrayList<Blocks>>
 
     /**
      * Get a list of 'Normal' Transactions By Address
      */
-    fun getTransactions(account: String?): Single<ArrayList<Transactions>>
+    fun getTransactions(address: String?): Single<ArrayList<Transactions>>
 
     /**
      * Get a list of 'Internal' Transactions by Address
      */
-    fun getInternalTransactions(account: String?): Single<ArrayList<TransactionsInternal>>
+    fun getInternalTransactions(address: String?): Single<ArrayList<TransactionsInternal>>
 
 }
