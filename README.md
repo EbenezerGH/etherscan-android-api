@@ -1,11 +1,24 @@
+[![Generic badge](https://img.shields.io/badge/EtherscanApi-UP-brightgreen.svg)](https://api.etherscan.io/api?module=stats&action=ethprice&apikey=YourApiKeyToken)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/EbenezerGH/hello_etherscan/blob/update-readme-badges/LICENSE)
+[![CircleCI](https://circleci.com/gh/EbenezerGH/hello_etherscan/tree/master.svg?style=svg)](https://circleci.com/gh/EbenezerGH/hello_etherscan/tree/master)
+
+
 # hello_etherscan
 
 hello_etherscan is a wrapper for the [Etherscan Api](https://etherscan.io/apis).  This is just a module to handle networking calls.
 
-## Getting Started
-No Releases yet, [features](https://github.com/EbenezerGH/hello_etherscan/issues) to complete.
+No Releases yet, [features](https://github.com/EbenezerGH/hello_etherscan/issues) still left to be completed.
 
-Optional: Call `ApiKey.takeOff.setApiKey("[your api key here]")` when recording api usage in the etherscan.io console. [see [Example implementation](https://github.com/EbenezerGH/hello_etherscan/blob/master/app/src/main/java/jfyg/etherscan/helloetherescan/HelloEtherscanApplication.kt)]
+## Getting Started
+
+import a reactive android library to handle the reactive stream being passed into your module.
+
+
+    implementation 'io.reactivex.rxjava2:rxandroid:x.y.z'
+    implementation 'io.reactivex.rxjava2:rxkotlin:x.y.z'
+
+
+Optional: Call `ApiKey.takeOff.setApiKey("[your api key here]")` in module's application class when recording api usage in the etherscan.io console. [see [Example implementation](https://github.com/EbenezerGH/hello_etherscan/blob/master/app/src/main/java/jfyg/etherscan/helloetherescan/HelloEtherscanApplication.kt)]
 ```
 ApiKey.takeOff.setApiKey("1I7CRNU2QIU253UBPFVB5UV2C2PBDURAIYZ")
 ```
