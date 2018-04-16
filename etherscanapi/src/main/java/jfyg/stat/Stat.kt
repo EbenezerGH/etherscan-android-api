@@ -1,5 +1,6 @@
 package jfyg.stat
 
+import io.reactivex.Single
 import jfyg.queries.QueryMediator
 
 class Stat : StatContract {
@@ -10,20 +11,20 @@ class Stat : StatContract {
 
     private val wei = 1000000000000000000 // 1 Ether is 1000000000000000000 Wei
 
-    override fun getTotalSupply(): Double? = supplyQuery.let { query.fetchStatSupply()?.result?.toDouble() }
+    override fun getTotalSupply(): Single<Double>? = supplyQuery?.map { it.result?.toDouble() }
 
-    override fun getTotalSupplyInWei(): Double? = supplyQuery.let { query.fetchStatSupply()?.result?.toDouble()?.div(wei) }
+    override fun getTotalSupplyInWei(): Single<Double>? = supplyQuery?.map { it.result?.toDouble()?.div(wei) }
 
-    override fun getLastPriceInUsd(): Float? = priceQuery.let { query.fetchStatPrice()?.result?.ethUsd?.toFloat() }
+    override fun getLastPriceInUsd(): Single<Float>? = priceQuery?.map { it.result?.ethUsd?.toFloat() }
 
-    override fun getEthTimestamp(): Long? = priceQuery.let { query.fetchStatPrice()?.result?.ethUsdTimestamp?.toLong() }
+    override fun getEthTimestamp(): Single<Long>? = priceQuery?.map { it.result?.ethUsdTimestamp?.toLong() }
 
-    override fun getLastPriceInBtc(): Float? = priceQuery.let { query.fetchStatPrice()?.result?.ethBtc?.toFloat() }
+    override fun getLastPriceInBtc(): Single<Float>? = priceQuery?.map { it.result?.ethBtcTimestamp?.toFloat() }
 
-    override fun getBtcTimestamp(): Long? = priceQuery.let { query.fetchStatPrice()?.result?.ethBtcTimestamp?.toLong() }
+    override fun getBtcTimestamp(): Single<Long>? = priceQuery?.map { it.result?.ethBtcTimestamp?.toLong() }
 
-    override fun getNetworkStatus(): String? = priceQuery.let { query.fetchStatPrice()?.status }
+    override fun getNetworkStatus(): Single<String>? = priceQuery?.map { it.status }
 
-    override fun getNetworkMessage(): String? = priceQuery.let { query.fetchStatPrice()?.message }
+    override fun getNetworkMessage(): Single<String>? = priceQuery?.map { it.message }
 
 }

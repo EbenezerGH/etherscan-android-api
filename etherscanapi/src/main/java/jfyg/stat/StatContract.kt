@@ -1,45 +1,47 @@
 package jfyg.stat
 
+import io.reactivex.Single
+
 internal interface StatContract {
 
     /**
      * Return total supply of Ether
      */
-    fun getTotalSupply(): Double?
+    fun getTotalSupply(): Single<Double>?
 
     /**
      * Return total supply of Ether in Wei
      */
-    fun getTotalSupplyInWei(): Double?
+    fun getTotalSupplyInWei(): Single<Double>?
 
     /**
      * Return last price of Ether in Btc
      */
-    fun getLastPriceInBtc(): Float?
+    fun getLastPriceInBtc(): Single<Float>?
 
     /**
      * Return timestamp
      */
-    fun getBtcTimestamp(): Long?
+    fun getBtcTimestamp(): Single<Long>?
 
     /**
      * Return last price of Ether in Usd
      */
-    fun getLastPriceInUsd(): Float?
+    fun getLastPriceInUsd(): Single<Float>?
 
     /**
      * Return timestamp
      */
-    fun getEthTimestamp(): Long?
+    fun getEthTimestamp(): Single<Long>?
 
     /**
      * Return network status
      */
-    fun getNetworkStatus(): String?
+    fun getNetworkStatus(): Single<String>?
 
     /**
      * Return network message
      */
-    fun getNetworkMessage(): String?
+    fun getNetworkMessage(): Single<String>?
 
 }
