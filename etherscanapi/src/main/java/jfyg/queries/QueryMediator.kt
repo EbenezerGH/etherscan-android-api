@@ -8,13 +8,14 @@ import jfyg.response.account.AccountBlockResponse
 import jfyg.response.account.AccountInternalTransactionResponse
 import jfyg.response.account.AccountMultiBalanceResponse
 import jfyg.response.account.AccountTransactionResponse
+import jfyg.response.contract.SmartContractResponse
 import jfyg.response.stat.StatPriceResponse
 import jfyg.response.stat.StatSupplyResponse
 
 /**
  * A mediator between the responses and errors that come from every query
  */
-internal class QueryMediator : AccountQueries, StatQueries {
+internal class QueryMediator : AccountQueries, StatQueries, SmartContractQueries {
 
     override fun accountBalance(module: String?,
                                 action: String?,
@@ -49,6 +50,9 @@ internal class QueryMediator : AccountQueries, StatQueries {
                                              endblock: String?,
                                              sort: String?): Single<AccountInternalTransactionResponse> =
             RestClient().getQuery().getAccountInternalTransactions(module, action, address, startblock, endblock, sort, ApiKey.takeOff.callApiKey())
+
+    override fun abiContract(module: String?, action: String?, address: String?): Single<SmartContractResponse> =
+            RestClient().getQuery().getSmartContract(module, action, address, ApiKey.takeOff.callApiKey())
 
     override fun statPrice(module: String,
                            action: String): Single<StatPriceResponse> =
