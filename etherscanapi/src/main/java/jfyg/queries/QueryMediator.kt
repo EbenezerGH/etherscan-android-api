@@ -19,19 +19,19 @@ internal class QueryMediator : AccountQueries, StatQueries {
     override fun accountBalance(module: String?,
                                 action: String?,
                                 address: String?,
-                                tag: String?): Single<AccountBalanceResponse>? =
+                                tag: String?): Single<AccountBalanceResponse> =
             RestClient().getQuery().getAccountBalance(module, action, address, tag, ApiKey.takeOff.callApiKey())
 
     override fun accountMultiBalance(module: String?,
                                      action: String?,
                                      address: String?,
-                                     tag: String?): Single<AccountMultiBalanceResponse>? =
+                                     tag: String?): Single<AccountMultiBalanceResponse> =
             RestClient().getQuery().getAccountMultiBalance(module, action, address, tag, ApiKey.takeOff.callApiKey())
 
     override fun accountBlock(module: String?,
                               action: String?,
                               address: String?,
-                              blocktype: String?): Single<AccountBlockResponse>? =
+                              blocktype: String?): Single<AccountBlockResponse> =
             RestClient().getQuery().getAccountBlock(module, action, address, blocktype, ApiKey.takeOff.callApiKey())
 
     override fun accountTransactions(module: String?,
@@ -39,7 +39,7 @@ internal class QueryMediator : AccountQueries, StatQueries {
                                      address: String?,
                                      startblock: String?,
                                      endblock: String?,
-                                     sort: String?): Single<AccountTransactionResponse>? =
+                                     sort: String?): Single<AccountTransactionResponse> =
             RestClient().getQuery().getAccountTransactions(module, action, address, startblock, endblock, sort, ApiKey.takeOff.callApiKey())
 
     override fun accountInternalTransactions(module: String?,
@@ -47,16 +47,16 @@ internal class QueryMediator : AccountQueries, StatQueries {
                                              address: String?,
                                              startblock: String?,
                                              endblock: String?,
-                                             sort: String?): Single<AccountInternalTransactionResponse>? =
+                                             sort: String?): Single<AccountInternalTransactionResponse> =
             RestClient().getQuery().getAccountInternalTransactions(module, action, address, startblock, endblock, sort, ApiKey.takeOff.callApiKey())
 
     override fun statPrice(module: String,
-                           action: String): Single<StatPriceResponse>? =
+                           action: String): Single<StatPriceResponse> =
             RestClient().getQuery().getStat(module, action, ApiKey.takeOff.callApiKey())
 
 
     override fun statSupply(module: String,
-                            action: String): Single<StatSupplyResponse>? =
+                            action: String): Single<StatSupplyResponse> =
             RestClient().getQuery().getStatSupply(module, action, ApiKey.takeOff.callApiKey())
 
 }
