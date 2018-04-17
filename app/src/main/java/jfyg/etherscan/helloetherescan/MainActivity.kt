@@ -8,6 +8,7 @@ import io.reactivex.rxkotlin.subscribeBy
 import jfyg.account.Account
 import jfyg.contract.SmartContract
 import jfyg.stat.Stat
+import jfyg.transaction.TransactionContractStatus
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -23,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         val stat = Stat()
         val account = Account()
         val contract = SmartContract()
+        val transaction = TransactionContractStatus()
 
 
         fab.setOnClickListener {
@@ -34,18 +36,26 @@ class MainActivity : AppCompatActivity() {
                     }
 
             //account test
-            account.getTransactions("0x2c1ba59d6f58433fb1eaee7d20b26ed83bda51a3").observeOn(AndroidSchedulers.mainThread())
+            account.getTransactions("0x2c1ba59d6f58433fb1eaee7d20b26ed83bda51a3")
+                    .observeOn(AndroidSchedulers.mainThread())
                     ?.subscribeBy {
                         Log.d(TAG, "The Account Size of Transactions is: ${it.size}")
                     }
 
             //contracts test
-            contract.getContractABI("0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413").observeOn(AndroidSchedulers.mainThread())
+            contract.getContractABI("0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413")
+                    .observeOn(AndroidSchedulers.mainThread())
                     ?.subscribeBy {
                         Log.d(TAG, "The ABI has returned: $it")
                     }
 
             //transaction test
+            transaction.getTransactionExecutionStatus("0x15f8e5ea1079d9a0bb04a4c58ae5fe7654b5b2b4463375ff7ffb490aa0032f3a")
+                    .observeOn(AndroidSchedulers.mainThread())
+                    ?.subscribeBy {
+                        Log.d(TAG, "The transaction's Error Status is: ${it.isError} and " +
+                                "transactions's error description is: ${it.errDescription}")
+                    }
         }
     }
 

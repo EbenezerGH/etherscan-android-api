@@ -11,11 +11,14 @@ import jfyg.response.account.AccountTransactionResponse
 import jfyg.response.contract.SmartContractResponse
 import jfyg.response.stat.StatPriceResponse
 import jfyg.response.stat.StatSupplyResponse
+import jfyg.response.transaction.TransactionContractExecutionResponse
+import jfyg.response.transaction.TransactionContractReceiptResponse
 
 /**
  * A mediator between the responses and errors that come from every query
  */
-internal class QueryMediator : AccountQueries, StatQueries, SmartContractQueries {
+internal class QueryMediator : AccountQueries, StatQueries, SmartContractQueries, TransactionQueries {
+
 
     override fun accountBalance(module: String?,
                                 action: String?,
@@ -62,5 +65,15 @@ internal class QueryMediator : AccountQueries, StatQueries, SmartContractQueries
     override fun statSupply(module: String,
                             action: String): Single<StatSupplyResponse> =
             RestClient().getQuery().getStatSupply(module, action, ApiKey.takeOff.callApiKey())
+
+    override fun transactionContractExecutionStatus(module: String?,
+                                                    action: String?,
+                                                    txHash: String?): Single<TransactionContractExecutionResponse> =
+            RestClient().getQuery().getContractTransactionExecution(module, action, txHash, ApiKey.takeOff.callApiKey())
+
+    override fun transactionContractReceiptStatus(module: String?,
+                                                 action: String?,
+                                                 txHash: String?): Single<TransactionContractReceiptResponse> =
+            RestClient().getQuery().getContractTransactionReceipt(module, action, txHash, ApiKey.takeOff.callApiKey())
 
 }
