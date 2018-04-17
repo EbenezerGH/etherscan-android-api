@@ -9,6 +9,8 @@ import jfyg.response.account.AccountTransactionResponse
 import jfyg.response.contract.SmartContractResponse
 import jfyg.response.stat.StatPriceResponse
 import jfyg.response.stat.StatSupplyResponse
+import jfyg.response.transaction.TransactionContractExecutionResponse
+import jfyg.response.transaction.TransactionContractReceiptResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -71,5 +73,17 @@ internal interface NetworkService {
                          @Query("action") action: String?,
                          @Query("address") address: String?,
                          @Query("apikey") apikey: String?): Single<SmartContractResponse>
+
+    @GET("api")
+    fun getContractTransactionExecution(@Query("module") module: String?,
+                                        @Query("action") action: String?,
+                                        @Query("txhash") address: String?,
+                                        @Query("apikey") apikey: String?): Single<TransactionContractExecutionResponse>
+
+    @GET("api")
+    fun getContractTransactionReceipt(@Query("module") module: String?,
+                                      @Query("action") action: String?,
+                                      @Query("txhash") address: String?,
+                                      @Query("apikey") apikey: String?): Single<TransactionContractReceiptResponse>
 
 }
