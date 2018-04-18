@@ -5,19 +5,19 @@ import jfyg.ApiKey
 import jfyg.network.RestClient
 import jfyg.response.account.AccountBalanceResponse
 import jfyg.response.account.AccountBlockResponse
-import jfyg.response.account.AccountInternalTransactionResponse
+import jfyg.response.account.AccountInternalTxResponse
 import jfyg.response.account.AccountMultiBalanceResponse
-import jfyg.response.account.AccountTransactionResponse
-import jfyg.response.contract.SmartContractResponse
+import jfyg.response.account.AccountTxResponse
+import jfyg.response.contract.ContractABIResponse
 import jfyg.response.stat.StatPriceResponse
 import jfyg.response.stat.StatSupplyResponse
-import jfyg.response.transaction.TransactionContractExecutionResponse
-import jfyg.response.transaction.TransactionContractReceiptResponse
+import jfyg.response.transaction.TxContractExecutionResponse
+import jfyg.response.transaction.TxContractReceiptResponse
 
 /**
  * A mediator between the responses and errors that come from every query
  */
-internal class QueryMediator : AccountQueries, StatQueries, SmartContractQueries, TransactionQueries {
+internal class QueryMediator : AccountQueries, StatQueries, ContractABIQueries, TxQueries {
 
 
     override fun accountBalance(module: String?,
@@ -43,7 +43,7 @@ internal class QueryMediator : AccountQueries, StatQueries, SmartContractQueries
                                      address: String?,
                                      startblock: String?,
                                      endblock: String?,
-                                     sort: String?): Single<AccountTransactionResponse> =
+                                     sort: String?): Single<AccountTxResponse> =
             RestClient().getQuery().getAccountTransactions(module, action, address, startblock, endblock, sort, ApiKey.takeOff.callApiKey())
 
     override fun accountInternalTransactions(module: String?,
@@ -51,10 +51,10 @@ internal class QueryMediator : AccountQueries, StatQueries, SmartContractQueries
                                              address: String?,
                                              startblock: String?,
                                              endblock: String?,
-                                             sort: String?): Single<AccountInternalTransactionResponse> =
+                                             sort: String?): Single<AccountInternalTxResponse> =
             RestClient().getQuery().getAccountInternalTransactions(module, action, address, startblock, endblock, sort, ApiKey.takeOff.callApiKey())
 
-    override fun abiContract(module: String?, action: String?, address: String?): Single<SmartContractResponse> =
+    override fun contractABI(module: String?, action: String?, address: String?): Single<ContractABIResponse> =
             RestClient().getQuery().getSmartContract(module, action, address, ApiKey.takeOff.callApiKey())
 
     override fun statPrice(module: String,
@@ -66,14 +66,14 @@ internal class QueryMediator : AccountQueries, StatQueries, SmartContractQueries
                             action: String): Single<StatSupplyResponse> =
             RestClient().getQuery().getStatSupply(module, action, ApiKey.takeOff.callApiKey())
 
-    override fun transactionContractExecutionStatus(module: String?,
-                                                    action: String?,
-                                                    txHash: String?): Single<TransactionContractExecutionResponse> =
+    override fun txExecutionStatus(module: String?,
+                                   action: String?,
+                                   txHash: String?): Single<TxContractExecutionResponse> =
             RestClient().getQuery().getContractTransactionExecution(module, action, txHash, ApiKey.takeOff.callApiKey())
 
-    override fun transactionContractReceiptStatus(module: String?,
-                                                 action: String?,
-                                                 txHash: String?): Single<TransactionContractReceiptResponse> =
+    override fun txReceiptStatus(module: String?,
+                                 action: String?,
+                                 txHash: String?): Single<TxContractReceiptResponse> =
             RestClient().getQuery().getContractTransactionReceipt(module, action, txHash, ApiKey.takeOff.callApiKey())
 
 }

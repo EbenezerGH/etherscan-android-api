@@ -1,5 +1,5 @@
 [![Generic badge](https://img.shields.io/badge/EtherscanApi-UP-brightgreen.svg)](https://api.etherscan.io/api?module=stats&action=ethprice&apikey=YourApiKeyToken)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/EbenezerGH/hello_etherscan/blob/update-readme-badges/LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/EbenezerGH/hello_etherscan/blob/update-documentation/LICENSE)
 [![CircleCI](https://circleci.com/gh/EbenezerGH/hello_etherscan/tree/master.svg?style=svg)](https://circleci.com/gh/EbenezerGH/hello_etherscan/tree/master)
 
 

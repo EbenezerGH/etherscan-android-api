@@ -3,20 +3,13 @@ package jfyg.account
 import io.reactivex.Single
 import jfyg.model.Balances
 import jfyg.model.Blocks
-import jfyg.model.Transactions
-import jfyg.model.TransactionsInternal
+import jfyg.model.Txs
+import jfyg.model.TxsInternal
 
+/**
+ * https://etherscan.io/apis#accounts
+ */
 internal interface AccountContract {
-
-    /**
-     * Return network status
-     */
-    fun getNetworkStatus(): Single<String>
-
-    /**
-     * Return network message
-     */
-    fun getNetworkMessage(): Single<String>
 
     /**
      * Return account balance
@@ -36,11 +29,20 @@ internal interface AccountContract {
     /**
      * Get a list of 'Normal' Transactions By Address
      */
-    fun getTransactions(address: String?): Single<ArrayList<Transactions>>
+    fun getTransactions(address: String?): Single<ArrayList<Txs>>
 
     /**
      * Get a list of 'Internal' Transactions by Address
      */
-    fun getInternalTransactions(address: String?): Single<ArrayList<TransactionsInternal>>
+    fun getInternalTransactions(address: String?): Single<ArrayList<TxsInternal>>
 
+    /**
+     * Return network status
+     */
+    fun getNetworkStatus(): Single<String>
+
+    /**
+     * Return network message
+     */
+    fun getNetworkMessage(): Single<String>
 }

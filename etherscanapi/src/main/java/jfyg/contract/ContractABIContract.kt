@@ -2,8 +2,11 @@ package jfyg.contract
 
 import io.reactivex.Single
 
-
-internal interface SmartContractContract {
+/**
+ * Newly verified Contracts are synced to the API servers within 5 minutes or less
+ * https://etherscan.io/apis#contracts
+ */
+internal interface ContractABIContract {
 
     /**
      * Return contract ABI for Verified Contract Source Code

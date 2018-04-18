@@ -3,14 +3,14 @@ package jfyg.network
 import io.reactivex.Single
 import jfyg.response.account.AccountBalanceResponse
 import jfyg.response.account.AccountBlockResponse
-import jfyg.response.account.AccountInternalTransactionResponse
+import jfyg.response.account.AccountInternalTxResponse
 import jfyg.response.account.AccountMultiBalanceResponse
-import jfyg.response.account.AccountTransactionResponse
-import jfyg.response.contract.SmartContractResponse
+import jfyg.response.account.AccountTxResponse
+import jfyg.response.contract.ContractABIResponse
 import jfyg.response.stat.StatPriceResponse
 import jfyg.response.stat.StatSupplyResponse
-import jfyg.response.transaction.TransactionContractExecutionResponse
-import jfyg.response.transaction.TransactionContractReceiptResponse
+import jfyg.response.transaction.TxContractExecutionResponse
+import jfyg.response.transaction.TxContractReceiptResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -57,7 +57,7 @@ internal interface NetworkService {
                                @Query("startblock") startblock: String?,
                                @Query("endblock") endblock: String?,
                                @Query("sort") sort: String?,
-                               @Query("apikey") apikey: String?): Single<AccountTransactionResponse>
+                               @Query("apikey") apikey: String?): Single<AccountTxResponse>
 
     @GET("api")
     fun getAccountInternalTransactions(@Query("module") module: String?,
@@ -66,24 +66,24 @@ internal interface NetworkService {
                                        @Query("startblock") startblock: String?,
                                        @Query("endblock") endblock: String?,
                                        @Query("sort") sort: String?,
-                                       @Query("apikey") apikey: String?): Single<AccountInternalTransactionResponse>
+                                       @Query("apikey") apikey: String?): Single<AccountInternalTxResponse>
 
     @GET("api")
     fun getSmartContract(@Query("module") module: String?,
                          @Query("action") action: String?,
                          @Query("address") address: String?,
-                         @Query("apikey") apikey: String?): Single<SmartContractResponse>
+                         @Query("apikey") apikey: String?): Single<ContractABIResponse>
 
     @GET("api")
     fun getContractTransactionExecution(@Query("module") module: String?,
                                         @Query("action") action: String?,
                                         @Query("txhash") address: String?,
-                                        @Query("apikey") apikey: String?): Single<TransactionContractExecutionResponse>
+                                        @Query("apikey") apikey: String?): Single<TxContractExecutionResponse>
 
     @GET("api")
     fun getContractTransactionReceipt(@Query("module") module: String?,
                                       @Query("action") action: String?,
                                       @Query("txhash") address: String?,
-                                      @Query("apikey") apikey: String?): Single<TransactionContractReceiptResponse>
+                                      @Query("apikey") apikey: String?): Single<TxContractReceiptResponse>
 
 }

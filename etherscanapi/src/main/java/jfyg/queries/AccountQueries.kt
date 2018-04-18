@@ -3,27 +3,27 @@ package jfyg.queries
 import io.reactivex.Single
 import jfyg.response.account.AccountBalanceResponse
 import jfyg.response.account.AccountBlockResponse
-import jfyg.response.account.AccountInternalTransactionResponse
+import jfyg.response.account.AccountInternalTxResponse
 import jfyg.response.account.AccountMultiBalanceResponse
-import jfyg.response.account.AccountTransactionResponse
+import jfyg.response.account.AccountTxResponse
 
 internal interface AccountQueries {
 
     /**
-     * Get Ether balance for a single address
+     * Get ether balance for a single address
      */
     fun accountBalance(module: String?,
                        action: String?,
                        address: String?,
-                       tag: String?): Single<AccountBalanceResponse>?
+                       tag: String?): Single<AccountBalanceResponse>
 
     /**
-     * Get Ether Balance for multiple Addresses in a single call
+     * Get ether Balance for multiple addresses in a single call
      */
     fun accountMultiBalance(module: String?,
                             action: String?,
                             address: String?,
-                            tag: String?): Single<AccountMultiBalanceResponse>?
+                            tag: String?): Single<AccountMultiBalanceResponse>
 
     /**
      * Get list of blocks mined by address
@@ -31,7 +31,7 @@ internal interface AccountQueries {
     fun accountBlock(module: String?,
                      action: String?,
                      address: String?,
-                     blocktype: String?): Single<AccountBlockResponse>?
+                     blocktype: String?): Single<AccountBlockResponse>
 
     /**
      * Get a list of 'Normal' transactions by address
@@ -41,7 +41,7 @@ internal interface AccountQueries {
                             address: String?,
                             startblock: String?,
                             endblock: String?,
-                            sort: String?): Single<AccountTransactionResponse>?
+                            sort: String?): Single<AccountTxResponse>
 
     /**
      * Get a list of 'Internal' transactions by address
@@ -51,6 +51,6 @@ internal interface AccountQueries {
                                     address: String?,
                                     startblock: String?,
                                     endblock: String?,
-                                    sort: String?): Single<AccountInternalTransactionResponse>?
+                                    sort: String?): Single<AccountInternalTxResponse>
 
 }
