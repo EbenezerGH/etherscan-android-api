@@ -6,9 +6,9 @@ import android.util.Log
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
 import jfyg.account.Account
-import jfyg.contract.SmartContract
+import jfyg.contract.ContractABI
 import jfyg.stat.Stat
-import jfyg.transaction.TransactionContractStatus
+import jfyg.transaction.TxContractStatus
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -23,8 +23,8 @@ class MainActivity : AppCompatActivity() {
         //************************************************  Used To Test Singles returned from etherscanapi Module
         val stat = Stat()
         val account = Account()
-        val contract = SmartContract()
-        val transaction = TransactionContractStatus()
+        val contract = ContractABI()
+        val tx = TxContractStatus()
 
 
         fab.setOnClickListener {
@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
                     }
 
             //transaction test
-            transaction.getTransactionExecutionStatus("0x15f8e5ea1079d9a0bb04a4c58ae5fe7654b5b2b4463375ff7ffb490aa0032f3a")
+            tx.getTxExecutionStatus("0x15f8e5ea1079d9a0bb04a4c58ae5fe7654b5b2b4463375ff7ffb490aa0032f3a")
                     .observeOn(AndroidSchedulers.mainThread())
                     ?.subscribeBy {
                         Log.d(TAG, "The transaction's Error Status is: ${it.isError} and " +

@@ -9,6 +9,9 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.Assert.assertEquals
 
+/**
+ * https://etherscan.io/apis#stats
+ */
 internal class StatTest {
     lateinit var gson: Gson
 

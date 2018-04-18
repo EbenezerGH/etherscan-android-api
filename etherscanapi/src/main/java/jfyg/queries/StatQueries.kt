@@ -7,13 +7,13 @@ import jfyg.response.stat.StatSupplyResponse
 internal interface StatQueries {
 
     /**
-     * Get Ether last price
+     * Get ether last price
      */
-    fun statPrice(module: String, action: String): Single<StatPriceResponse>?
+    fun statPrice(module: String, action: String): Single<StatPriceResponse>
 
     /**
-     * Get total supply of Ether
+     * Get total supply of ether
      */
-    fun statSupply(module: String, action: String): Single<StatSupplyResponse>?
+    fun statSupply(module: String, action: String): Single<StatSupplyResponse>
 
 }

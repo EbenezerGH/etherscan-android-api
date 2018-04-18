@@ -5,14 +5,17 @@ import com.google.gson.GsonBuilder
 import jfyg.response.BaseResponse
 import jfyg.response.account.AccountBalanceResponse
 import jfyg.response.account.AccountBlockResponse
-import jfyg.response.account.AccountInternalTransactionResponse
+import jfyg.response.account.AccountInternalTxResponse
 import jfyg.response.account.AccountMultiBalanceResponse
-import jfyg.response.account.AccountTransactionResponse
+import jfyg.response.account.AccountTxResponse
 import org.junit.Assert.assertEquals
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 
+/**
+ * https://etherscan.io/apis#accounts
+ */
 internal class AccountTest {
     lateinit var gson: Gson
 
@@ -65,7 +68,7 @@ internal class AccountTest {
             ]
     }"""
 
-    private val accountTransactions = """
+    private val accountTxs = """
         {
             "status": "1",
             "message": "OK",
@@ -113,7 +116,7 @@ internal class AccountTest {
             ]
         }"""
 
-    private val internalTransaction = """
+    private val internalTxs = """
         {
             "status": "1",
             "message": "OK",
@@ -197,7 +200,7 @@ internal class AccountTest {
 
     @Test
     fun getTransactions() {
-        val response = gson.fromJson(accountTransactions, AccountTransactionResponse::class.java)
+        val response = gson.fromJson(accountTxs, AccountTxResponse::class.java)
         assertEquals("0x047250bd5ac59e6c45473cc0036d71737c885f6a", response.result?.get(0)?.transactionFrom)
         assertEquals("0x82e4499d4b2a669831a3881d61bb24f7b620c61a", response.result?.get(0)?.transactionTo)
         assertEquals("18034800000000000", response.result?.get(0)?.value)
@@ -208,7 +211,7 @@ internal class AccountTest {
 
     @Test
     fun getInternalTransactions() {
-        val response = gson.fromJson(internalTransaction, AccountInternalTransactionResponse::class.java)
+        val response = gson.fromJson(internalTxs, AccountInternalTxResponse::class.java)
         assertEquals("0x20d42f2e99a421147acf198d775395cac2e8b03d", response.result?.get(0)?.transactionFrom)
         assertEquals("0x20d42f2e99a421147acf198d775395cac2e8b03d", response.result?.get(1)?.transactionTo)
         assertEquals("0", response.result?.get(0)?.value)

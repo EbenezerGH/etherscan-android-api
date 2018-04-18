@@ -5,15 +5,18 @@ package jfyg.utils
  */
 internal class QueryUtils {
 
-    fun retrieveAccounts(accounts: ArrayList<String>?): String {
+    /**
+     * Retrieve a list of mulitple items
+     */
+    fun retrieveList(listItems: ArrayList<String>?): String {
 
-        var getAccounts = ""
+        var getList = ""
 
-        for (account in accounts!!) {
-            getAccounts += account + ","
+        for (item in listItems!!) {
+            getList += item + ","
         }
 
-        return getAccounts.dropLast(1)
+        return getList.dropLast(1)
     }
 
 }
