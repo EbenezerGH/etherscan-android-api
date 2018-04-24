@@ -5,10 +5,10 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
-import jfyg.account.Account
-import jfyg.contract.ContractABI
-import jfyg.stat.Stat
-import jfyg.transaction.TxContractStatus
+import jfyg.data.account.Account
+import jfyg.data.contract.ContractABI
+import jfyg.data.stat.Stat
+import jfyg.data.transaction.TxContractStatus
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -30,7 +30,8 @@ class MainActivity : AppCompatActivity() {
         fab.setOnClickListener {
 
             //stat test
-            stat.getLastPriceInBtc().observeOn(AndroidSchedulers.mainThread())
+            stat.getLastPriceInBtc()
+                    .observeOn(AndroidSchedulers.mainThread())
                     ?.subscribeBy {
                         Log.d(TAG, "The current price of Ether in Btc: $it")
                     }
