@@ -2,6 +2,7 @@ package jfyg.network
 
 import com.google.gson.GsonBuilder
 import io.reactivex.schedulers.Schedulers
+import jfyg.utils.Const
 import junit.framework.Assert
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
@@ -17,7 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 @RunWith(JUnit4::class)
 internal class RestClientTest {
-    private var baseUrl: String = "http://api.etherscan.io/"
+    private var baseUrl: String = Const.BASE_URL
     private lateinit var mockWebServer: MockWebServer
 
     @Before

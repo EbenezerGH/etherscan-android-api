@@ -1,21 +1,21 @@
 package jfyg.network
 
 import io.reactivex.Single
-import jfyg.response.account.AccountBalanceResponse
-import jfyg.response.account.AccountBlockResponse
-import jfyg.response.account.AccountInternalTxResponse
-import jfyg.response.account.AccountMultiBalanceResponse
-import jfyg.response.account.AccountTxResponse
-import jfyg.response.contract.ContractABIResponse
-import jfyg.response.stat.StatPriceResponse
-import jfyg.response.stat.StatSupplyResponse
-import jfyg.response.transaction.TxContractExecutionResponse
-import jfyg.response.transaction.TxContractReceiptResponse
+import jfyg.network.response.account.AccountBalanceResponse
+import jfyg.network.response.account.AccountBlockResponse
+import jfyg.network.response.account.AccountInternalTxResponse
+import jfyg.network.response.account.AccountMultiBalanceResponse
+import jfyg.network.response.account.AccountTxResponse
+import jfyg.network.response.contract.ContractABIResponse
+import jfyg.network.response.stat.StatPriceResponse
+import jfyg.network.response.stat.StatSupplyResponse
+import jfyg.network.response.transaction.TxContractExecutionResponse
+import jfyg.network.response.transaction.TxContractReceiptResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 
 /**
- * Etherscan request endpoints
+ * Etherscan request service
  */
 internal interface NetworkService {
 
