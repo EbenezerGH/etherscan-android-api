@@ -8,7 +8,7 @@ import io.reactivex.rxkotlin.subscribeBy
 import jfyg.data.account.Account
 import jfyg.data.contract.ContractABI
 import jfyg.data.stat.Stat
-import jfyg.data.transaction.TxContractStatus
+import jfyg.data.transaction.TxStatus
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         val stat = Stat()
         val account = Account()
         val contract = ContractABI()
-        val tx = TxContractStatus()
+        val tx = TxStatus()
 
 
         fab.setOnClickListener {
