@@ -15,10 +15,10 @@ data class Txs(var blockNumber: String? = null,
                var transactionIndex: String? = null,
 
                @SerializedName("from")
-                        var transactionFrom: String? = null,
+               var transactionFrom: String? = null,
 
                @SerializedName("to")
-                        var transactionTo: String? = null,
+               var transactionTo: String? = null,
 
                var value: String? = null,
 
@@ -29,7 +29,7 @@ data class Txs(var blockNumber: String? = null,
                var isError: String? = null,
 
                @SerializedName("txreceipt_status")
-                        var receiptStatus: String? = null,
+               var receiptStatus: String? = null,
 
                var input: String? = null,
 

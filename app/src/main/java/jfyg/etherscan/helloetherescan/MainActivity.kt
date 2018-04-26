@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
                     }
 
             //account test
-            account.getTransactions("0x2c1ba59d6f58433fb1eaee7d20b26ed83bda51a3")
+            account.getERC20Tokens("0x4e83362442b8d1bec281594cea3050c8eb01311c")
                     .observeOn(AndroidSchedulers.mainThread())
                     ?.subscribeBy {
                         Log.d(TAG, "The Account Size of Transactions is: ${it.size}")

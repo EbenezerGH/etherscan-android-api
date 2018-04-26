@@ -8,6 +8,7 @@ import jfyg.network.response.account.AccountBlockResponse
 import jfyg.network.response.account.AccountInternalTxResponse
 import jfyg.network.response.account.AccountMultiBalanceResponse
 import jfyg.network.response.account.AccountTxResponse
+import jfyg.network.response.account.ERC20Response
 import org.junit.Assert.assertEquals
 import org.junit.Assert
 import org.junit.Before
@@ -162,6 +163,56 @@ internal class AccountTest {
             "result": "Error!"
         }"""
 
+    private val erc20Response = """
+    {
+        "status": "1",
+        "message": "OK",
+        "result": [
+        {
+        "blockNumber": "2231007",
+        "timeStamp": "1473473076",
+        "hash": "0x48b667b0d84c28e61fe3b5c8c8ba25d848d1b08a646ca79bcbb87475427e2129",
+        "nonce": "251",
+        "blockHash": "0x513be6f5e2af2f9f8912767a3f1b9a96edd4251a069649dbfb324d8ac002f48c",
+        "from": "0xac75b73394c329376c214663d92156afa864a77f",
+        "contractAddress": "0xecf8f87f810ecf450940c9f60066b4a7a501d6a7",
+        "to": "0x4e83362442b8d1bec281594cea3050c8eb01311c",
+        "value": "104000000000000000000",
+        "tokenName": "\u0001",
+        "tokenSymbol": "\u0001",
+        "tokenDecimal": "1",
+        "transactionIndex": "5",
+        "gas": "1000000",
+        "gasPrice": "22723508918",
+        "gasUsed": "93721",
+        "cumulativeGasUsed": "199121",
+        "input": "0x2ac9bf090000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000005f68e8131ecf80000000000000000000000000000000000000000000000000005386e53c7de1e0000",
+        "confirmations": "3274042"
+        },
+        {
+        "blockNumber": "2240334",
+        s"timeStamp": "1473605946",
+        "hash": "0x48ca19e7184f5cb923f2a11769dbf7d5e28c80a8c93e973a96bb2d0a5897bbc6",
+        "nonce": "12",
+        "blockHash": "0x43648e9dfd01ba42a177e1d2b1037395d8946a683bb5ce626de2168b27c7915b",
+        "from": "0x4e83362442b8d1bec281594cea3050c8eb01311c",
+        "contractAddress": "0xecf8f87f810ecf450940c9f60066b4a7a501d6a7",
+        "to": "0xe7b4dba7370f773888d197600d9955a7cc6e0015",
+        "value": "180000000000000000000",
+        "tokenName": "\u0001",
+        "tokenSymbol": "\u0001",
+        "tokenDecimal": "1",
+        "transactionIndex": "4",
+        "gas": "1000000",
+        "gasPrice": "20000000000",
+        "gasUsed": "93721",
+        "cumulativeGasUsed": "196143",
+        "input": "0x2ac9bf090000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000009f98351204fe00000000000000000000000000000000000000000000000000005386e53c7de1e0000",
+        "confirmations": "3264715"
+        }
+        ]
+    }"""
+
 
     @Before
     fun setUp() {
@@ -207,6 +258,14 @@ internal class AccountTest {
         assertEquals("21000", response.result?.get(1)?.gas)
         assertEquals("4000000000", response.result?.get(1)?.gasPrice)
         assertEquals("0", response.result?.get(1)?.isError)
+    }
+
+    @Test
+    fun getERC20Token() {
+        val response = gson.fromJson(erc20Response, ERC20Response::class.java)
+        assertEquals("5", response.result?.get(0)?.transactionIndex)
+        assertEquals("1", response.result?.get(0)?.tokenDecimal)
+        assertEquals("\u0001", response.result?.get(0)?.tokenSymbol)
     }
 
     @Test

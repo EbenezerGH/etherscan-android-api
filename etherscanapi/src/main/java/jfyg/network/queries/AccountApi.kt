@@ -3,6 +3,7 @@ package jfyg.network.queries
 import io.reactivex.Single
 import jfyg.network.response.account.AccountBalanceResponse
 import jfyg.network.response.account.AccountBlockResponse
+import jfyg.network.response.account.ERC20Response
 import jfyg.network.response.account.AccountInternalTxResponse
 import jfyg.network.response.account.AccountMultiBalanceResponse
 import jfyg.network.response.account.AccountTxResponse
@@ -36,7 +37,7 @@ internal interface AccountApi {
     /**
      * Get a list of 'Normal' transactions by address
      */
-    fun accountTransactions(module: String?,
+    fun accountTxs(module: String?,
                             action: String?,
                             address: String?,
                             startblock: String?,
@@ -44,9 +45,19 @@ internal interface AccountApi {
                             sort: String?): Single<AccountTxResponse>
 
     /**
+     * Get a list of ERC20 transactions by address
+     */
+    fun accountERC20Txs(module: String?,
+                                 action: String?,
+                                 address: String?,
+                                 startblock: String?,
+                                 endblock: String?,
+                                 sort: String?): Single<ERC20Response>
+
+    /**
      * Get a list of 'Internal' transactions by address
      */
-    fun accountInternalTransactions(module: String?,
+    fun accountInternalTxs(module: String?,
                                     action: String?,
                                     address: String?,
                                     startblock: String?,

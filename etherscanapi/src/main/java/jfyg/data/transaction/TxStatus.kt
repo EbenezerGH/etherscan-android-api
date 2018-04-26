@@ -4,6 +4,7 @@ import io.reactivex.Single
 import jfyg.data.TxExecutionStatus
 import jfyg.data.TxReceiptStatus
 import jfyg.network.queries.ApiQuery
+import jfyg.utils.Const
 
 /**
  * https://etherscan.io/apis#transactions
@@ -13,7 +14,7 @@ class TxStatus : TxStatusContract {
     private val query = ApiQuery()
     private val genericNetworkQuery = query.txReceiptStatus("transaction",
             "getstatus",
-            "0x15f8e5ea1079d9a0bb04a4c58ae5fe7654b5b2b4463375ff7ffb490aa0032f3a")
+            Const.TRANSACTION_PUBLIC_ADDRESS)
 
     /**
      * [BETA] Check Contract Execution Status (if there was an error during contract execution)

@@ -3,6 +3,7 @@ package jfyg.network
 import io.reactivex.Single
 import jfyg.network.response.account.AccountBalanceResponse
 import jfyg.network.response.account.AccountBlockResponse
+import jfyg.network.response.account.ERC20Response
 import jfyg.network.response.account.AccountInternalTxResponse
 import jfyg.network.response.account.AccountMultiBalanceResponse
 import jfyg.network.response.account.AccountTxResponse
@@ -58,6 +59,15 @@ internal interface NetworkService {
                                @Query("endblock") endblock: String?,
                                @Query("sort") sort: String?,
                                @Query("apikey") apikey: String?): Single<AccountTxResponse>
+
+    @GET("api")
+    fun getAccountERC20Transactions(@Query("module") module: String?,
+                                    @Query("action") action: String?,
+                                    @Query("address") address: String?,
+                                    @Query("startblock") startblock: String?,
+                                    @Query("endblock") endblock: String?,
+                                    @Query("sort") sort: String?,
+                                    @Query("apikey") apikey: String?): Single<ERC20Response>
 
     @GET("api")
     fun getAccountInternalTransactions(@Query("module") module: String?,
