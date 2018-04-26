@@ -5,6 +5,7 @@ import jfyg.ApiKey
 import jfyg.network.RestClient
 import jfyg.network.response.account.AccountBalanceResponse
 import jfyg.network.response.account.AccountBlockResponse
+import jfyg.network.response.account.ERC20Response
 import jfyg.network.response.account.AccountInternalTxResponse
 import jfyg.network.response.account.AccountMultiBalanceResponse
 import jfyg.network.response.account.AccountTxResponse
@@ -38,20 +39,28 @@ internal class ApiQuery : AccountApi, StatApi, ContractABIApi, TxApi {
                               blocktype: String?): Single<AccountBlockResponse> =
             RestClient().getQuery().getAccountBlock(module, action, address, blocktype, ApiKey.takeOff.callApiKey())
 
-    override fun accountTransactions(module: String?,
-                                     action: String?,
-                                     address: String?,
-                                     startblock: String?,
-                                     endblock: String?,
-                                     sort: String?): Single<AccountTxResponse> =
+    override fun accountTxs(module: String?,
+                            action: String?,
+                            address: String?,
+                            startblock: String?,
+                            endblock: String?,
+                            sort: String?): Single<AccountTxResponse> =
             RestClient().getQuery().getAccountTransactions(module, action, address, startblock, endblock, sort, ApiKey.takeOff.callApiKey())
 
-    override fun accountInternalTransactions(module: String?,
-                                             action: String?,
-                                             address: String?,
-                                             startblock: String?,
-                                             endblock: String?,
-                                             sort: String?): Single<AccountInternalTxResponse> =
+    override fun accountERC20Txs(module: String?,
+                                 action: String?,
+                                 address: String?,
+                                 startblock: String?,
+                                 endblock: String?,
+                                 sort: String?): Single<ERC20Response> =
+            RestClient().getQuery().getAccountERC20Transactions(module, action, address, startblock, endblock, sort, ApiKey.takeOff.callApiKey())
+
+    override fun accountInternalTxs(module: String?,
+                                    action: String?,
+                                    address: String?,
+                                    startblock: String?,
+                                    endblock: String?,
+                                    sort: String?): Single<AccountInternalTxResponse> =
             RestClient().getQuery().getAccountInternalTransactions(module, action, address, startblock, endblock, sort, ApiKey.takeOff.callApiKey())
 
     override fun contractABI(module: String?, action: String?, address: String?): Single<ContractABIResponse> =

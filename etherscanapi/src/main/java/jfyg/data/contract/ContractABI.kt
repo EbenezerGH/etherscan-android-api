@@ -2,6 +2,7 @@ package jfyg.data.contract
 
 import io.reactivex.Single
 import jfyg.network.queries.ApiQuery
+import jfyg.utils.Const
 
 /**
  * Newly verified Contracts are synced to the API servers within 5 minutes or less
@@ -12,7 +13,7 @@ class ContractABI : ContractABIContract {
     private val query = ApiQuery()
     private val abiQuery = query.contractABI("contract",
             "getabi",
-            "0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413")
+            Const.CONTRACT_PUBLIC_ADDRESS)
 
     /**
      * Return contract ABI for Verified Contract Source Code

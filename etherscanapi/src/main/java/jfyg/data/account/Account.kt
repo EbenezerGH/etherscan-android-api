@@ -3,9 +3,11 @@ package jfyg.data.account
 import io.reactivex.Single
 import jfyg.data.Balances
 import jfyg.data.Blocks
+import jfyg.data.ERC20Token
 import jfyg.data.Txs
 import jfyg.data.TxsInternal
 import jfyg.network.queries.ApiQuery
+import jfyg.utils.Const
 import jfyg.utils.QueryUtils
 
 /**
@@ -16,7 +18,7 @@ class Account : AccountContract {
     private val query = ApiQuery()
     private val genericNetworkQuery = query.accountBalance("account",
             "balance",
-            "0x82e4499D4b2A669831a3881d61BB24f7b620c61a",
+            Const.GENERIC_PUBLIC_ADDRESS,
             "latest")
 
     /**
@@ -50,7 +52,7 @@ class Account : AccountContract {
      * Get a list of 'Normal' Transactions By Address
      */
     override fun getTransactions(address: String?): Single<ArrayList<Txs>> =
-            query.accountTransactions("account",
+            query.accountTxs("account",
                     "txlist",
                     address,
                     "0",
@@ -58,10 +60,22 @@ class Account : AccountContract {
                     "asc").map { it.result }
 
     /**
-     * Get a list of 'Internal' Transactions by Address
+     * [BETA] Get a list of "ERC20 - Token Transfer Events" by Address
+     */
+    override fun getERC20Tokens(address: String?): Single<ArrayList<ERC20Token>> =
+            query.accountERC20Txs("account",
+                    "tokentx",
+                    address,
+                    "0",
+                    "999999999",
+                    "asc").map { it.result }
+
+
+    /**
+     * [BETA] Get a list of 'Internal' Transactions by Address
      */
     override fun getInternalTransactions(address: String?): Single<ArrayList<TxsInternal>> =
-            query.accountInternalTransactions("account",
+            query.accountInternalTxs("account",
                     "txlistinternal",
                     address,
                     "0",
