@@ -9,6 +9,7 @@ import jfyg.network.response.account.ERC20Response
 import jfyg.network.response.account.AccountInternalTxResponse
 import jfyg.network.response.account.AccountMultiBalanceResponse
 import jfyg.network.response.account.AccountTxResponse
+import jfyg.network.response.block.BlockResponse
 import jfyg.network.response.contract.ContractABIResponse
 import jfyg.network.response.stat.StatPriceResponse
 import jfyg.network.response.stat.StatSupplyResponse
@@ -18,7 +19,7 @@ import jfyg.network.response.transaction.TxContractReceiptResponse
 /**
  * A mediator between the responses and errors that come from every query
  */
-internal class ApiQuery : AccountApi, StatApi, ContractABIApi, TxApi {
+internal class ApiQuery : AccountApi, StatApi, ContractABIApi, TxApi, BlocksApi {
 
 
     override fun accountBalance(module: String?,
@@ -84,5 +85,10 @@ internal class ApiQuery : AccountApi, StatApi, ContractABIApi, TxApi {
                                  action: String?,
                                  txHash: String?): Single<TxContractReceiptResponse> =
             RestClient().getQuery().getContractTransactionReceipt(module, action, txHash, ApiKey.takeOff.callApiKey())
+
+    override fun blocksMined(module: String?,
+                             action: String?,
+                             blockno: String?): Single<BlockResponse> =
+            RestClient().getQuery().getBlocksMined(module, action, blockno, ApiKey.takeOff.callApiKey())
 
 }

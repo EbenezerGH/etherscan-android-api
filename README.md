@@ -28,20 +28,37 @@ Create an Instance of one of the reactive Singles and access values by specifyin
 ``[accounts, contracts, transactions, blocks, eventLogs, geth, websockets, tokens, stat]``
 
 ```
-val stat = Stat()
-val account = Account()
-
-            //stat test
-            stat.getLastPriceInBtc()?.observeOn(AndroidSchedulers.mainThread())
-                    ?.subscribeBy {
-                        Log.d(TAG, "The current price of Ether in Btc: $it")
-                    }
+        val stat = Stat()
+        val account = Account()
+        val contract = ContractABI()
+        val tx = TxStatus()
+        val blocks = BlocksMined()
 
             //account test
-            account.getTransactions("0x2c1ba59d6f58433fb1eaee7d20b26ed83bda51a3")?.observeOn(AndroidSchedulers.mainThread())
-                    ?.subscribeBy {
-                        Log.d(TAG, "The Account Size of Transactions is: ${it.size}")
-                    }
+            account.getERC20Tokens("0x4e83362442b8d1bec281594cea3050c8eb01311c")
+                    .observeOn(AndroidSchedulers.mainThread())
+                    ?.subscribeBy(
+                            onSuccess = { Log.d(TAG, "The Account Size of Transactions is: ${it.size}") },
+                            onError = { Log.d(TAG, "error receiving ERC20") })
+
+            //contracts test
+            contract.getContractABI("0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413")
+                    .observeOn(AndroidSchedulers.mainThread())
+                    ?.subscribeBy(
+                            onSuccess = { Log.d(TAG, "The ABI has returned: $it") },
+                            onError = { Log.d(TAG, "error receiving abi contract") })
+
+
+
+            //blocks test
+            blocks.getBlocksMined("2165403")
+                    .observeOn(AndroidSchedulers.mainThread())
+                    ?.subscribeBy(
+                            onSuccess = {
+                                Log.d(TAG, "The block miner is: ${it.blockMiner} and " +
+                                        "the first miner : ${it.uncles?.get(0)?.miner}")
+                            },
+                            onError = { Log.d(TAG, "error receiving blocks mined") })
 ```
 ## Authors
 

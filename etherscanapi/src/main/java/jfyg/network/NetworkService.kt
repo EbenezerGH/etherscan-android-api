@@ -7,6 +7,7 @@ import jfyg.network.response.account.ERC20Response
 import jfyg.network.response.account.AccountInternalTxResponse
 import jfyg.network.response.account.AccountMultiBalanceResponse
 import jfyg.network.response.account.AccountTxResponse
+import jfyg.network.response.block.BlockResponse
 import jfyg.network.response.contract.ContractABIResponse
 import jfyg.network.response.stat.StatPriceResponse
 import jfyg.network.response.stat.StatSupplyResponse
@@ -95,5 +96,11 @@ internal interface NetworkService {
                                       @Query("action") action: String?,
                                       @Query("txhash") address: String?,
                                       @Query("apikey") apikey: String?): Single<TxContractReceiptResponse>
+
+    @GET("api")
+    fun getBlocksMined(@Query("module") module: String?,
+                       @Query("action") action: String?,
+                       @Query("blockno") address: String?,
+                       @Query("apikey") apikey: String?): Single<BlockResponse>
 
 }
