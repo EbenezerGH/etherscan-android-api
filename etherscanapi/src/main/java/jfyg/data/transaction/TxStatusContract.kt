@@ -7,7 +7,7 @@ import jfyg.data.TxReceiptStatus
 /**
  * https://etherscan.io/apis#transactions
  */
-interface TxContract {
+interface TxStatusContract {
 
     /**
      * [BETA] Check Contract Execution Status (if there was an error during contract execution)

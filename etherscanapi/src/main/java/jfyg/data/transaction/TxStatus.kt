@@ -8,7 +8,7 @@ import jfyg.network.queries.ApiQuery
 /**
  * https://etherscan.io/apis#transactions
  */
-class TxContractStatus : TxContract {
+class TxStatus : TxStatusContract {
 
     private val query = ApiQuery()
     private val genericNetworkQuery = query.txReceiptStatus("transaction",
