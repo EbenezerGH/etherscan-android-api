@@ -5,4 +5,4 @@ import jfyg.network.response.BaseResponse
 /**
  * Contract ABI encoding
  */
-internal data class ContractABIResponse(var result: String? = null) : BaseResponse()
+internal data class ContractResponse(var result: String? = null) : BaseResponse()

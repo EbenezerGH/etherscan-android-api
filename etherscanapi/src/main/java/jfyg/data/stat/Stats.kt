@@ -2,30 +2,31 @@ package jfyg.data.stat
 
 import io.reactivex.Single
 import jfyg.network.queries.ApiQuery
+import jfyg.utils.Const
 
 /**
  * https://etherscan.io/apis#stats
  */
-class Stat : StatContract {
+class Stats : StatsContract {
 
     private val query = ApiQuery()
-    private val supplyQuery = query.statSupply("stats", "ethsupply")
-    private val priceQuery = query.statPrice("stats", "ethprice")
+    private val supplyQuery = query.statSupply(Const.STATS, Const.ETH_SUPPLY)
+    private val priceQuery = query.statPrice(Const.STATS, Const.ETH_PRICE)
 
     private val wei = 1000000000000000000 // 1 Ether is 1000000000000000000 Wei
 
     /**
-     * Return total supply of ether
+     * Get Total Supply of Ether
      */
     override fun getTotalSupply(): Single<Double> = supplyQuery.map { it.result?.toDouble() }
 
     /**
-     * Return total supply of ether in wei
+     * Get ETHER LastPrice Price in wei
      */
     override fun getTotalSupplyInWei(): Single<Double> = supplyQuery.map { it.result?.toDouble()?.div(wei) }
 
     /**
-     * Return last price of ether in btc
+     * Get ETHER LastPrice Price in btc
      */
     override fun getLastPriceInUsd(): Single<Float> = priceQuery.map { it.result?.ethUsd?.toFloat() }
 
@@ -35,7 +36,7 @@ class Stat : StatContract {
     override fun getEthTimestamp(): Single<Long> = priceQuery.map { it.result?.ethUsdTimestamp?.toLong() }
 
     /**
-     * Return last price of ether in usd
+     * Get ETHER LastPrice Price in usd
      */
     override fun getLastPriceInBtc(): Single<Float> = priceQuery.map { it.result?.ethBtcTimestamp?.toFloat() }
 

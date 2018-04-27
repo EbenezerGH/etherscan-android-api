@@ -8,7 +8,7 @@ import jfyg.network.response.account.AccountInternalTxResponse
 import jfyg.network.response.account.AccountMultiBalanceResponse
 import jfyg.network.response.account.AccountTxResponse
 import jfyg.network.response.block.BlockResponse
-import jfyg.network.response.contract.ContractABIResponse
+import jfyg.network.response.contract.ContractResponse
 import jfyg.network.response.stat.StatPriceResponse
 import jfyg.network.response.stat.StatSupplyResponse
 import jfyg.network.response.transaction.TxContractExecutionResponse
@@ -83,7 +83,7 @@ internal interface NetworkService {
     fun getSmartContract(@Query("module") module: String?,
                          @Query("action") action: String?,
                          @Query("address") address: String?,
-                         @Query("apikey") apikey: String?): Single<ContractABIResponse>
+                         @Query("apikey") apikey: String?): Single<ContractResponse>
 
     @GET("api")
     fun getContractTransactionExecution(@Query("module") module: String?,
