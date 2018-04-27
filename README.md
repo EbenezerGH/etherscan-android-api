@@ -3,9 +3,9 @@
 [![CircleCI](https://circleci.com/gh/EbenezerGH/hello_etherscan/tree/master.svg?style=svg)](https://circleci.com/gh/EbenezerGH/hello_etherscan/tree/master)
 
 
-# hello_etherscan
+# etherscan-android-api
 
-hello_etherscan is a wrapper for the [Etherscan Api](https://etherscan.io/apis).  This is just a module to handle networking calls.
+etherscan android api is an android wrapper for the [etherscan api](https://etherscan.io/apis).  This is just a module to handle networking calls.
 
 No Releases yet, [features](https://github.com/EbenezerGH/hello_etherscan/issues) still left to be completed.
 
@@ -18,14 +18,16 @@ import a reactive android library to handle the reactive stream being passed int
     implementation 'io.reactivex.rxjava2:rxkotlin:x.y.z'
 
 
-Optional: Call `ApiKey.takeOff.setApiKey("[your api key here]")` in module's application class when recording api usage in the etherscan.io console. [see [Example implementation](https://github.com/EbenezerGH/hello_etherscan/blob/master/app/src/main/java/jfyg/etherscan/helloetherescan/HelloEtherscanApplication.kt)]
+Optional: Call `ApiKey.takeOff.setApiKey("[your api key here]")` in module's application class when recording api usage in the etherscan.io console. [see [example implementation](https://github.com/EbenezerGH/hello_etherscan/blob/master/app/src/main/java/jfyg/etherscan/helloetherescan/HelloEtherscanApplication.kt)]
 ```
 ApiKey.takeOff.setApiKey("1I7CRNU2QIU253UBPFVB5UV2C2PBDURAIYZ")
 ```
 
-Create an Instance of one of the reactive Singles and access values by specifying thread and subscribing. [see [Example implementation](https://github.com/EbenezerGH/hello_etherscan/blob/master/app/src/main/java/jfyg/etherscan/helloetherescan/MainActivity.kt)]
+Create an Instance of one of the reactive Singles and access values by specifying thread and subscribing. [see [example implementation](https://github.com/EbenezerGH/hello_etherscan/blob/master/app/src/main/java/jfyg/etherscan/helloetherescan/MainActivity.kt)]
 
-``[accounts, contracts, transactions, blocks, eventLogs, geth, websockets, tokens, stat]``
+Currently Available: ``[accounts, contracts, transactions, blocks, stat]``
+
+Coming Soon: ``eventLogs, geth, websockets, tokens``
 
 ```
         val stat = Stat()
@@ -73,3 +75,15 @@ LTC: La1vhdzuVY85EEW8m5hTpw4C15gPY9hVDW
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
+## References
+
+[**Etherscan APIs**](https://etherscan.io/apis)
+
+[**Contracts Verified**](https://etherscan.io/contractsVerified)
+
+[**Ethereum Github Repo**](https://github.com/ethereum)
+
+[**Ethereum Wiki**](https://github.com/ethereum/wiki/wiki/JSON-RPC)
+
+
