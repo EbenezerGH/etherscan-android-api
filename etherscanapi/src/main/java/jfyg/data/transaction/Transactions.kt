@@ -9,30 +9,33 @@ import jfyg.utils.Const
 /**
  * https://etherscan.io/apis#transactions
  */
-class TxStatus : TxStatusContract {
+class Transactions : TransactionsContract {
 
     private val query = ApiQuery()
-    private val genericNetworkQuery = query.txReceiptStatus("transaction",
-            "getstatus",
+    private val genericNetworkQuery = query.txReceiptStatus(
+            Const.TRANSACTION,
+            Const.GET_STATUS,
             Const.TRANSACTION_PUBLIC_ADDRESS)
 
     /**
      * [BETA] Check Contract Execution Status (if there was an error during contract execution)
      * Note: isError":"0" = Pass , isError":"1" = Error during Contract Execution
      */
-    override fun getTxExecutionStatus(txHash: String): Single<TxExecutionStatus> =
-            query.txExecutionStatus("transaction",
-                    "getstatus",
-                    txHash).map { it.result }
+    override fun getTxExecutionStatus(txHash: String):
+            Single<TxExecutionStatus> = query.txExecutionStatus(
+            Const.TRANSACTION,
+            Const.GET_STATUS,
+            txHash).map { it.result }
 
     /**
      * [BETA] Check Transaction Receipt Status (Only applicable for Post Byzantium fork transactions)
      * Note: status: 0 = Fail, 1 = Pass. Will return null/empty value for pre-byzantium fork
      */
-    override fun getTxReceiptStatus(txHash: String): Single<TxReceiptStatus> =
-            query.txReceiptStatus("transaction",
-                    "gettxreceiptstatus",
-                    txHash).map { it.result }
+    override fun getTxReceiptStatus(txHash: String):
+            Single<TxReceiptStatus> = query.txReceiptStatus(
+            Const.TRANSACTION,
+            Const.GET_TX_RECEIPT_STATUS,
+            txHash).map { it.result }
 
     /**
      * Return network status

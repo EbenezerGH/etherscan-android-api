@@ -4,15 +4,15 @@ import io.reactivex.Single
 import jfyg.network.response.stat.StatPriceResponse
 import jfyg.network.response.stat.StatSupplyResponse
 
-internal interface StatApi {
+internal interface StatsApi {
 
     /**
-     * Get ether last price
+     * Get ETHER LastPrice
      */
     fun statPrice(module: String, action: String): Single<StatPriceResponse>
 
     /**
-     * Get total supply of ether
+     * Get Total Supply of Ether
      */
     fun statSupply(module: String, action: String): Single<StatSupplyResponse>
 

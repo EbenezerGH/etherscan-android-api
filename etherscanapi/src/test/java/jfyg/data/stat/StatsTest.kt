@@ -12,7 +12,7 @@ import org.junit.Assert.assertEquals
 /**
  * https://etherscan.io/apis#stats
  */
-internal class StatTest {
+internal class StatsTest {
     lateinit var gson: Gson
 
     private val inputSupply = """

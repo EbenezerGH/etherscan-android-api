@@ -4,16 +4,21 @@ import io.reactivex.Single
 import jfyg.network.response.transaction.TxContractExecutionResponse
 import jfyg.network.response.transaction.TxContractReceiptResponse
 
-internal interface TxApi {
+/**
+ * https://etherscan.io/apis#transactions
+ */
+internal interface TransactionsApi {
 
     /**
-     * Check contract execution status
+     * [BETA] Check Contract Execution Status (if there was an error during contract execution)
+     * Note: isError":"0" = Pass , isError":"1" = Error during Contract Execution
      */
     fun txExecutionStatus(module: String?,
                           action: String?,
                           txHash: String?): Single<TxContractExecutionResponse>
     /**
-     * Check contract receipt status
+     * [BETA] Check Transaction Receipt Status (Only applicable for Post Byzantium fork transactions)
+     * Note: status: 0 = Fail, 1 = Pass. Will return null/empty value for pre-byzantium fork
      */
     fun txReceiptStatus(module: String?,
                         action: String?,

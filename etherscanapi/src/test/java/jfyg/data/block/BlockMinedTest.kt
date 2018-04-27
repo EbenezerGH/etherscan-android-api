@@ -8,7 +8,7 @@ import org.junit.Test
 import org.junit.Assert.*
 import org.junit.Before
 
-class BlocksMinedTest {
+class BlockMinedTest {
     lateinit var gson: Gson
 
     private val minedBlocks = """

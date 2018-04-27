@@ -10,7 +10,7 @@ import jfyg.network.response.account.AccountInternalTxResponse
 import jfyg.network.response.account.AccountMultiBalanceResponse
 import jfyg.network.response.account.AccountTxResponse
 import jfyg.network.response.block.BlockResponse
-import jfyg.network.response.contract.ContractABIResponse
+import jfyg.network.response.contract.ContractResponse
 import jfyg.network.response.stat.StatPriceResponse
 import jfyg.network.response.stat.StatSupplyResponse
 import jfyg.network.response.transaction.TxContractExecutionResponse
@@ -19,7 +19,7 @@ import jfyg.network.response.transaction.TxContractReceiptResponse
 /**
  * A mediator between the responses and errors that come from every query
  */
-internal class ApiQuery : AccountApi, StatApi, ContractABIApi, TxApi, BlocksApi {
+internal class ApiQuery : AccountsApi, StatsApi, ContractsApi, TransactionsApi, BlocksApi {
 
 
     override fun accountBalance(module: String?,
@@ -64,7 +64,7 @@ internal class ApiQuery : AccountApi, StatApi, ContractABIApi, TxApi, BlocksApi 
                                     sort: String?): Single<AccountInternalTxResponse> =
             RestClient().getQuery().getAccountInternalTransactions(module, action, address, startblock, endblock, sort, ApiKey.takeOff.callApiKey())
 
-    override fun contractABI(module: String?, action: String?, address: String?): Single<ContractABIResponse> =
+    override fun contractABI(module: String?, action: String?, address: String?): Single<ContractResponse> =
             RestClient().getQuery().getSmartContract(module, action, address, ApiKey.takeOff.callApiKey())
 
     override fun statPrice(module: String,

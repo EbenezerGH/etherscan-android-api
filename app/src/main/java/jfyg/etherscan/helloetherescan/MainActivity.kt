@@ -5,11 +5,11 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
-import jfyg.data.account.Account
-import jfyg.data.block.BlocksMined
-import jfyg.data.contract.ContractABI
-import jfyg.data.stat.Stat
-import jfyg.data.transaction.TxStatus
+import jfyg.data.account.Accounts
+import jfyg.data.block.Blocks
+import jfyg.data.contract.Contracts
+import jfyg.data.stat.Stats
+import jfyg.data.transaction.Transactions
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -22,11 +22,11 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         //************************************************  Used To Test Singles returned from etherscanapi Module
-        val stat = Stat()
-        val account = Account()
-        val contract = ContractABI()
-        val tx = TxStatus()
-        val blocks = BlocksMined()
+        val stat = Stats()
+        val account = Accounts()
+        val contract = Contracts()
+        val tx = Transactions()
+        val blocks = Blocks()
 
 
         fab.setOnClickListener {
@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
                     ?.subscribeBy(
                             onSuccess = {
                                 Log.d(TAG, "The block miner is: ${it.blockMiner} and " +
-                                        "the first minor : ${it.uncles?.get(0)?.miner}")
+                                        "the first miner : ${it.uncles[0].miner}")
                             },
                             onError = { Log.d(TAG, "error receiving blocks mined") })
         }

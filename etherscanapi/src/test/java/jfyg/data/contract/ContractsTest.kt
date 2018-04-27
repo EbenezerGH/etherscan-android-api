@@ -3,7 +3,7 @@ package jfyg.data.contract
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import jfyg.network.response.BaseResponse
-import jfyg.network.response.contract.ContractABIResponse
+import jfyg.network.response.contract.ContractResponse
 import org.junit.Assert
 import org.junit.Test
 
@@ -12,7 +12,7 @@ import org.junit.Before
 /**
  * https://etherscan.io/apis#contracts
  */
-class ContractABITest {
+class ContractsTest {
     lateinit var gson: Gson
 
     val abiResult = "{\n" +
@@ -123,7 +123,7 @@ class ContractABITest {
 
     @Test
     fun getContractABI() {
-        val response = gson.fromJson(abiResult, ContractABIResponse::class.java)
+        val response = gson.fromJson(abiResult, ContractResponse::class.java)
         Assert.assertNotNull(response.result)
     }
 

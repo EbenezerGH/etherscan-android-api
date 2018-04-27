@@ -5,20 +5,20 @@ import io.reactivex.Single
 /**
  * https://etherscan.io/apis#stats
  */
-internal interface StatContract {
+internal interface StatsContract {
 
     /**
-     * Return total supply of ether
+     * Get Total Supply of Ether
      */
     fun getTotalSupply(): Single<Double>
 
     /**
-     * Return total supply of ether in wei
+     * Get ETHER LastPrice Price in wei
      */
     fun getTotalSupplyInWei(): Single<Double>
 
     /**
-     * Return last price of ether in btc
+     * Get ETHER LastPrice Price in btc
      */
     fun getLastPriceInBtc(): Single<Float>
 
@@ -28,7 +28,7 @@ internal interface StatContract {
     fun getBtcTimestamp(): Single<Long>
 
     /**
-     * Return last price of ether in usd
+     * Get ETHER LastPrice Price in usd
      */
     fun getLastPriceInUsd(): Single<Float>
 
