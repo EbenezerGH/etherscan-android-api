@@ -1,12 +1,13 @@
 [![Generic badge](https://img.shields.io/badge/EtherscanApi-UP-brightgreen.svg)](https://api.etherscan.io/api?module=stats&action=ethprice&apikey=YourApiKeyToken)
 [![Generic badge](https://img.shields.io/badge/CircleCI-UP-brightgreen.svg)](https://circleci.com/gh/EbenezerGH/hello_etherscan/tree/master)
+[![Generic badge](https://img.shields.io/badge/Version-v0.7.0-beta.1,-yellow.svg)](https://circleci.com/gh/EbenezerGH/hello_etherscan/tree/master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/EbenezerGH/hello_etherscan/blob/update-documentation/LICENSE)
 
 # etherscan-android-api
 
 etherscan android api is an android wrapper for the [etherscan api](https://etherscan.io/apis).  This is just a module to handle networking calls.
 
-No Releases yet, [features](https://github.com/EbenezerGH/hello_etherscan/issues) still left to be completed.
+[features](https://github.com/EbenezerGH/hello_etherscan/issues) Though this version is completely safe to use, There are a couple of edge cases to be handled before the first version.
 
 ## Getting Started
 
