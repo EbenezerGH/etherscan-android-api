@@ -15,32 +15,32 @@ internal interface AccountsContract {
     /**
      * Get Ether Balance for a single Address
      */
-    fun getBalance(address: String?): Single<Double>
+    fun getBalance(address: String): Single<Double>
 
     /**
      * Get Ether Balance for multiple Addresses in a single call
      */
-    fun getMultiBalance(addresses: List<String>?): Single<List<Balance>>
+    fun getMultiBalance(addresses: List<String>): Single<List<Balance>>
 
     /**
      * Get list of blocks mined by address
      */
-    fun getBlocks(address: String?): Single<List<BlockAccount>>
+    fun getBlocks(address: String): Single<List<BlockAccount>>
 
     /**
      * Get a list of 'Normal' Transactions By Address
      */
-    fun getTransactions(address: String?): Single<List<Tx>>
+    fun getTransactions(address: String): Single<List<Tx>>
 
     /**
      * [BETA] Get a list of "ERC20 - Token Transfer Events" by Address
      */
-    fun getERC20Tokens(address: String?): Single<List<ERC20Token>>
+    fun getERC20Tokens(address: String): Single<List<ERC20Token>>
 
     /**
      * [BETA] Get a list of 'Internal' Transactions by Address
      */
-    fun getInternalTransactions(address: String?): Single<List<TxsInternal>>
+    fun getInternalTransactions(address: String): Single<List<TxsInternal>>
 
     /**
      * Return network status

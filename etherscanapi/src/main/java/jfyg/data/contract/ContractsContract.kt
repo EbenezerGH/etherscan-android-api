@@ -12,7 +12,7 @@ internal interface ContractsContract {
      * Get Contract ABI for Verified Contract Source Codes
      * https://etherscan.io/contractsVerified
      */
-    fun getContractABI(address: String?): Single<String>
+    fun getContractABI(address: String): Single<String>
 
     /**
      * Return network status

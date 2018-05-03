@@ -4,7 +4,10 @@ import io.reactivex.Single
 import jfyg.data.TxExecutionStatus
 import jfyg.data.TxReceiptStatus
 import jfyg.network.queries.ApiQuery
-import jfyg.utils.Const
+import jfyg.utils.GET_STATUS
+import jfyg.utils.GET_TX_RECEIPT_STATUS
+import jfyg.utils.TRANSACTION
+import jfyg.utils.TRANSACTION_PUBLIC_ADDRESS
 
 /**
  * https://etherscan.io/apis#transactions
@@ -13,9 +16,9 @@ class Transactions : TransactionsContract {
 
     private val query = ApiQuery()
     private val genericNetworkQuery = query.txReceiptStatus(
-            Const.TRANSACTION,
-            Const.GET_STATUS,
-            Const.TRANSACTION_PUBLIC_ADDRESS)
+            TRANSACTION,
+            GET_STATUS,
+            TRANSACTION_PUBLIC_ADDRESS)
 
     /**
      * [BETA] Check Contract Execution Status (if there was an error during contract execution)
@@ -23,8 +26,8 @@ class Transactions : TransactionsContract {
      */
     override fun getTxExecutionStatus(txHash: String):
             Single<TxExecutionStatus> = query.txExecutionStatus(
-            Const.TRANSACTION,
-            Const.GET_STATUS,
+            TRANSACTION,
+            GET_STATUS,
             txHash).map { it.result }
 
     /**
@@ -33,8 +36,8 @@ class Transactions : TransactionsContract {
      */
     override fun getTxReceiptStatus(txHash: String):
             Single<TxReceiptStatus> = query.txReceiptStatus(
-            Const.TRANSACTION,
-            Const.GET_TX_RECEIPT_STATUS,
+            TRANSACTION,
+            GET_TX_RECEIPT_STATUS,
             txHash).map { it.result }
 
     /**
