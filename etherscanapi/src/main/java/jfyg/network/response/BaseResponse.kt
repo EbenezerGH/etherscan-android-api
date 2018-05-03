@@ -5,8 +5,8 @@ package jfyg.network.response
  */
 internal open class BaseResponse {
 
-    var status: String? = null
+    val status: String? = null
 
-    var message: String? = null
+    val message: String? = null
 
 }

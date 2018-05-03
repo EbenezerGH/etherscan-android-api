@@ -2,9 +2,9 @@ package jfyg.data
 
 import com.google.gson.annotations.SerializedName
 
-data class Uncle(var miner: String? = null,
+data class Uncle(val miner: String? = null,
 
-                 var unclePosition: String? = null,
+                 val unclePosition: String? = null,
 
                  @SerializedName("blockreward")
-                  var blockReward: String? = null)
+                 val blockReward: String? = null)

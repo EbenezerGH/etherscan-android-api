@@ -1,11 +1,11 @@
 package jfyg.data
 
-data class BlockMined(var blockNumber: String? = null,
+data class BlockMined(val blockNumber: String? = null,
 
-                      var timeStamp: String? = null,
+                      val timeStamp: String? = null,
 
-                      var blockMiner: String? = null,
+                      val blockMiner: String? = null,
 
-                      var blockReward: String? = null,
+                      val blockReward: String? = null,
 
-                      var uncles: List<Uncle> = emptyList())
+                      val uncles: List<Uncle> = emptyList())

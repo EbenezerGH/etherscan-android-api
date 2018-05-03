@@ -3,4 +3,4 @@ package jfyg.network.response.stat
 /**
  * Response for total supply of ether
  */
-internal data class StatSupplyResponse(var result: String? = null)
+internal data class StatSupplyResponse(val result: String? = null)
