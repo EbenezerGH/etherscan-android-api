@@ -3,14 +3,14 @@ package jfyg.data
 import com.google.gson.annotations.SerializedName
 
 data class StatPrice(@SerializedName("ethbtc")
-                     var ethBtc: String? = null,
+                     val ethBtc: String? = null,
 
                      @SerializedName("ethbtc_timestamp")
-                     var ethBtcTimestamp: String? = null,
+                     val ethBtcTimestamp: String? = null,
 
                      @SerializedName("ethusd")
-                     var ethUsd: String? = null,
+                     val ethUsd: String? = null,
 
                      @SerializedName("ethusd_timestamp")
-                     var ethUsdTimestamp: String? = null
+                     val ethUsdTimestamp: String? = null
 )

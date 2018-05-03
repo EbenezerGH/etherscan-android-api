@@ -11,7 +11,7 @@ internal interface BlocksContract {
     /**
      * [BETA] Get Block And Uncle Rewards by BlockNo
      */
-    fun getBlocksMined(blockNo: String?): Single<BlockMined>
+    fun getBlocksMined(blockNo: String): Single<BlockMined>
 
     /**
      * Return network status

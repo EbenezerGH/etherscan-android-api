@@ -6,4 +6,4 @@ import jfyg.network.response.BaseResponse
 /**
  * Check contract execution status
  */
-internal data class BlockResponse(var result: BlockMined) : BaseResponse()
+internal data class BlockResponse(val result: BlockMined) : BaseResponse()

@@ -6,4 +6,4 @@ import jfyg.network.response.BaseResponse
 /**
  * Transactions recorded by an account
  */
-internal data class AccountTxResponse(var result: List<Tx>? = null) : BaseResponse()
+internal data class AccountTxResponse(val result: List<Tx>? = null) : BaseResponse()

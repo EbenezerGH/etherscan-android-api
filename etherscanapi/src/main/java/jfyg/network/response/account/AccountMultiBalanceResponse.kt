@@ -5,4 +5,4 @@ import jfyg.data.Balance
 /**
  * Balances of multiple accounts
  */
-internal data class AccountMultiBalanceResponse(var result: List<Balance>? = null)
+internal data class AccountMultiBalanceResponse(val result: List<Balance>? = null)

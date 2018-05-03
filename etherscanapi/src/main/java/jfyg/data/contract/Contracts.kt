@@ -2,7 +2,9 @@ package jfyg.data.contract
 
 import io.reactivex.Single
 import jfyg.network.queries.ApiQuery
-import jfyg.utils.Const
+import jfyg.utils.CONTRACT
+import jfyg.utils.CONTRACT_PUBLIC_ADDRESS
+import jfyg.utils.GET_ABI
 
 /**
  * Newly verified Contracts are synced to the API servers within 5 minutes or less
@@ -12,18 +14,18 @@ class Contracts : ContractsContract {
 
     private val query = ApiQuery()
     private val abiQuery = query.contractABI(
-            Const.CONTRACT,
-            Const.GET_ABI,
-            Const.CONTRACT_PUBLIC_ADDRESS)
+            CONTRACT,
+            GET_ABI,
+            CONTRACT_PUBLIC_ADDRESS)
 
     /**
      * Get Contract ABI for Verified Contract Source Codes
      * https://etherscan.io/contractsVerified
      */
-    override fun getContractABI(address: String?):
+    override fun getContractABI(address: String):
             Single<String> = query.contractABI(
-            Const.CONTRACT,
-            Const.GET_ABI,
+            CONTRACT,
+            GET_ABI,
             address).map { it.result }
 
     /**

@@ -6,4 +6,4 @@ import jfyg.network.response.BaseResponse
 /**
  * Blocks mined by an account
  */
-internal data class AccountBlockResponse(var result: List<BlockAccount>? = null) : BaseResponse()
+internal data class AccountBlockResponse(val result: List<BlockAccount>? = null) : BaseResponse()

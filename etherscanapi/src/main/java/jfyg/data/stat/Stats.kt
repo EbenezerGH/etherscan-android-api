@@ -2,7 +2,9 @@ package jfyg.data.stat
 
 import io.reactivex.Single
 import jfyg.network.queries.ApiQuery
-import jfyg.utils.Const
+import jfyg.utils.ETH_PRICE
+import jfyg.utils.ETH_SUPPLY
+import jfyg.utils.STATS
 
 /**
  * https://etherscan.io/apis#stats
@@ -10,8 +12,8 @@ import jfyg.utils.Const
 class Stats : StatsContract {
 
     private val query = ApiQuery()
-    private val supplyQuery = query.statSupply(Const.STATS, Const.ETH_SUPPLY)
-    private val priceQuery = query.statPrice(Const.STATS, Const.ETH_PRICE)
+    private val supplyQuery = query.statSupply(STATS, ETH_SUPPLY)
+    private val priceQuery = query.statPrice(STATS, ETH_PRICE)
 
     private val wei = 1000000000000000000 // 1 Ether is 1000000000000000000 Wei
 

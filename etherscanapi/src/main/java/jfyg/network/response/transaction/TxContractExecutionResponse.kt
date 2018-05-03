@@ -6,4 +6,4 @@ import jfyg.network.response.BaseResponse
 /**
  * Check contract execution status
  */
-internal data class TxContractExecutionResponse(var result: TxExecutionStatus) : BaseResponse()
+internal data class TxContractExecutionResponse(val result: TxExecutionStatus) : BaseResponse()

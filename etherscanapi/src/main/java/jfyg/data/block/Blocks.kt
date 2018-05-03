@@ -3,7 +3,9 @@ package jfyg.data.block
 import io.reactivex.Single
 import jfyg.data.BlockMined
 import jfyg.network.queries.ApiQuery
-import jfyg.utils.Const
+import jfyg.utils.BLOCK
+import jfyg.utils.BLOCK_NO
+import jfyg.utils.GET_BLOCK_REWARD
 
 /**
  * https://etherscan.io/apis#blocks
@@ -11,17 +13,17 @@ import jfyg.utils.Const
 class Blocks : BlocksContract {
     private val query = ApiQuery()
     private val genericNetworkQuery = query.blocksMined(
-            Const.BLOCK,
-            Const.GET_BLOCK_REWARD,
-            Const.BLOCK_NO)
+            BLOCK,
+            GET_BLOCK_REWARD,
+            BLOCK_NO)
 
     /**
      * [BETA] Get Block And Uncle Rewards by BlockNo
      */
-    override fun getBlocksMined(blockNo: String?):
+    override fun getBlocksMined(blockNo: String):
             Single<BlockMined> = query.blocksMined(
-            Const.BLOCK,
-            Const.GET_BLOCK_REWARD,
+            BLOCK,
+            GET_BLOCK_REWARD,
             blockNo).map { it.result }
 
     /**

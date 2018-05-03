@@ -5,14 +5,14 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import com.google.gson.GsonBuilder
 import io.reactivex.schedulers.Schedulers
-import jfyg.utils.Const
+import jfyg.utils.BASE_URL
 
 /**
  * Client used to create the network call
  */
 internal class RestClient {
 
-    private var baseUrl: String = Const.BASE_URL
+    private var baseUrl: String = BASE_URL
     private var networkService: NetworkService
 
     init {

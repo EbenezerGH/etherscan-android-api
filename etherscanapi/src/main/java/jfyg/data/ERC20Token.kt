@@ -2,42 +2,42 @@ package jfyg.data
 
 import com.google.gson.annotations.SerializedName
 
-data class ERC20Token(var blockNumber: String? = null,
+data class ERC20Token(val blockNumber: String? = null,
 
-                      var timeStamp: String? = null,
+                      val timeStamp: String? = null,
 
-                      var hash: String? = null,
+                      val hash: String? = null,
 
-                      var nonce: String? = null,
+                      val nonce: String? = null,
 
-                      var blockHash: String? = null,
+                      val blockHash: String? = null,
 
                       @SerializedName("from")
-                      var transactionFrom: String? = null,
+                      val transactionFrom: String? = null,
 
-                      var contractAddress: String? = null,
+                      val contractAddress: String? = null,
 
                       @SerializedName("to")
-                      var transactionTo: String? = null,
+                      val transactionTo: String? = null,
 
-                      var value: String? = null,
+                      val value: String? = null,
 
-                      var tokenName: String? = null,
+                      val tokenName: String? = null,
 
-                      var tokenSymbol: String? = null,
+                      val tokenSymbol: String? = null,
 
-                      var tokenDecimal: String? = null,
+                      val tokenDecimal: String? = null,
 
-                      var transactionIndex: String? = null,
+                      val transactionIndex: String? = null,
 
-                      var gas: String? = null,
+                      val gas: String? = null,
 
-                      var gasPrice: String? = null,
+                      val gasPrice: String? = null,
 
-                      var gasUsed: String? = null,
+                      val gasUsed: String? = null,
 
-                      var cumulativeGasUsed: String? = null,
+                      val cumulativeGasUsed: String? = null,
 
-                      var input: String? = null,
+                      val input: String? = null,
 
-                      var confirmations: String? = null)
+                      val confirmations: String? = null)

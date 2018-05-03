@@ -7,8 +7,20 @@ import jfyg.data.ERC20Token
 import jfyg.data.Tx
 import jfyg.data.TxsInternal
 import jfyg.network.queries.ApiQuery
-import jfyg.utils.Const
 import jfyg.utils.QueryUtils
+import jfyg.utils.ACCOUNT
+import jfyg.utils.ASC
+import jfyg.utils.BALANCE
+import jfyg.utils.BALANCE_MULTI
+import jfyg.utils.BLOCKS
+import jfyg.utils.END_BLOCK
+import jfyg.utils.GENERIC_PUBLIC_ADDRESS
+import jfyg.utils.GET_MINED_BLOCKS
+import jfyg.utils.LATEST
+import jfyg.utils.START_BLOCK
+import jfyg.utils.TOKEN_TX
+import jfyg.utils.TX_LIST
+import jfyg.utils.TX_LIST_INTERNAL
 
 /**
  * https://etherscan.io/apis#accounts
@@ -17,76 +29,77 @@ class Accounts : AccountsContract {
 
     private val query = ApiQuery()
     private val genericNetworkQuery = query.accountBalance(
-            Const.ACCOUNT,
-            Const.BALANCE,
-            Const.GENERIC_PUBLIC_ADDRESS,
-            Const.LATEST)
+            ACCOUNT,
+            BALANCE,
+            GENERIC_PUBLIC_ADDRESS,
+            LATEST)
 
     /**
      * Get Ether Balance for a single Address
      */
-    override fun getBalance(address: String?):
+    override fun getBalance(address: String):
             Single<Double> = query.accountBalance(
-            Const.ACCOUNT,
-            Const.BALANCE,
+            ACCOUNT,
+            BALANCE,
             address,
-            Const.LATEST).map { it.result?.toDouble() }
+            LATEST).map { it.result?.toDouble() }
 
     /**
      * Get Ether Balance for multiple Addresses in a single call
      */
-    override fun getMultiBalance(addresses: List<String>?):
+    override fun getMultiBalance(addresses: List<String>):
             Single<List<Balance>> = query.accountMultiBalance(
-            Const.ACCOUNT,
-            Const.BALANCE_MULTI,
+            ACCOUNT,
+            BALANCE_MULTI,
             QueryUtils.retrieveList(addresses),
-            Const.LATEST).map { it.result }
+            LATEST).map { it.result }
 
     /**
      * Get list of blocks mined by address
      */
-    override fun getBlocks(address: String?):
+    override fun getBlocks(address: String):
             Single<List<BlockAccount>> = query.accountBlock(
-            Const.ACCOUNT,
-            Const.GET_MINED_BLOCKS,
+            ACCOUNT,
+            GET_MINED_BLOCKS,
             address,
-            Const.BLOCKS).map { it.result }
+            BLOCKS).map { it.result }
 
     /**
      * Get a list of 'Normal' Transactions By Address
      */
-    override fun getTransactions(address: String?):
-            Single<List<Tx>> = query.accountTxs(Const.ACCOUNT,
-            Const.TX_LIST,
+    override fun getTransactions(address: String):
+            Single<List<Tx>> = query.accountTxs(
+            ACCOUNT,
+            TX_LIST,
             address,
-            Const.START_BLOCK,
-            Const.END_BLOCK,
-            Const.ASC).map { it.result }
+            START_BLOCK,
+            END_BLOCK,
+            ASC).map { it.result }
 
     /**
      * [BETA] Get a list of "ERC20 - Token Transfer Events" by Address
      */
-    override fun getERC20Tokens(address: String?):
+    override fun getERC20Tokens(address: String):
             Single<List<ERC20Token>> = query.accountERC20Txs(
-            Const.ACCOUNT,
-            Const.TOKEN_TX,
+            ACCOUNT,
+            TOKEN_TX,
             address,
-            Const.START_BLOCK,
-            Const.END_BLOCK,
-            Const.ASC).map { it.result }
+            START_BLOCK,
+            END_BLOCK,
+            ASC).map { it.result }
 
 
     /**
      * [BETA] Get a list of 'Internal' Transactions by Address
      */
-    override fun getInternalTransactions(address: String?):
+    override fun getInternalTransactions(address: String):
             Single<List<TxsInternal>> = query.accountInternalTxs(
-            Const.ACCOUNT,
-            Const.TX_LIST_INTERNAL,
+            ACCOUNT,
+            TX_LIST_INTERNAL,
             address,
-            Const.START_BLOCK,
-            Const.END_BLOCK,
-            Const.ASC).map { it.result }
+            START_BLOCK,
+            END_BLOCK,
+            ASC).map { it.result }
 
     /**
      * Return network status

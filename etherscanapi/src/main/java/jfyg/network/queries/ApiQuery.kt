@@ -20,7 +20,8 @@ import jfyg.network.response.transaction.TxContractReceiptResponse
  * A mediator between the responses and errors that come from every query
  */
 internal class ApiQuery : AccountsApi, StatsApi, ContractsApi, TransactionsApi, BlocksApi {
-
+// retrofit allows the usage of null parameters when building queries and some parameters being passed in the
+// following classes are null, hence the usage of .?func()
 
     override fun accountBalance(module: String?,
                                 action: String?,

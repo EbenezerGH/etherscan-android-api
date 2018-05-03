@@ -48,7 +48,7 @@ class BlocksTest {
         assertEquals("0x13a06d3dfe21e0db5c016c03ea7d2509f7f8d1e3", response.result.blockMiner)
         assertEquals("2165403", response.result.blockNumber)
         assertEquals("5314181600000000000", response.result.blockReward)
-        assertEquals("3750000000000000000", response.result.uncles?.get(0)?.blockReward)
+        assertEquals("3750000000000000000", response.result.uncles[0].blockReward)
     }
 
 }
