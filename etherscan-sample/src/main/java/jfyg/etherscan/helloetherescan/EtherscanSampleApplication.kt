@@ -3,7 +3,7 @@ package jfyg.etherscan.helloetherescan
 import android.app.Application
 import jfyg.ApiKey
 
-class HelloEtherscanApplication : Application() {
+class EtherscanSampleApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 

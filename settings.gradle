@@ -1,1 +1,1 @@
-include ':sample-project', ':etherscanapi'
+include ':etherscan-sample', ':etherscanapi'

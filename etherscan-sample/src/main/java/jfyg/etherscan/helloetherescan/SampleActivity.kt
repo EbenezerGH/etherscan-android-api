@@ -13,7 +13,7 @@ import jfyg.data.transaction.Transactions
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity : AppCompatActivity() {
+class SampleActivity : AppCompatActivity() {
     private val TAG = javaClass.name
 
     override fun onCreate(savedInstanceState: Bundle?) {
