@@ -1,29 +1,44 @@
 [![Generic badge](https://img.shields.io/badge/EtherscanApi-UP-brightgreen.svg)](https://api.etherscan.io/api?module=stats&action=ethprice&apikey=YourApiKeyToken)
 [![Generic badge](https://img.shields.io/badge/CircleCI-UP-brightgreen.svg)](https://circleci.com/gh/EbenezerGH/hello_etherscan/tree/master)
-[![Generic badge](https://img.shields.io/badge/Version-v0.7.0-beta.1,-yellow.svg)](https://circleci.com/gh/EbenezerGH/hello_etherscan/tree/master)
+[![Generic badge](https://img.shields.io/badge/Version-v0.8.0-lightgrey.svg)](https://github.com/EbenezerGH/etherscan-android-api/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/EbenezerGH/hello_etherscan/blob/update-documentation/LICENSE)
 
 # etherscan-android-api
 
 etherscan android api is an android wrapper for the [etherscan api](https://etherscan.io/apis).  This is just a module to handle networking calls.
 
-[features](https://github.com/EbenezerGH/hello_etherscan/issues) Though this version is completely safe to use, There are a couple of edge cases to be handled before the first version.
+There are only a few [features](https://github.com/EbenezerGH/hello_etherscan/issues) left to complete, however this version is completely safe to use.
 
 ## Getting Started
 
-import a reactive android library to handle the reactive stream being passed into your module.
+Add JitPack to your root build.gradle at the end of repositories
+```
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+Add the dependency
+```
+	dependencies {
+	        implementation 'com.github.EbenezerGH:hello_etherscan:v0.8.0'
+	}
+```
+import a reactive android library to handle the reactive stream being passed into your module.  For instance I used the following:
 
 
     implementation 'io.reactivex.rxjava2:rxandroid:x.y.z'
     implementation 'io.reactivex.rxjava2:rxkotlin:x.y.z'
 
 
-Optional: Call `ApiKey.takeOff.setApiKey("[your api key here]")` in module's application class when recording api usage in the etherscan.io console. [see [example implementation](https://github.com/EbenezerGH/hello_etherscan/blob/master/app/src/main/java/jfyg/etherscan/helloetherescan/HelloEtherscanApplication.kt)]
+Optional: Call `ApiKey.takeOff.setApiKey("[your api key here]")` in your module's application class when recording api usage in the etherscan.io console. [see [example implementation](https://github.com/EbenezerGH/etherscan-android-api/blob/master/etherscan-sample/src/main/java/jfyg/etherscan/helloetherescan/EtherscanSampleApplication.kt)]
 ```
 ApiKey.takeOff.setApiKey("1I7CRNU2QIU253UBPFVB5UV2C2PBDURAIYZ")
 ```
 
-Create an Instance of one of the reactive Singles and access values by specifying thread and subscribing. [see [example implementation](https://github.com/EbenezerGH/hello_etherscan/blob/master/app/src/main/java/jfyg/etherscan/helloetherescan/MainActivity.kt)]
+Create an Instance of one of the reactive Singles and access values by specifying thread and subscribing. [see [example implementation](https://github.com/EbenezerGH/etherscan-android-api/blob/master/etherscan-sample/src/main/java/jfyg/etherscan/helloetherescan/SampleActivity.kt)]
 
 Currently Available: ``[accounts, contracts, transactions, blocks, stat]``
 
