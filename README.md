@@ -27,7 +27,7 @@ Create an Instance of one of the reactive Singles and access values by specifyin
 
 Currently Available: ``[accounts, contracts, transactions, blocks, stat]``
 
-Coming Soon: ``eventLogs, geth, websockets, tokens``
+Coming Soon: ``[eventLogs, geth, websockets, tokens]``
 
 ```
         val stat = Stat()
