@@ -7,7 +7,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "jfyg.etherscan.helloetherescan"
+        applicationId "jfyg.etherscan.etherscanapi"
         minSdkVersion 15
         targetSdkVersion 26
         versionCode 1
