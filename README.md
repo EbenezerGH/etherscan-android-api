@@ -1,6 +1,6 @@
 [![Generic badge](https://img.shields.io/badge/EtherscanApi-UP-brightgreen.svg)](https://api.etherscan.io/api?module=stats&action=ethprice&apikey=YourApiKeyToken)
-[![Generic badge](https://img.shields.io/badge/CircleCI-UP-brightgreen.svg)](https://circleci.com/gh/EbenezerGH/hello_etherscan/tree/master)
-[![Generic badge](https://img.shields.io/badge/Version-v0.8.0-lightgrey.svg)](https://github.com/EbenezerGH/etherscan-android-api/releases)
+[![Generic badge](https://img.shields.io/badge/CircleCI-PASS-brightgreen.svg)](https://circleci.com/gh/EbenezerGH/hello_etherscan/tree/master)
+[![Generic badge](https://img.shields.io/badge/Version-v0.9.0-lightgrey.svg)](https://jitpack.io/#EbenezerGH/etherscan-android-api)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/EbenezerGH/hello_etherscan/blob/update-documentation/LICENSE)
 
 # etherscan-android-api
@@ -23,14 +23,9 @@ Add JitPack to your root build.gradle at the end of repositories
 Add the dependency
 ```
 	dependencies {
-	        implementation 'com.github.EbenezerGH:hello_etherscan:v0.8.0'
+	        implementation 'com.github.EbenezerGH:hello_etherscan:v0.9.0'
 	}
 ```
-import a reactive android library to handle the reactive stream being passed into your module.  For instance I used the following:
-
-
-    implementation 'io.reactivex.rxjava2:rxandroid:x.y.z'
-    implementation 'io.reactivex.rxjava2:rxkotlin:x.y.z'
 
 
 Optional: Call `ApiKey.takeOff.setApiKey("[your api key here]")` in your module's application class when recording api usage in the etherscan.io console. [see [example implementation](https://github.com/EbenezerGH/etherscan-android-api/blob/master/etherscan-sample/src/main/java/jfyg/etherscan/helloetherescan/EtherscanSampleApplication.kt)]
@@ -38,27 +33,25 @@ Optional: Call `ApiKey.takeOff.setApiKey("[your api key here]")` in your module'
 ApiKey.takeOff.setApiKey("1I7CRNU2QIU253UBPFVB5UV2C2PBDURAIYZ")
 ```
 
-Create an Instance of one of the reactive Singles and access values by specifying thread and subscribing. [see [example implementation](https://github.com/EbenezerGH/etherscan-android-api/blob/master/etherscan-sample/src/main/java/jfyg/etherscan/helloetherescan/SampleActivity.kt)]
+Create an Instance of one of the reactive singles and access values by specifying thread and subscribing. [see [example implementation](https://github.com/EbenezerGH/etherscan-android-api/blob/master/etherscan-sample/src/main/java/jfyg/etherscan/helloetherescan/SampleActivity.kt)]
 
 Currently Available: ``[accounts, contracts, transactions, blocks, stat]``
 
 Coming Soon: ``[eventLogs, geth, websockets, tokens]``
 
 ```
-        val stat = Stat()
         val account = Account()
         val contract = ContractABI()
-        val tx = TxStatus()
         val blocks = BlocksMined()
 
-            //account test
+            //account
             account.getERC20Tokens("0x4e83362442b8d1bec281594cea3050c8eb01311c")
                     .observeOn(AndroidSchedulers.mainThread())
                     ?.subscribeBy(
                             onSuccess = { Log.d(TAG, "The Account Size of Transactions is: ${it.size}") },
                             onError = { Log.d(TAG, "error receiving ERC20") })
 
-            //contracts test
+            //contracts
             contract.getContractABI("0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413")
                     .observeOn(AndroidSchedulers.mainThread())
                     ?.subscribeBy(
@@ -67,7 +60,7 @@ Coming Soon: ``[eventLogs, geth, websockets, tokens]``
 
 
 
-            //blocks test
+            //blocks
             blocks.getBlocksMined("2165403")
                     .observeOn(AndroidSchedulers.mainThread())
                     ?.subscribeBy(

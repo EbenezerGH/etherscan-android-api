@@ -13,8 +13,8 @@ internal interface ContractsApi {
      * Get Contract ABI for Verified Contract Source Codes
      * https://etherscan.io/contractsVerified
      */
-    fun contractABI(module: String?,
-                    action: String?,
-                    address: String?): Single<ContractResponse>
+    fun contractABI(module: String,
+                    action: String,
+                    address: String): Single<ContractResponse>
 
 }

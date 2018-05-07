@@ -11,8 +11,8 @@ internal interface BlocksApi {
     /**
      * [BETA] Get Block And Uncle Rewards by BlockNo
      */
-    fun blocksMined(module: String?,
-                    action: String?,
-                    blockno: String?): Single<BlockResponse>
+    fun blocksMined(module: String,
+                    action: String,
+                    blockno: String): Single<BlockResponse>
 
 }
