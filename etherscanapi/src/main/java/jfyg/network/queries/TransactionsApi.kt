@@ -13,16 +13,16 @@ internal interface TransactionsApi {
      * [BETA] Check Contract Execution Status (if there was an error during contract execution)
      * Note: isError":"0" = Pass , isError":"1" = Error during Contract Execution
      */
-    fun txExecutionStatus(module: String?,
-                          action: String?,
-                          txHash: String?): Single<TxContractExecutionResponse>
+    fun txExecutionStatus(module: String,
+                          action: String,
+                          txHash: String): Single<TxContractExecutionResponse>
     /**
      * [BETA] Check Transaction Receipt Status (Only applicable for Post Byzantium fork transactions)
      * Note: status: 0 = Fail, 1 = Pass. Will return null/empty value for pre-byzantium fork
      */
-    fun txReceiptStatus(module: String?,
-                        action: String?,
-                        txHash: String?): Single<TxContractReceiptResponse>
+    fun txReceiptStatus(module: String,
+                        action: String,
+                        txHash: String): Single<TxContractReceiptResponse>
 
 
 }

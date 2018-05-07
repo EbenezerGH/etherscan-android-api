@@ -9,11 +9,13 @@ internal interface StatsApi {
     /**
      * Get ETHER LastPrice
      */
-    fun statPrice(module: String, action: String): Single<StatPriceResponse>
+    fun statPrice(module: String,
+                  action: String): Single<StatPriceResponse>
 
     /**
      * Get Total Supply of Ether
      */
-    fun statSupply(module: String, action: String): Single<StatSupplyResponse>
+    fun statSupply(module: String,
+                   action: String): Single<StatSupplyResponse>
 
 }
