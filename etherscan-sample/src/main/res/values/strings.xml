@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Hello Etherscan</string>
+    <string name="app_name">Etherscan Sample</string>
     <string name="action_settings">Settings</string>
 
     <string name="my_api_key">1I7CRNU2QIU253UBPFVB5UV2C2PBDURAIY</string>
