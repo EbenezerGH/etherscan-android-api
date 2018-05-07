@@ -1,13 +1,13 @@
 [![Generic badge](https://img.shields.io/badge/EtherscanApi-UP-brightgreen.svg)](https://api.etherscan.io/api?module=stats&action=ethprice&apikey=YourApiKeyToken)
 [![Generic badge](https://img.shields.io/badge/CircleCI-PASS-brightgreen.svg)](https://circleci.com/gh/EbenezerGH/hello_etherscan/tree/master)
-[![Generic badge](https://img.shields.io/badge/Version-v0.9.0-lightgrey.svg)](https://jitpack.io/#EbenezerGH/etherscan-android-api)
+[![Generic badge](https://img.shields.io/badge/Version-v1.0.0-lightgrey.svg)](https://jitpack.io/#EbenezerGH/etherscan-android-api)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/EbenezerGH/hello_etherscan/blob/update-documentation/LICENSE)
 
 # etherscan-android-api
 
 etherscan android api is an android wrapper for the [etherscan api](https://etherscan.io/apis).  This is just a module to handle networking calls.
 
-There are only a few [features](https://github.com/EbenezerGH/hello_etherscan/issues) left to complete, however this version is completely safe to use.
+There are only a few [features](https://github.com/EbenezerGH/hello_etherscan/issues) left to add, however this version is completely safe to use.
 
 ## Getting Started
 
@@ -20,10 +20,14 @@ Add JitPack to your root build.gradle at the end of repositories
 		}
 	}
 ```
+
+
 Add the dependency
+
+
 ```
 	dependencies {
-	        implementation 'com.github.EbenezerGH:hello_etherscan:v0.9.0'
+	        implementation 'com.github.EbenezerGH:hello_etherscan:v1.0.0'
 	}
 ```
 
@@ -57,8 +61,6 @@ Coming Soon: ``[eventLogs, geth, websockets, tokens]``
                     ?.subscribeBy(
                             onSuccess = { Log.d(TAG, "The ABI has returned: $it") },
                             onError = { Log.d(TAG, "error receiving abi contract") })
-
-
 
             //blocks
             blocks.getBlocksMined("2165403")
