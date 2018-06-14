@@ -61,33 +61,20 @@ internal class StatsTest {
     }
 
     @Test
-    fun getLastPriceInUsd() {
+    fun getEtherStatistics() {
         val response = gson.fromJson(inputPrice, StatPriceResponse::class.java)
         assertEquals("377.67", response.result?.ethUsd)
-    }
-
-    @Test
-    fun getEthTimestamp() {
-        val response = gson.fromJson(inputPrice, StatPriceResponse::class.java)
-        assertEquals("1523064526", response.result?.ethUsdTimestamp)
-    }
-
-    @Test
-    fun getLastPriceInBtc() {
-        val response = gson.fromJson(inputPrice, StatPriceResponse::class.java)
         assertEquals("0.0557", response.result?.ethBtc)
-    }
-
-    @Test
-    fun getBtcTimestamp() {
-        val response = gson.fromJson(inputPrice, StatPriceResponse::class.java)
+        assertEquals("1523064526", response.result?.ethUsdTimestamp)
         assertEquals("1523064523", response.result?.ethBtcTimestamp)
+
     }
 
     @Test
     fun networkStatusIsDown() {
         val response = gson.fromJson(inputBadResponse, BaseResponse::class.java)
         assertEquals("0", response.status)
+
     }
 
     @Test

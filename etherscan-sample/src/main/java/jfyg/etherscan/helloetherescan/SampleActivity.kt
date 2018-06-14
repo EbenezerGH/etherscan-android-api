@@ -32,10 +32,10 @@ class SampleActivity : AppCompatActivity() {
         fab.setOnClickListener {
 
             //stat test
-            stat.getLastPriceInBtc()
+            stat.getEtherStatistics()
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribeBy(
-                            onSuccess = { Log.d(TAG, "The current price of Ether in Btc: $it") },
+                            onSuccess = { Log.d(TAG, "The current price of Ether in Btc: ${it.ethUsd}") },
                             onError = { Log.d(TAG, "error receiving stat") })
 
 
