@@ -51,24 +51,24 @@ Coming Soon: ``[eventLogs, geth, websockets, tokens]``
             //account
             account.getERC20Tokens("0x4e83362442b8d1bec281594cea3050c8eb01311c")
                     .observeOn(AndroidSchedulers.mainThread())
-                    ?.subscribeBy(
+                    .subscribeBy(
                             onSuccess = { Log.d(TAG, "The Account Size of Transactions is: ${it.size}") },
                             onError = { Log.d(TAG, "error receiving ERC20") })
 
             //contracts
             contract.getContractABI("0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413")
                     .observeOn(AndroidSchedulers.mainThread())
-                    ?.subscribeBy(
+                    .subscribeBy(
                             onSuccess = { Log.d(TAG, "The ABI has returned: $it") },
                             onError = { Log.d(TAG, "error receiving abi contract") })
 
             //blocks
             blocks.getBlocksMined("2165403")
                     .observeOn(AndroidSchedulers.mainThread())
-                    ?.subscribeBy(
+                    .subscribeBy(
                             onSuccess = {
                                 Log.d(TAG, "The block miner is: ${it.blockMiner} and " +
-                                        "the first miner : ${it.uncles?.get(0)?.miner}")
+                                        "the first miner : ${it.uncles.get(0).miner}")
                             },
                             onError = { Log.d(TAG, "error receiving blocks mined") })
 ```
