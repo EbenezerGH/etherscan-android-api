@@ -1,6 +1,7 @@
 package jfyg.data.stat
 
 import io.reactivex.Single
+import jfyg.data.StatPrice
 import jfyg.network.queries.ApiQuery
 import jfyg.utils.ETH_PRICE
 import jfyg.utils.ETH_SUPPLY
@@ -28,24 +29,9 @@ class Stats : StatsContract {
     override fun getTotalSupplyInWei(): Single<Double> = supplyQuery.map { it.result?.toDouble()?.div(wei) }
 
     /**
-     * Get ETHER LastPrice Price in btc
+     * Get Ether Statistics
      */
-    override fun getLastPriceInUsd(): Single<Float> = priceQuery.map { it.result?.ethUsd?.toFloat() }
-
-    /**
-     * Return timestamp
-     */
-    override fun getEthTimestamp(): Single<Long> = priceQuery.map { it.result?.ethUsdTimestamp?.toLong() }
-
-    /**
-     * Get ETHER LastPrice Price in usd
-     */
-    override fun getLastPriceInBtc(): Single<Float> = priceQuery.map { it.result?.ethBtcTimestamp?.toFloat() }
-
-    /**
-     * Return timestamp
-     */
-    override fun getBtcTimestamp(): Single<Long> = priceQuery.map { it.result?.ethBtcTimestamp?.toLong() }
+    override fun getEtherStatistics(): Single<StatPrice> = priceQuery.map { it.result }
 
     /**
      * Return network status

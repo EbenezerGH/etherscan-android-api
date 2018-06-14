@@ -1,6 +1,7 @@
 package jfyg.data.stat
 
 import io.reactivex.Single
+import jfyg.data.StatPrice
 
 /**
  * https://etherscan.io/apis#stats
@@ -18,24 +19,9 @@ internal interface StatsContract {
     fun getTotalSupplyInWei(): Single<Double>
 
     /**
-     * Get ETHER LastPrice Price in btc
+     * Get ETHER statistics
      */
-    fun getLastPriceInBtc(): Single<Float>
-
-    /**
-     * Return timestamp
-     */
-    fun getBtcTimestamp(): Single<Long>
-
-    /**
-     * Get ETHER LastPrice Price in usd
-     */
-    fun getLastPriceInUsd(): Single<Float>
-
-    /**
-     * Return timestamp
-     */
-    fun getEthTimestamp(): Single<Long>
+    fun getEtherStatistics(): Single<StatPrice>
 
     /**
      * Return network status
