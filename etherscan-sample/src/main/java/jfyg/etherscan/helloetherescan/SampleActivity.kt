@@ -35,7 +35,18 @@ class SampleActivity : AppCompatActivity() {
             stat.getEtherStatistics()
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribeBy(
-                            onSuccess = { Log.d(TAG, "The current price of Ether in Btc: ${it.ethUsd}") },
+                            onSuccess = { Log.d(TAG, "The current price of Ether in Usd: ${it.ethUsd}") },
+                            onError = { Log.d(TAG, "error receiving stat") })
+
+
+            //account MultiBalance test
+            account.getMultiBalance(listOf(
+                    "0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413",
+                    "0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413",
+                    "0x4e83362442b8d1bec281594cea3050c8eb01311c"))
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribeBy(
+                            onSuccess = { Log.d(TAG, "The current balance in account 2 is: ${it[1].balance}") },
                             onError = { Log.d(TAG, "error receiving stat") })
 
 
