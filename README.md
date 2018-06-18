@@ -79,7 +79,7 @@ Coming Soon: ``[eventLogs, geth, websockets, tokens]``
 ```
 BTC: 1MLaf31sjVG3LbMyQEuY16qosPAhwNRQeZ
 ETH: 82e4499D4b2A669831a3881d61BB24f7b620c61a
-LTC: La1vhdzuVY85EEW8m5hTpw4C15gPY9hVDW
+LTC: LUF9RpzZ3kyKMYpSNiAT5hx7qR3q7ShV3H
 ```
 
 ## License
