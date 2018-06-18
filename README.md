@@ -27,7 +27,7 @@ Add the dependency
 
 ```
 	dependencies {
-	        implementation 'com.github.EbenezerGH:etherscan-android-api:1.0.0'
+	        implementation 'com.github.EbenezerGH:etherscan-android-api:v1.0.3'
 	}
 ```
 
