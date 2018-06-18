@@ -7,20 +7,7 @@ import jfyg.data.ERC20Token
 import jfyg.data.Tx
 import jfyg.data.TxsInternal
 import jfyg.network.queries.ApiQuery
-import jfyg.utils.QueryUtils
-import jfyg.utils.ACCOUNT
-import jfyg.utils.ASC
-import jfyg.utils.BALANCE
-import jfyg.utils.BALANCE_MULTI
-import jfyg.utils.BLOCKS
-import jfyg.utils.END_BLOCK
-import jfyg.utils.GENERIC_PUBLIC_ADDRESS
-import jfyg.utils.GET_MINED_BLOCKS
-import jfyg.utils.LATEST
-import jfyg.utils.START_BLOCK
-import jfyg.utils.TOKEN_TX
-import jfyg.utils.TX_LIST
-import jfyg.utils.TX_LIST_INTERNAL
+import jfyg.utils.*
 
 /**
  * https://etherscan.io/apis#accounts
@@ -51,7 +38,7 @@ class Accounts : AccountsContract {
             Single<List<Balance>> = query.accountMultiBalance(
             ACCOUNT,
             BALANCE_MULTI,
-            QueryUtils.retrieveList(addresses),
+            retrieveList(addresses),
             LATEST).map { it.result }
 
     /**

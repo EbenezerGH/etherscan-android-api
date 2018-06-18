@@ -1,20 +1,15 @@
 package jfyg.utils
 
 /**
- * Utilities that may be used to provide successful Queries
+ * Retrieve a list of mulitple items
  */
-internal object QueryUtils {
-    /**
-     * Retrieve a list of mulitple items
-     */
-    fun retrieveList(listItems: List<String>?): String {
+internal fun retrieveList(listItems: List<String>?): String {
 
-        var getList = ""
+    var getList = ""
 
-        for (item in listItems!!) {
-            getList += item + ","
-        }
-
-        return getList.dropLast(1)
+    for (item in listItems!!) {
+        getList += item + ","
     }
+
+    return getList.dropLast(1)
 }
