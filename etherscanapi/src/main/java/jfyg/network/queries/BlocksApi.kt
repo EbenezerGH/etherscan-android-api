@@ -1,7 +1,7 @@
 package jfyg.network.queries
 
 import io.reactivex.Single
-import jfyg.network.response.block.BlockResponse
+import jfyg.network.response.BlockResponse
 
 /**
  * https://etherscan.io/apis#blocks

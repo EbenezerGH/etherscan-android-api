@@ -1,8 +1,8 @@
 package jfyg.network.queries
 
 import io.reactivex.Single
-import jfyg.network.response.transaction.TxContractExecutionResponse
-import jfyg.network.response.transaction.TxContractReceiptResponse
+import jfyg.network.response.TxContractExecutionResponse
+import jfyg.network.response.TxContractReceiptResponse
 
 /**
  * https://etherscan.io/apis#transactions

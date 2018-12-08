@@ -1,4 +1,4 @@
-package jfyg.network.response.contract
+package jfyg.network.response
 
 import jfyg.network.response.BaseResponse
 

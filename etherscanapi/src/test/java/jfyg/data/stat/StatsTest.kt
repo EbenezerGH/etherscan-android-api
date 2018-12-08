@@ -3,8 +3,8 @@ package jfyg.data.stat
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import jfyg.network.response.BaseResponse
-import jfyg.network.response.stat.StatPriceResponse
-import jfyg.network.response.stat.StatSupplyResponse
+import jfyg.network.response.StatPriceResponse
+import jfyg.network.response.StatSupplyResponse
 import org.junit.Before
 import org.junit.Test
 import org.junit.Assert.assertEquals

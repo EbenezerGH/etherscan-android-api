@@ -14,7 +14,7 @@ internal class QueryUtilsTest {
                 "0x198ef1ec325a96cc354c7266a038be8b5c558f67")
 
         for (addresses in listItems) {
-            getList += addresses + ","
+            getList += "$addresses,"
         }
 
         Assert.assertEquals("0x82e4499D4b2A669831a3881d61BB24f7b620c61a," +

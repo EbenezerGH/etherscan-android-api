@@ -3,18 +3,18 @@ package jfyg.network.queries
 import io.reactivex.Single
 import jfyg.ApiKey
 import jfyg.network.RestClient
-import jfyg.network.response.account.AccountBalanceResponse
-import jfyg.network.response.account.AccountBlockResponse
-import jfyg.network.response.account.ERC20Response
-import jfyg.network.response.account.AccountInternalTxResponse
-import jfyg.network.response.account.AccountMultiBalanceResponse
-import jfyg.network.response.account.AccountTxResponse
-import jfyg.network.response.block.BlockResponse
-import jfyg.network.response.contract.ContractResponse
-import jfyg.network.response.stat.StatPriceResponse
-import jfyg.network.response.stat.StatSupplyResponse
-import jfyg.network.response.transaction.TxContractExecutionResponse
-import jfyg.network.response.transaction.TxContractReceiptResponse
+import jfyg.network.response.AccountBalanceResponse
+import jfyg.network.response.AccountBlockResponse
+import jfyg.network.response.ERC20Response
+import jfyg.network.response.AccountInternalTxResponse
+import jfyg.network.response.AccountMultiBalanceResponse
+import jfyg.network.response.AccountTxResponse
+import jfyg.network.response.BlockResponse
+import jfyg.network.response.ContractResponse
+import jfyg.network.response.StatPriceResponse
+import jfyg.network.response.StatSupplyResponse
+import jfyg.network.response.TxContractExecutionResponse
+import jfyg.network.response.TxContractReceiptResponse
 
 /**
  * A mediator between the responses and errors that come from every query

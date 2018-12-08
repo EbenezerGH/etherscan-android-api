@@ -8,7 +8,7 @@ internal fun retrieveList(listItems: List<String>?): String {
     var getList = ""
 
     for (item in listItems!!) {
-        getList += item + ","
+        getList += "$item,"
     }
 
     return getList.dropLast(1)

@@ -3,8 +3,8 @@ package jfyg.data.transaction
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import jfyg.network.response.BaseResponse
-import jfyg.network.response.transaction.TxContractExecutionResponse
-import jfyg.network.response.transaction.TxContractReceiptResponse
+import jfyg.network.response.TxContractExecutionResponse
+import jfyg.network.response.TxContractReceiptResponse
 import org.junit.Assert
 import org.junit.Test
 

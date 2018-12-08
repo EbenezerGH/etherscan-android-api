@@ -2,7 +2,7 @@ package jfyg.data.block
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import jfyg.network.response.block.BlockResponse
+import jfyg.network.response.BlockResponse
 import org.junit.Test
 
 import org.junit.Assert.*

@@ -1,7 +1,7 @@
 package jfyg.network.queries
 
 import io.reactivex.Single
-import jfyg.network.response.contract.ContractResponse
+import jfyg.network.response.ContractResponse
 
 /**
  * Newly verified Contracts are synced to the API servers within 5 minutes or less

@@ -1,4 +1,4 @@
-package jfyg.network.response.block
+package jfyg.network.response
 
 import jfyg.data.BlockMined
 import jfyg.network.response.BaseResponse
