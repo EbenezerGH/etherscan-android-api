@@ -1,12 +1,12 @@
 package jfyg.network.queries
 
-import io.reactivex.Single
 import jfyg.network.response.AccountBalanceResponse
 import jfyg.network.response.AccountBlockResponse
 import jfyg.network.response.ERC20Response
 import jfyg.network.response.AccountInternalTxResponse
 import jfyg.network.response.AccountMultiBalanceResponse
 import jfyg.network.response.AccountTxResponse
+import retrofit2.Response
 
 /**
  * https://etherscan.io/apis#accounts
@@ -16,55 +16,55 @@ internal interface AccountsApi {
     /**
      * Get Ether Balance for a single Address
      */
-    fun accountBalance(module: String,
+    suspend fun accountBalance(module: String,
                        action: String,
                        address: String,
-                       tag: String): Single<AccountBalanceResponse>
+                       tag: String): Response<AccountBalanceResponse>
 
     /**
      * Get Ether Balance for multiple Addresses in a single call
      */
-    fun accountMultiBalance(module: String,
+    suspend fun accountMultiBalance(module: String,
                             action: String,
                             address: String,
-                            tag: String?): Single<AccountMultiBalanceResponse>
+                            tag: String?): Response<AccountMultiBalanceResponse>
 
     /**
      * Get list of blocks mined by address
      */
-    fun accountBlock(module: String,
+    suspend fun accountBlock(module: String,
                      action: String,
                      address: String,
-                     blocktype: String): Single<AccountBlockResponse>
+                     blocktype: String): Response<AccountBlockResponse>
 
     /**
      * Get a list of 'Normal' Transactions By Address
      */
-    fun accountTxs(module: String,
+    suspend fun accountTxs(module: String,
                    action: String,
                    address: String,
                    startblock: String,
                    endblock: String,
-                   sort: String): Single<AccountTxResponse>
+                   sort: String): Response<AccountTxResponse>
 
     /**
      * [BETA] Get a list of "ERC20 - Token Transfer Events" by Address
      */
-    fun accountERC20Txs(module: String,
+    suspend fun accountERC20Txs(module: String,
                         action: String,
                         address: String,
                         startblock: String,
                         endblock: String,
-                        sort: String): Single<ERC20Response>
+                        sort: String): Response<ERC20Response>
 
     /**
      * [BETA] Get a list of 'Internal' Transactions by Address
      */
-    fun accountInternalTxs(module: String,
+    suspend fun accountInternalTxs(module: String,
                            action: String,
                            address: String,
                            startblock: String,
                            endblock: String,
-                           sort: String): Single<AccountInternalTxResponse>
+                           sort: String): Response<AccountInternalTxResponse>
 
 }

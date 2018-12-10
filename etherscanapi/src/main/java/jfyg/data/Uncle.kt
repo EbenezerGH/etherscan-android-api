@@ -1,10 +1,11 @@
 package jfyg.data
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
 
-data class Uncle(val miner: String? = null,
+data class Uncle(val miner: String,
 
-                 val unclePosition: String? = null,
+                 val unclePosition: String,
 
-                 @SerializedName("blockreward")
-                 val blockReward: String? = null)
+                 @field:Json(name = "blockreward")
+                 val blockReward: String
+)

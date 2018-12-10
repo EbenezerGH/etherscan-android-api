@@ -5,29 +5,29 @@ import jfyg.data.*
 /**
  * Balance of Ether existing in an account
  */
-internal data class AccountBalanceResponse(val result: String? = null) : BaseResponse()
+data class AccountBalanceResponse(val result: String) : BaseResponse()
 
 /**
  * Blocks mined by an account
  */
-internal data class AccountBlockResponse(val result: List<BlockAccount>? = null) : BaseResponse()
+data class AccountBlockResponse(val result: List<BlockAccount>) : BaseResponse()
 
 /**
  * Internal Transactions recorded by an account
  */
-internal class AccountInternalTxResponse(val result: List<TxsInternal>? = null) : BaseResponse()
+class AccountInternalTxResponse(val result: List<TxsInternal>) : BaseResponse()
 
 /**
  * Balances of multiple accounts
  */
-internal data class AccountMultiBalanceResponse(val result: List<Balance>? = null)
+data class AccountMultiBalanceResponse(val result: List<Balance>): BaseResponse()
 
 /**
  * Transactions recorded by an account
  */
-internal data class AccountTxResponse(val result: List<Tx>? = null) : BaseResponse()
+data class AccountTxResponse(val result: List<Tx>) : BaseResponse()
 
 /**
  * ERC20 Transactions recorded by an account
  */
-internal class ERC20Response(val result: List<ERC20Token>? = null) : BaseResponse()
+class ERC20Response(val result: List<ERC20Token>) : BaseResponse()

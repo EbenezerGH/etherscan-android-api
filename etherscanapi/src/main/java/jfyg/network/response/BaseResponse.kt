@@ -3,10 +3,10 @@ package jfyg.network.response
 /**
  * Base response that all queries will utilize
  */
-internal open class BaseResponse {
+open class BaseResponse {
 
-    val status: String? = null
+    val status: String = ""
 
-    val message: String? = null
+    val message: String = ""
 
 }

@@ -17,7 +17,7 @@ import org.junit.Test
 /**
  * https://etherscan.io/apis#accounts
  */
-internal class AccountsTest {
+internal class AccountsApiTest {
     lateinit var gson: Gson
 
     private val accountBalance = """
@@ -230,53 +230,53 @@ internal class AccountsTest {
     @Test
     fun getMultiBalance() {
         val response = gson.fromJson(accountMultiBalance, AccountMultiBalanceResponse::class.java)
-        assertEquals("0xddbd2b932c763ba5b1b7ae3b362eac3e8d40121a", response.result?.get(0)?.account)
-        assertEquals("40807168564070000000000", response.result?.get(0)?.balance)
-        assertEquals("0x63a9975ba31b0b9626b34300f7f627147df1f526", response.result?.get(1)?.account)
-        assertEquals("332567136222827062478", response.result?.get(1)?.balance)
-        assertEquals("0x198ef1ec325a96cc354c7266a038be8b5c558f67", response.result?.get(2)?.account)
-        assertEquals("0", response.result?.get(2)?.balance)
+        assertEquals("0xddbd2b932c763ba5b1b7ae3b362eac3e8d40121a", response.result[0].account)
+        assertEquals("40807168564070000000000", response.result[0].balance)
+        assertEquals("0x63a9975ba31b0b9626b34300f7f627147df1f526", response.result[1].account)
+        assertEquals("332567136222827062478", response.result[1].balance)
+        assertEquals("0x198ef1ec325a96cc354c7266a038be8b5c558f67", response.result[2].account)
+        assertEquals("0", response.result[2].balance)
     }
 
     @Test
     fun getBlocks() {
         val response = gson.fromJson(accountBlocksMined, AccountBlockResponse::class.java)
-        assertEquals("3462296", response.result?.get(0)?.blockNumber)
-        assertEquals("1491118514", response.result?.get(0)?.timeStamp)
-        assertEquals("5194770940000000000", response.result?.get(0)?.blockReward)
-        assertEquals("2691400", response.result?.get(1)?.blockNumber)
-        assertEquals("1480072029", response.result?.get(1)?.timeStamp)
-        assertEquals("5086562212310617100", response.result?.get(1)?.blockReward)
+        assertEquals("3462296", response.result[0].blockNumber)
+        assertEquals("1491118514", response.result[0].timeStamp)
+        assertEquals("5194770940000000000", response.result[0].blockReward)
+        assertEquals("2691400", response.result[1].blockNumber)
+        assertEquals("1480072029", response.result[1].timeStamp)
+        assertEquals("5086562212310617100", response.result[1].blockReward)
     }
 
     @Test
     fun getTransactions() {
         val response = gson.fromJson(accountTxs, AccountTxResponse::class.java)
-        assertEquals("0x047250bd5ac59e6c45473cc0036d71737c885f6a", response.result?.get(0)?.transactionFrom)
-        assertEquals("0x82e4499d4b2a669831a3881d61bb24f7b620c61a", response.result?.get(0)?.transactionTo)
-        assertEquals("18034800000000000", response.result?.get(0)?.value)
-        assertEquals("21000", response.result?.get(1)?.gas)
-        assertEquals("4000000000", response.result?.get(1)?.gasPrice)
-        assertEquals("0", response.result?.get(1)?.isError)
+        assertEquals("0x047250bd5ac59e6c45473cc0036d71737c885f6a", response.result[0].transactionFrom)
+        assertEquals("0x82e4499d4b2a669831a3881d61bb24f7b620c61a", response.result[0].transactionTo)
+        assertEquals("18034800000000000", response.result[0].value)
+        assertEquals("21000", response.result[1].gas)
+        assertEquals("4000000000", response.result[1].gasPrice)
+        assertEquals("0", response.result[1].isError)
     }
 
     @Test
     fun getERC20Token() {
         val response = gson.fromJson(erc20Response, ERC20Response::class.java)
-        assertEquals("5", response.result?.get(0)?.transactionIndex)
-        assertEquals("1", response.result?.get(0)?.tokenDecimal)
-        assertEquals("\u0001", response.result?.get(0)?.tokenSymbol)
+        assertEquals("5", response.result[0].transactionIndex)
+        assertEquals("1", response.result[0].tokenDecimal)
+        assertEquals("\u0001", response.result[0].tokenSymbol)
     }
 
     @Test
     fun getInternalTransactions() {
         val response = gson.fromJson(internalTxs, AccountInternalTxResponse::class.java)
-        assertEquals("0x20d42f2e99a421147acf198d775395cac2e8b03d", response.result?.get(0)?.transactionFrom)
-        assertEquals("0x20d42f2e99a421147acf198d775395cac2e8b03d", response.result?.get(1)?.transactionTo)
-        assertEquals("0", response.result?.get(0)?.value)
-        assertEquals("235231", response.result?.get(1)?.gas)
-        assertEquals("call", response.result?.get(1)?.type)
-        assertEquals("0", response.result?.get(1)?.isError)
+        assertEquals("0x20d42f2e99a421147acf198d775395cac2e8b03d", response.result[0].transactionFrom)
+        assertEquals("0x20d42f2e99a421147acf198d775395cac2e8b03d", response.result[1].transactionTo)
+        assertEquals("0", response.result[0].value)
+        assertEquals("235231", response.result[1].gas)
+        assertEquals("call", response.result[1].type)
+        assertEquals("0", response.result[1].isError)
     }
 
     @Test

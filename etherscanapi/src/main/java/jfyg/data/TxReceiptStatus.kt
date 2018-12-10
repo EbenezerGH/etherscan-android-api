@@ -1,3 +1,4 @@
 package jfyg.data
 
-data class TxReceiptStatus(val status: String? = null)
+data class TxReceiptStatus(val status: String
+)

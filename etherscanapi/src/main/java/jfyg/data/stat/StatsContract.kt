@@ -1,7 +1,8 @@
 package jfyg.data.stat
 
-import io.reactivex.Single
-import jfyg.data.StatPrice
+import jfyg.network.response.StatPriceResponse
+import jfyg.network.response.StatSupplyResponse
+import retrofit2.Response
 
 /**
  * https://etherscan.io/apis#stats
@@ -11,26 +12,20 @@ internal interface StatsContract {
     /**
      * Get Total Supply of Ether
      */
-    fun getTotalSupply(): Single<Double>
-
-    /**
-     * Get ETHER LastPrice Price in wei
-     */
-    fun getTotalSupplyInWei(): Single<Double>
-
+    suspend fun getEtherTotalSupply(): Response<StatSupplyResponse>
     /**
      * Get ETHER statistics
      */
-    fun getEtherStatistics(): Single<StatPrice>
+    suspend fun getEtherStatistics(): Response<StatPriceResponse>
 
     /**
      * Return network status
      */
-    fun getNetworkStatus(): Single<String>
+    suspend fun getNetworkStatus(): Response<StatPriceResponse>
 
     /**
      * Return network message
      */
-    fun getNetworkMessage(): Single<String>
+    suspend fun getNetworkMessage(): Response<StatPriceResponse>
 
 }

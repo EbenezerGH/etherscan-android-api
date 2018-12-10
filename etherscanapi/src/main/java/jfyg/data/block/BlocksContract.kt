@@ -1,7 +1,7 @@
 package jfyg.data.block
 
-import io.reactivex.Single
-import jfyg.data.BlockMined
+import jfyg.network.response.BlockResponse
+import retrofit2.Response
 
 /**
  * https://etherscan.io/apis#blocks
@@ -11,16 +11,16 @@ internal interface BlocksContract {
     /**
      * [BETA] Get Block And Uncle Rewards by BlockNo
      */
-    fun getBlocksMined(blockNo: String): Single<BlockMined>
+    suspend fun getBlocksMined(blockNo: String): Response<BlockResponse>
 
     /**
      * Return network status
      */
-    fun getNetworkStatus(): Single<String>
+    suspend fun getNetworkStatus(): Response<BlockResponse>
 
     /**
      * Return network message
      */
-    fun getNetworkMessage(): Single<String>
+    suspend fun getNetworkMessage(): Response<BlockResponse>
 
 }

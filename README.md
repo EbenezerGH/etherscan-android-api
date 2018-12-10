@@ -1,13 +1,12 @@
 [![Generic badge](https://img.shields.io/badge/EtherscanApi-UP-brightgreen.svg)](https://api.etherscan.io/api?module=stats&action=ethprice&apikey=YourApiKeyToken)
-[![Generic badge](https://img.shields.io/badge/CircleCI-PASS-brightgreen.svg)](https://circleci.com/gh/EbenezerGH/hello_etherscan/tree/master)
-[![Generic badge](https://img.shields.io/badge/Version-v1.0.0-lightgrey.svg)](https://jitpack.io/#EbenezerGH/etherscan-android-api)
+[![Generic badge](https://img.shields.io/badge/Version-v2.0.0-lightgrey.svg)](https://jitpack.io/#EbenezerGH/etherscan-android-api)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/EbenezerGH/hello_etherscan/blob/update-documentation/LICENSE)
 
 # etherscan-android-api
 
 etherscan android api is an android wrapper for the [etherscan api](https://etherscan.io/apis).  This is just a module to handle networking calls.
 
-There are only a few [features](https://github.com/EbenezerGH/hello_etherscan/issues) left to add, however this version is completely safe to use.
+There are only a few [features](https://github.com/EbenezerGH/hello_etherscan/issues) left to add, however version 2.0.0+ is completely safe to use.
 
 ## Getting Started
 
@@ -27,7 +26,7 @@ Add the dependency
 
 ```
 	dependencies {
-	        implementation 'com.github.EbenezerGH:etherscan-android-api:v1.0.3'
+	        implementation 'com.github.EbenezerGH:etherscan-android-api:v2.0.0'
 	}
 ```
 
@@ -37,41 +36,12 @@ Optional: Call `ApiKey.takeOff.setApiKey("[your api key here]")` in your module'
 ApiKey.takeOff.setApiKey("1I7CRNU2QIU253UBPFVB5UV2C2PBDURAIYZ")
 ```
 
-Create an Instance of one of the reactive singles and access values by specifying thread and subscribing. [see [example implementation](https://github.com/EbenezerGH/etherscan-android-api/blob/master/etherscan-sample/src/main/java/jfyg/etherscan/helloetherescan/SampleActivity.kt)]
+Instantiate an Api Instance and handle the response [see [example implementation](https://github.com/EbenezerGH/etherscan-android-api/blob/master/etherscan-sample/src/main/java/jfyg/etherscan/helloetherescan/SampleActivity.kt)]
 
-Currently Available: ``[accounts, contracts, transactions, blocks, stat]``
+Currently Available: ``[accountsApi, contractsApi, transactionsApi, blocksApi, statApi]``
 
 Coming Soon: ``[eventLogs, geth, websockets, tokens]``
 
-```
-        val account = Account()
-        val contract = ContractABI()
-        val blocks = BlocksMined()
-
-            //account
-            account.getERC20Tokens("0x4e83362442b8d1bec281594cea3050c8eb01311c")
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribeBy(
-                            onSuccess = { Log.d(TAG, "The Account Size of Transactions is: ${it.size}") },
-                            onError = { Log.d(TAG, "error receiving ERC20") })
-
-            //contracts
-            contract.getContractABI("0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413")
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribeBy(
-                            onSuccess = { Log.d(TAG, "The ABI has returned: $it") },
-                            onError = { Log.d(TAG, "error receiving abi contract") })
-
-            //blocks
-            blocks.getBlocksMined("2165403")
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribeBy(
-                            onSuccess = {
-                                Log.d(TAG, "The block miner is: ${it.blockMiner} and " +
-                                        "the first miner : ${it.uncles.get(0).miner}")
-                            },
-                            onError = { Log.d(TAG, "error receiving blocks mined") })
-```
 ## Authors
 
 * [**Ebenezer Ackon**](http://www.ebenezerackon.com/)

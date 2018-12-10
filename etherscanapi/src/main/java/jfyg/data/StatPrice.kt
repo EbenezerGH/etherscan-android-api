@@ -1,16 +1,16 @@
 package jfyg.data
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
 
-data class StatPrice(@SerializedName("ethbtc")
-                     val ethBtc: String? = null,
+data class StatPrice(@field:Json(name = "ethbtc")
+                     val ethBtc: String,
 
-                     @SerializedName("ethbtc_timestamp")
-                     val ethBtcTimestamp: String? = null,
+                     @field:Json(name = "ethbtc_timestamp")
+                     val ethBtcTimestamp: String,
 
-                     @SerializedName("ethusd")
-                     val ethUsd: String? = null,
+                     @field:Json(name = "ethusd")
+                     val ethUsd: String,
 
-                     @SerializedName("ethusd_timestamp")
-                     val ethUsdTimestamp: String? = null
+                     @field:Json(name = "ethusd_timestamp")
+                     val ethUsdTimestamp: String
 )

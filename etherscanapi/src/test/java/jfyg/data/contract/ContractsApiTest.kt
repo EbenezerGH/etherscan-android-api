@@ -12,7 +12,7 @@ import org.junit.Before
 /**
  * https://etherscan.io/apis#contracts
  */
-class ContractsTest {
+class ContractsApiTest {
     lateinit var gson: Gson
 
     private val abiResult = """

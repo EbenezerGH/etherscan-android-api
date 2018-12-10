@@ -1,11 +1,7 @@
 package jfyg.data.account
 
-import io.reactivex.Single
-import jfyg.data.Balance
-import jfyg.data.BlockAccount
-import jfyg.data.ERC20Token
-import jfyg.data.Tx
-import jfyg.data.TxsInternal
+import jfyg.network.response.*
+import retrofit2.Response
 
 /**
  * https://etherscan.io/apis#accounts
@@ -15,40 +11,40 @@ internal interface AccountsContract {
     /**
      * Get Ether Balance for a single Address
      */
-    fun getBalance(address: String): Single<Double>
+    suspend fun getBalance(address: String): Response<AccountBalanceResponse>
 
     /**
      * Get Ether Balance for multiple Addresses in a single call
      */
-    fun getMultiBalance(addresses: List<String>): Single<List<Balance>>
+    suspend fun getMultiBalance(addresses: List<String>): Response<AccountMultiBalanceResponse>
 
     /**
      * Get list of blocks mined by address
      */
-    fun getBlocks(address: String): Single<List<BlockAccount>>
+    suspend fun getBlocks(address: String): Response<AccountBlockResponse>
 
     /**
      * Get a list of 'Normal' Transactions By Address
      */
-    fun getTransactions(address: String): Single<List<Tx>>
+    suspend fun getTransactions(address: String): Response<AccountTxResponse>
 
     /**
      * [BETA] Get a list of "ERC20 - Token Transfer Events" by Address
      */
-    fun getERC20Tokens(address: String): Single<List<ERC20Token>>
+    suspend fun getERC20Tokens(address: String): Response<ERC20Response>
 
     /**
      * [BETA] Get a list of 'Internal' Transactions by Address
      */
-    fun getInternalTransactions(address: String): Single<List<TxsInternal>>
+    suspend fun getInternalTransactions(address: String): Response<AccountInternalTxResponse>
 
     /**
      * Return network status
      */
-    fun getNetworkStatus(): Single<String>
+    suspend fun getNetworkStatus(): Response<AccountBalanceResponse>
 
     /**
      * Return network message
      */
-    fun getNetworkMessage(): Single<String>
+    suspend fun getNetworkMessage(): Response<AccountBalanceResponse>
 }

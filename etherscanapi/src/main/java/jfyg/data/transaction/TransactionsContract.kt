@@ -1,8 +1,8 @@
 package jfyg.data.transaction
 
-import io.reactivex.Single
-import jfyg.data.TxExecutionStatus
-import jfyg.data.TxReceiptStatus
+import jfyg.network.response.TxContractExecutionResponse
+import jfyg.network.response.TxContractReceiptResponse
+import retrofit2.Response
 
 /**
  * https://etherscan.io/apis#transactions
@@ -13,21 +13,21 @@ interface TransactionsContract {
      * [BETA] Check Contract Execution Status (if there was an error during contract execution)
      * Note: isError":"0" = Pass , isError":"1" = Error during Contract Execution
      */
-    fun getTxExecutionStatus(txHash: String): Single<TxExecutionStatus>
+    suspend fun getTxExecutionStatus(txHash: String): Response<TxContractExecutionResponse>
 
     /**
      * [BETA] Check Transaction Receipt Status (Only applicable for Post Byzantium fork transactions)
      * Note: status: 0 = Fail, 1 = Pass. Will return null/empty value for pre-byzantium fork
      */
-    fun getTxReceiptStatus(txHash: String): Single<TxReceiptStatus>
+    suspend fun getTxReceiptStatus(txHash: String): Response<TxContractReceiptResponse>
 
     /**
      * Return network status
      */
-    fun getNetworkStatus(): Single<String>
+    suspend fun getNetworkStatus(): Response<TxContractReceiptResponse>
 
     /**
      * Return network message
      */
-    fun getNetworkMessage(): Single<String>
+    suspend fun getNetworkMessage(): Response<TxContractReceiptResponse>
 }

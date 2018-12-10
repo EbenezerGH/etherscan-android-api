@@ -27,25 +27,25 @@ android {
 
 
 dependencies {
+
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:${project.coroutines_version}"
+    api "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${project.coroutine_adapter_version}"
+
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$project.kotlin_version"
 
-    // kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$project.kotlin_version"
+    api "com.squareup.retrofit2:retrofit:${project.retrofit2_core_version}"
+    implementation "com.squareup.moshi:moshi:${project.moshi_version}"
+    implementation "com.squareup.retrofit2:converter-moshi:${project.retrofit2_converter_moshi_version}"
 
-    // rx
-    implementation "io.reactivex.rxjava2:rxkotlin:$project.reactivex_rxjava2_rxkotlin_version"
+    // todo #118
+    testImplementation "com.google.code.gson:gson:$project.gson_version"
+    testImplementation "com.squareup.retrofit2:converter-gson:$project.retrofit2_converter_gson_version"
+    testImplementation "com.squareup.retrofit2:adapter-rxjava2:$project.retrofit2_adapter_version"
 
-    // gson
-    implementation "com.google.code.gson:gson:$project.gson_version"
-
-    // retrofit
-    implementation "com.squareup.retrofit2:retrofit:$project.retrofit2_core_version"
-    implementation "com.squareup.retrofit2:converter-gson:$project.retrofit2_converter_gson_version"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:$project.retrofit2_adapter_version"
-
-    // tests
     testImplementation "junit:junit:$project.junit_version"
     testImplementation "org.mockito:mockito-core:$project.mockito_core_version"
+
     testImplementation "com.squareup.okhttp3:mockwebserver:$project.mockwebserver_version"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$project.espresso_core_version"
 

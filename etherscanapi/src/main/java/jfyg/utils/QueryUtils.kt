@@ -1,7 +1,7 @@
 package jfyg.utils
 
 /**
- * Retrieve a list of mulitple items
+ * Retrieve a list of multiple items
  */
 internal fun retrieveList(listItems: List<String>?): String {
 

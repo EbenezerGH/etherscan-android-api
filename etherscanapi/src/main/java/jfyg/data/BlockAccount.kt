@@ -1,7 +1,8 @@
 package jfyg.data
 
-data class BlockAccount(val blockNumber: String? = null,
+data class BlockAccount(val blockNumber: String,
 
-                        val timeStamp: String? = null,
+                        val timeStamp: String,
 
-                        val blockReward: String? = null)
+                        val blockReward: String
+)

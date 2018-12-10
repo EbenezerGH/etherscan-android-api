@@ -1,7 +1,7 @@
 package jfyg.network.queries
 
-import io.reactivex.Single
 import jfyg.network.response.BlockResponse
+import retrofit2.Response
 
 /**
  * https://etherscan.io/apis#blocks
@@ -11,8 +11,8 @@ internal interface BlocksApi {
     /**
      * [BETA] Get Block And Uncle Rewards by BlockNo
      */
-    fun blocksMined(module: String,
+    suspend fun blocksMined(module: String,
                     action: String,
-                    blockno: String): Single<BlockResponse>
+                    blockno: String): Response<BlockResponse>
 
 }

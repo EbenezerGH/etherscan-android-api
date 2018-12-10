@@ -1,21 +1,21 @@
 package jfyg.network.queries
 
-import io.reactivex.Single
 import jfyg.network.response.StatPriceResponse
 import jfyg.network.response.StatSupplyResponse
+import retrofit2.Response
 
 internal interface StatsApi {
 
     /**
      * Get ETHER LastPrice
      */
-    fun statPrice(module: String,
-                  action: String): Single<StatPriceResponse>
+    suspend fun statPrice(module: String,
+                  action: String): Response<StatPriceResponse>
 
     /**
      * Get Total Supply of Ether
      */
-    fun statSupply(module: String,
-                   action: String): Single<StatSupplyResponse>
+    suspend fun statSupply(module: String,
+                   action: String): Response<StatSupplyResponse>
 
 }

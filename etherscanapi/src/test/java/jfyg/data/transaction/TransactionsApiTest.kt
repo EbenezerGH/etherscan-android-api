@@ -13,7 +13,7 @@ import org.junit.Before
 /**
  * https://etherscan.io/apis#transactions
  */
-class TransactionsTest {
+class TransactionsApiTest {
     lateinit var gson: Gson
 
     private val inputBadResponse = """

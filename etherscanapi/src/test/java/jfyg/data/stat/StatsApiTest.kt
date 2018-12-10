@@ -12,7 +12,7 @@ import org.junit.Assert.assertEquals
 /**
  * https://etherscan.io/apis#stats
  */
-internal class StatsTest {
+internal class StatsApiTest {
     lateinit var gson: Gson
 
     private val inputSupply = """
@@ -63,10 +63,10 @@ internal class StatsTest {
     @Test
     fun getEtherStatistics() {
         val response = gson.fromJson(inputPrice, StatPriceResponse::class.java)
-        assertEquals("377.67", response.result?.ethUsd)
-        assertEquals("0.0557", response.result?.ethBtc)
-        assertEquals("1523064526", response.result?.ethUsdTimestamp)
-        assertEquals("1523064523", response.result?.ethBtcTimestamp)
+        assertEquals("377.67", response.result.ethUsd)
+        assertEquals("0.0557", response.result.ethBtc)
+        assertEquals("1523064526", response.result.ethUsdTimestamp)
+        assertEquals("1523064523", response.result.ethBtcTimestamp)
 
     }
 
