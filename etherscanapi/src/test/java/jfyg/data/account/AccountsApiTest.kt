@@ -17,7 +17,7 @@ import org.junit.Test
 /**
  * https://etherscan.io/apis#accounts
  */
-internal class AccountsTest {
+internal class AccountsApiTest {
     lateinit var gson: Gson
 
     private val accountBalance = """

@@ -10,7 +10,7 @@ import jfyg.utils.GET_BLOCK_REWARD
 /**
  * https://etherscan.io/apis#blocks
  */
-class Blocks : BlocksContract {
+class BlocksApi : BlocksContract {
     private val query = ApiQuery()
     private val genericNetworkQuery = query.blocksMined(
             BLOCK,

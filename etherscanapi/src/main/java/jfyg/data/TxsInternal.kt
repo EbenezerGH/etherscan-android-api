@@ -2,32 +2,32 @@ package jfyg.data
 
 import com.google.gson.annotations.SerializedName
 
-data class TxsInternal(val blockNumber: String? = null,
+data class TxsInternal(val blockNumber: String,
 
-                       val timeStamp: String? = null,
+                       val timeStamp: String,
 
-                       val hash: String? = null,
+                       val hash: String,
 
                        @SerializedName("from")
-                       val transactionFrom: String? = null,
+                       val transactionFrom: String,
 
                        @SerializedName("to")
-                       val transactionTo: String? = null,
+                       val transactionTo: String,
 
-                       val value: String? = null,
+                       val value: String,
 
-                       val contactAddress: String? = null,
+                       val contactAddress: String,
 
-                       val input: String? = null,
+                       val input: String,
 
-                       val type: String? = null,
+                       val type: String,
 
-                       val gas: String? = null,
+                       val gas: String,
 
-                       val gasUsed: String? = null,
+                       val gasUsed: String,
 
-                       val traceId: String? = null,
+                       val traceId: String,
 
-                       val isError: String? = null,
+                       val isError: String,
 
-                       val errCode: String? = null)
+                       val errCode: String)

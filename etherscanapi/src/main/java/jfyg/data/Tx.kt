@@ -2,41 +2,41 @@ package jfyg.data
 
 import com.google.gson.annotations.SerializedName
 
-data class Tx(val blockNumber: String? = null,
+data class Tx(val blockNumber: String,
 
-              val timeStamp: String? = null,
+              val timeStamp: String,
 
-              val hash: String? = null,
+              val hash: String,
 
-              val nonce: String? = null,
+              val nonce: String,
 
-              val blockHash: String? = null,
+              val blockHash: String,
 
-              val transactionIndex: String? = null,
+              val transactionIndex: String,
 
               @SerializedName("from")
-              val transactionFrom: String? = null,
+              val transactionFrom: String,
 
               @SerializedName("to")
-              val transactionTo: String? = null,
+              val transactionTo: String,
 
-              val value: String? = null,
+              val value: String,
 
-              val gas: String? = null,
+              val gas: String,
 
-              val gasPrice: String? = null,
+              val gasPrice: String,
 
-              val isError: String? = null,
+              val isError: String,
 
               @SerializedName("txreceipt_status")
-              val receiptStatus: String? = null,
+              val receiptStatus: String,
 
-              val input: String? = null,
+              val input: String,
 
-              val contractAddress: String? = null,
+              val contractAddress: String,
 
-              val cumulativeGasUsed: String? = null,
+              val cumulativeGasUsed: String,
 
-              val gasUsed: String? = null,
+              val gasUsed: String,
 
-              val confirmations: String? = null)
+              val confirmations: String)

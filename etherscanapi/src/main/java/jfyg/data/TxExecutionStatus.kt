@@ -1,5 +1,6 @@
 package jfyg.data
 
-data class TxExecutionStatus(val isError: String? = null,
+data class TxExecutionStatus(val isError: String,
 
-                             val errDescription: String? = null)
+                             val errDescription: String
+)
