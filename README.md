@@ -1,6 +1,6 @@
 [![Generic badge](https://img.shields.io/badge/EtherscanApi-UP-brightgreen.svg)](https://api.etherscan.io/api?module=stats&action=ethprice&apikey=YourApiKeyToken)
 [![Generic badge](https://img.shields.io/badge/CircleCI-PASS-brightgreen.svg)](https://circleci.com/gh/EbenezerGH/hello_etherscan/tree/master)
-[![Generic badge](https://img.shields.io/badge/Version-v1.0.0-lightgrey.svg)](https://jitpack.io/#EbenezerGH/etherscan-android-api)
+[![Generic badge](https://img.shields.io/badge/Version-v1.4.0-lightgrey.svg)](https://jitpack.io/#EbenezerGH/etherscan-android-api)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/EbenezerGH/hello_etherscan/blob/update-documentation/LICENSE)
 
 # etherscan-android-api
