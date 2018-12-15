@@ -9,7 +9,7 @@ etherscan android api is an android wrapper for the [etherscan api](https://ethe
 
 There are only a few [features](https://github.com/EbenezerGH/hello_etherscan/issues) left to add, however this version is completely safe to use.
 
-##### Note: For RxJava Implementation use master branch [etherscan-coroutines](https://github.com/EbenezerGH/etherscan-android-api
+##### Note: For Coroutines Implementation use coroutines-master branch [etherscan-coroutines](https://github.com/EbenezerGH/etherscan-android-api/tree/master-coroutines)
 
 ## Getting Started
 
