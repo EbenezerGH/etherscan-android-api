@@ -9,6 +9,8 @@ etherscan android api is an android wrapper for the [etherscan api](https://ethe
 
 There are only a few [features](https://github.com/EbenezerGH/hello_etherscan/issues) left to add, however this version is completely safe to use.
 
+##### Note: For RxJava Implementation use master branch [etherscan-coroutines](https://github.com/EbenezerGH/etherscan-android-api
+
 ## Getting Started
 
 Add JitPack to your root build.gradle at the end of repositories
@@ -27,7 +29,7 @@ Add the dependency
 
 ```
 	dependencies {
-	        implementation 'com.github.EbenezerGH:etherscan-android-api:v1.0.3'
+	        implementation 'com.github.EbenezerGH:etherscan-android-api:v1.4.0'
 	}
 ```
 
@@ -39,7 +41,7 @@ ApiKey.takeOff.setApiKey("1I7CRNU2QIU253UBPFVB5UV2C2PBDURAIYZ")
 
 Create an Instance of one of the reactive singles and access values by specifying thread and subscribing. [see [example implementation](https://github.com/EbenezerGH/etherscan-android-api/blob/master/etherscan-sample/src/main/java/jfyg/etherscan/helloetherescan/SampleActivity.kt)]
 
-Currently Available: ``[accounts, contracts, transactions, blocks, stat]``
+Currently Available: ``[accountsApi, contractsApi, transactionsApi, blocksApi, statApi]``
 
 Coming Soon: ``[eventLogs, geth, websockets, tokens]``
 
