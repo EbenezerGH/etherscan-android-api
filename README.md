@@ -8,6 +8,8 @@ etherscan android api is an android wrapper for the [etherscan api](https://ethe
 
 There are only a few [features](https://github.com/EbenezerGH/hello_etherscan/issues) left to add, however version 2.0.0+ is completely safe to use.
 
+##### Note: For RxJava Implementation use master branch [etherscan-rxjava](https://github.com/EbenezerGH/etherscan-android-api)
+
 ## Getting Started
 
 Add JitPack to your root build.gradle at the end of repositories
