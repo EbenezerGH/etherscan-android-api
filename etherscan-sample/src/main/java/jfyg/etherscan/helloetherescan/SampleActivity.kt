@@ -5,11 +5,11 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
-import jfyg.data.account.Accounts
-import jfyg.data.block.Blocks
-import jfyg.data.contract.Contracts
-import jfyg.data.stat.Stats
-import jfyg.data.transaction.Transactions
+import jfyg.data.account.AccountsApi
+import jfyg.data.block.BlocksApi
+import jfyg.data.contract.ContractsApi
+import jfyg.data.stat.StatsApi
+import jfyg.data.transaction.TransactionsApi
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -22,11 +22,11 @@ class SampleActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         //************************************************  Used To Test Singles returned from etherscanapi Module
-        val stat = Stats()
-        val account = Accounts()
-        val contract = Contracts()
-        val tx = Transactions()
-        val blocks = Blocks()
+        val stat = StatsApi()
+        val account = AccountsApi()
+        val contract = ContractsApi()
+        val tx = TransactionsApi()
+        val blocks = BlocksApi()
 
 
         fab.setOnClickListener {

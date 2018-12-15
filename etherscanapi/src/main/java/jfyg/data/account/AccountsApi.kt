@@ -12,7 +12,7 @@ import jfyg.utils.*
 /**
  * https://etherscan.io/apis#accounts
  */
-class Accounts : AccountsContract {
+class AccountsApi : AccountsContract {
 
     private val query = ApiQuery()
     private val genericNetworkQuery = query.accountBalance(

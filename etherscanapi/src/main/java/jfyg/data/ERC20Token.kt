@@ -2,42 +2,42 @@ package jfyg.data
 
 import com.google.gson.annotations.SerializedName
 
-data class ERC20Token(val blockNumber: String? = null,
+data class ERC20Token(val blockNumber: String,
 
-                      val timeStamp: String? = null,
+                      val timeStamp: String,
 
-                      val hash: String? = null,
+                      val hash: String,
 
-                      val nonce: String? = null,
+                      val nonce: String,
 
-                      val blockHash: String? = null,
+                      val blockHash: String,
 
                       @SerializedName("from")
-                      val transactionFrom: String? = null,
+                      val transactionFrom: String,
 
-                      val contractAddress: String? = null,
+                      val contractAddress: String,
 
                       @SerializedName("to")
-                      val transactionTo: String? = null,
+                      val transactionTo: String,
 
-                      val value: String? = null,
+                      val value: String,
 
-                      val tokenName: String? = null,
+                      val tokenName: String,
 
-                      val tokenSymbol: String? = null,
+                      val tokenSymbol: String,
 
-                      val tokenDecimal: String? = null,
+                      val tokenDecimal: String,
 
-                      val transactionIndex: String? = null,
+                      val transactionIndex: String,
 
-                      val gas: String? = null,
+                      val gas: String,
 
-                      val gasPrice: String? = null,
+                      val gasPrice: String,
 
-                      val gasUsed: String? = null,
+                      val gasUsed: String,
 
-                      val cumulativeGasUsed: String? = null,
+                      val cumulativeGasUsed: String,
 
-                      val input: String? = null,
+                      val input: String,
 
-                      val confirmations: String? = null)
+                      val confirmations: String)

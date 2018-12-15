@@ -12,7 +12,7 @@ import jfyg.utils.TRANSACTION_PUBLIC_ADDRESS
 /**
  * https://etherscan.io/apis#transactions
  */
-class Transactions : TransactionsContract {
+class TransactionsApi : TransactionsContract {
 
     private val query = ApiQuery()
     private val genericNetworkQuery = query.txReceiptStatus(

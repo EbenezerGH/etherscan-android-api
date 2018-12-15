@@ -1,5 +1,5 @@
 package jfyg.data
 
-data class Balance(val account: String? = null,
+data class Balance(val account: String,
 
-                   val balance: String? = null)
+                   val balance: String)

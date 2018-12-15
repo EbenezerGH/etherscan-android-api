@@ -10,7 +10,7 @@ import jfyg.utils.GET_ABI
  * Newly verified Contracts are synced to the API servers within 5 minutes or less
  * https://etherscan.io/apis#contracts
  */
-class Contracts : ContractsContract {
+class ContractsApi : ContractsContract {
 
     private val query = ApiQuery()
     private val abiQuery = query.contractABI(

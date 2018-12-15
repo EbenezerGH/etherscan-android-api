@@ -10,7 +10,7 @@ import jfyg.utils.STATS
 /**
  * https://etherscan.io/apis#stats
  */
-class Stats : StatsContract {
+class StatsApi : StatsContract {
 
     private val query = ApiQuery()
     private val supplyQuery = query.statSupply(STATS, ETH_SUPPLY)
