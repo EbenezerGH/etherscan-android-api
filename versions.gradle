@@ -3,8 +3,8 @@ ext {
     target_sdk_version = 26
     compile_sdk_version = 26
     build_tools_version = "27.0.3"
-    version_code= 3
-    version_name = "1.1.0"
+    version_code= 4
+    version_name = "1.4.0"
 
 
     // plugins
